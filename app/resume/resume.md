@@ -1,7 +1,9 @@
 
 # 김영민 | 소프트웨어 서비스 엔지니어
 
-**GitHub**: [github.com/BearMett](https://github.com/BearMett)  
+**GitHub**: [github.com/BearMett](https://github.com/BearMett)
+
+**Email**: [ agomdole@gmail.com ]
 
 ---
 
