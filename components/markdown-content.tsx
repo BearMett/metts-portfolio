@@ -16,17 +16,17 @@ interface ComponentProps {
 const components: React.ComponentProps<any> = {
   h1: ({ children }: ComponentProps) => (
     <div className="border-b border-gray-200 dark:border-gray-700 pb-4">
-      <h1 className="text-5xl font-bold mt-8 mb-4">{children}</h1>
+      <h1 className="text-4xl font-bold mt-8 mb-4">{children}</h1>
     </div>
   ),
   h2: ({ children }: ComponentProps) => (
     <div className="border-b border-gray-200 dark:border-gray-700 pb-3">
-      <h2 className="text-4xl font-semibold mt-6 mb-3">{children}</h2>
+      <h2 className="text-3xl font-semibold mt-6 mb-3">{children}</h2>
     </div>
   ),
-  h3: ({ children }: ComponentProps) => <h3 className="text-3xl font-medium mt-5 mb-2">{children}</h3>,
-  h4: ({ children }: ComponentProps) => <h4 className="text-2xl font-medium mt-4 mb-2">{children}</h4>,
-  p: ({ children }: ComponentProps) => <p className="text-xl mt-4 mb-4">{children}</p>,
+  h3: ({ children }: ComponentProps) => <h3 className="text-2xl font-medium mt-5 mb-2">{children}</h3>,
+  h4: ({ children }: ComponentProps) => <h4 className="text-xl font-medium mt-4 mb-2">{children}</h4>,
+  p: ({ children }: ComponentProps) => <p className="text-base mt-4 mb-4">{children}</p>,
   blockquote: ({ children }: ComponentProps) => (
     <blockquote className="border-l-4 border-gray-300 pl-4 italic my-4">{children}</blockquote>
   ),
@@ -42,6 +42,7 @@ const components: React.ComponentProps<any> = {
     );
   },
   ul: ({ children }: ComponentProps) => <ul className="list-disc list-inside mt-4 mb-4">{children}</ul>,
+  li: ({ children }: ComponentProps) => <li className="mb-1 ml-2 text-base leading-relaxed">{children}</li>,
   ol: ({ children }: ComponentProps) => <ol className="list-decimal list-inside mt-4 mb-4">{children}</ol>,
   code: ({ children }: ComponentProps) => <code className="bg-gray-100 rounded px-1 py-0.5">{children}</code>,
   pre: ({ children }: ComponentProps) => <pre className="bg-gray-100 rounded p-4 overflow-auto">{children}</pre>,
