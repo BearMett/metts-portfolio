@@ -12,14 +12,14 @@ export function Navigation() {
     { href: '/', label: 'Home' },
     { href: '/resume', label: 'Resume' },
     { href: '/portfolio', label: 'Portfolio' },
-    { href: '/blog', label: 'Blog' },
+    // { href: '/blog', label: 'Blog' },
     { href: '/contact', label: 'Contact' },
   ];
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center">
-        <nav className="flex flex-1 items-center gap-6 text-base ml-6">
+        <nav className="flex flex-1 items-center gap-6 text-base ml-2">
           {links.map((link) => (
             <Link
               key={link.href}
