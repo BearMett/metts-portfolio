@@ -38,7 +38,7 @@ export default function Home() {
           />
         </div>
         <div className="space-y-4">
-          <h1 className="text-4xl font-bold">김영민 | 시스템 및 서비스 개발자</h1>
+          <h1 className="text-4xl font-bold">김영민 | 소프트웨어 서비스 엔지니어</h1>
           <p className="max-w-prose text-lg text-muted-foreground">
             안녕하세요. 함께 일하는 문화를 즐기는 소프트웨어 엔지니어 김영민입니다.
           </p>
