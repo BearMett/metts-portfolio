@@ -1,4 +1,3 @@
-import { ContactForm } from '@/components/contact-form';
 import { SocialLinks } from '@/components/social-links';
 import { Card, CardContent } from '@/components/ui/card';
 import { MY_EMAIL, MY_NAME } from '@/lib/consts';
