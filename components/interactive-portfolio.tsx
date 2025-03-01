@@ -287,7 +287,7 @@ export function InteractivePortfolio({ items }: InteractivePortfolioProps) {
                       <div className="hidden md:flex flex-shrink-0 w-32 h-32 relative rounded-md border border-gray-200 dark:border-gray-700 overflow-hidden items-center justify-center">
                         <Dialog>
                           <DialogTrigger asChild>
-                            <div className="w-full h-full relative cursor-zoom-in group">
+                            <button className="w-full h-full relative cursor-zoom-in group p-0 border-0">
                               <Image
                                 src={item.images[0].src}
                                 alt={item.images[0].alt}
@@ -298,7 +298,7 @@ export function InteractivePortfolio({ items }: InteractivePortfolioProps) {
                               <div className="absolute inset-0 bg-black/10 dark:bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                                 <ZoomIn className="text-white opacity-0 group-hover:opacity-100" />
                               </div>
-                            </div>
+                            </button>
                           </DialogTrigger>
                           <DialogContent className="sm:max-w-[900px] p-0 bg-transparent border-none shadow-none">
                             <div className="relative w-full h-auto max-h-[80vh] bg-white dark:bg-gray-900 rounded-lg overflow-hidden">
@@ -357,8 +357,8 @@ export function InteractivePortfolio({ items }: InteractivePortfolioProps) {
                       <div className="mb-4">
                         <h4 className="text-sm font-semibold text-gray-500 dark:text-gray-400 mb-2">진행 업무</h4>
                         <ul className="list-disc list-inside text-sm text-gray-700 dark:text-gray-300 space-y-1">
-                          {item.tasks.map((task, idx) => (
-                            <li key={idx} className="pl-1">
+                          {item.tasks.map((task) => (
+                            <li key={`${item.id}-task-${task.substring(0, 20)}`} className="pl-1">
                               <span className="pl-2">{task}</span>
                             </li>
                           ))}
@@ -369,8 +369,8 @@ export function InteractivePortfolio({ items }: InteractivePortfolioProps) {
                       <div className="mb-4">
                         <h4 className="text-sm font-semibold text-gray-500 dark:text-gray-400 mb-2">주요 성과</h4>
                         <ul className="list-disc list-inside text-sm text-gray-700 dark:text-gray-300 space-y-1">
-                          {item.achievements.map((achievement, idx) => (
-                            <li key={idx} className="pl-1">
+                          {item.achievements.map((achievement) => (
+                            <li key={`${item.id}-achievement-${achievement.substring(0, 20)}`} className="pl-1">
                               <span className="pl-2">{achievement}</span>
                             </li>
                           ))}
@@ -387,8 +387,8 @@ export function InteractivePortfolio({ items }: InteractivePortfolioProps) {
                             </div>
                           </h4>
                           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            {item.images.map((image, idx) => (
-                              <div key={idx} className="relative">
+                            {item.images.map((image) => (
+                              <div key={`${item.id}-image-${image.src}`} className="relative">
                                 <Dialog>
                                   <DialogTrigger asChild>
                                     <div className="relative h-48 rounded-md overflow-hidden border border-gray-200 dark:border-gray-600 cursor-zoom-in group">
