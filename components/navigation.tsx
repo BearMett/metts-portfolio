@@ -4,16 +4,19 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import { ThemeToggle } from '@/components/theme-toggle';
+import { useLanguage } from '@/components/language-provider';
+import { LanguageSwitcher } from '@/components/language-switcher';
 
 export function Navigation() {
   const pathname = usePathname();
+  const { t } = useLanguage();
 
   const links = [
-    { href: '/', label: 'Home' },
-    { href: '/resume', label: 'Resume' },
-    { href: '/portfolio', label: 'Portfolio' },
-    // { href: '/blog', label: 'Blog' },
-    { href: '/contact', label: 'Contact' },
+    { href: '/', label: t('navigation.home') },
+    { href: '/resume', label: t('navigation.resume') },
+    { href: '/portfolio', label: t('navigation.portfolio') },
+    // { href: '/blog', label: t('navigation.blog') },
+    { href: '/contact', label: t('navigation.contact') },
   ];
 
   return (
@@ -33,7 +36,10 @@ export function Navigation() {
             </Link>
           ))}
         </nav>
-        <ThemeToggle />
+        <div className="flex items-center space-x-2">
+          <LanguageSwitcher />
+          <ThemeToggle />
+        </div>
       </div>
     </header>
   );
