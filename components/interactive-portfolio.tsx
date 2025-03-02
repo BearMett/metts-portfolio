@@ -82,6 +82,7 @@ export function InteractivePortfolio({ items }: InteractivePortfolioProps) {
     if (company.includes('BnZ')) return 'bg-purple-500 dark:bg-purple-400';
     else if (company.includes('Maxst')) return 'bg-blue-500 dark:bg-blue-400';
     else if (company.includes('웨어밸리')) return 'bg-orange-500 dark:bg-orange-400';
+    else if (company.includes('프로젝트')) return 'bg-green-500 dark:bg-green-400';
     else return 'bg-blue-500 dark:bg-blue-400';
   };
 
@@ -141,6 +142,8 @@ export function InteractivePortfolio({ items }: InteractivePortfolioProps) {
         return 'bg-pink-100 text-pink-800 dark:bg-pink-900 dark:text-pink-100';
       case 'search':
         return 'bg-emerald-100 text-emerald-800 dark:bg-emerald-900 dark:text-emerald-100';
+      case 'static analysis':
+        return 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-100';
       default:
         return 'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-100';
     }
@@ -338,6 +341,24 @@ export function InteractivePortfolio({ items }: InteractivePortfolioProps) {
                         <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">{item.description}</p>
                       </div>
 
+                      {/* 소스 링크가 있을 경우 표시 */}
+                      {item.sourceUrl && (
+                        <div>
+                          <h4 className="text-sm font-semibold text-gray-500 dark:text-gray-400 mb-2">
+                            {sourceCodeLabel}
+                          </h4>
+                          <a
+                            href={item.sourceUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1 text-blue-600 dark:text-blue-400 hover:underline text-sm"
+                          >
+                            <Code size={14} />
+                            {viewSourceLabel}
+                          </a>
+                        </div>
+                      )}
+
                       {/* 기술 스택 */}
                       <div className="mb-4">
                         <h4 className="text-sm font-semibold text-gray-500 dark:text-gray-400 mb-2">{usedTechLabel}</h4>
@@ -427,24 +448,6 @@ export function InteractivePortfolio({ items }: InteractivePortfolioProps) {
                               </div>
                             ))}
                           </div>
-                        </div>
-                      )}
-
-                      {/* 소스 링크가 있을 경우 표시 */}
-                      {item.sourceUrl && (
-                        <div>
-                          <h4 className="text-sm font-semibold text-gray-500 dark:text-gray-400 mb-2">
-                            {sourceCodeLabel}
-                          </h4>
-                          <a
-                            href={item.sourceUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1 text-blue-600 dark:text-blue-400 hover:underline text-sm"
-                          >
-                            <Code size={14} />
-                            {viewSourceLabel}
-                          </a>
                         </div>
                       )}
                     </div>
