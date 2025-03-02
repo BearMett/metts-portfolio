@@ -32,6 +32,68 @@ export interface PortfolioItem {
 
 export const portfolioDataTranslated: PortfolioItemTranslated[] = [
   {
+    id: 'bnz-odapp',
+    date: '2025-01',
+    company: {
+      ko: '주식회사비엔제트 (BnZ)',
+      en: 'BnZ Inc.',
+    },
+    title: {
+      ko: '오답노트 관리 시스템 개발',
+      en: 'Wrong Answer Note Management System Development',
+    },
+    shortDesc: {
+      ko: '학생들의 오답을 체계적으로 관리하고 복습할 수 있는 웹 애플리케이션 개발',
+      en: "Development of a web application for systematic management and review of students' wrong answers",
+    },
+    description: {
+      ko: '오답노트 관리 시스템 "O답"은 시험을 치른 학생들의 오답을 체계적으로 관리하고, 문제를 마치 일감 관리하듯 한눈에 확인할 수 있게 해주는 서비스입니다. 학생들은 자신의 오답노트를 효율적으로 관리하고, 선생님은 학생들의 진행 상황을 모니터링하며 필요한 피드백을 제공할 수 있습니다. 이 프로젝트는 Next.js, TypeScript, PostgreSQL을 기반으로 개발되었으며, 다양한 사용자 역할과 권한 관리를 지원합니다.',
+      en: 'The wrong answer note management system "Odapp" is a service that systematically manages students\' wrong answers and allows them to check their problems at a glance, similar to task management. Students can efficiently manage their wrong answer notes, and teachers can monitor students\' progress and provide necessary feedback. This project was developed based on Next.js, TypeScript, and PostgreSQL, supporting various user roles and permission management.',
+    },
+    techStack: [
+      'Next.js',
+      'TypeScript',
+      'PostgreSQL',
+      'Prisma',
+      'Tailwind CSS',
+      'Docker',
+      'React Query',
+      'Vitest',
+      'SSE',
+    ],
+    category: ['frontend', 'backend', 'database'],
+    tasks: {
+      ko: [
+        '사용자(학생, 교사, 관리자)별 맞춤형 인터페이스와 권한 관리 시스템을 구현했습니다.',
+        'Prisma ORM을 활용한 효율적인 데이터베이스 설계 및 마이그레이션 관리 시스템을 개발했습니다.',
+        '저장소 인터페이스를 추상화하여 운영 환경의 실제 데이터를 처리하면서도 동일한 코드 베이스를 유지할 수 있으며, 단위 테스트가 용이해졌습니다.',
+        'RESTful API 설계 및 구현으로 프론트엔드와 백엔드 간의 효율적인 통신을 구현했습니다.',
+        '자동화된 테스트 환경(Vitest)을 구축하여 코드 품질을 보장했습니다.',
+        '프론트엔드의 SSE와 같은 이벤트 핸들러 및 알고리즘 유틸리티를 독립적인 모듈로 추출하여 관심사 분리를 구현했습니다.',
+      ],
+      en: [
+        'Implemented customized interfaces and permission management systems for different user types (students, teachers, administrators).',
+        'Developed an efficient database design and migration management system using Prisma ORM.',
+        'Implemented file upload and management functions that can selectively use local storage or Google Cloud Storage.',
+        'Optimized application performance with state management and data caching using React Query.',
+        'Designed and implemented RESTful APIs for efficient communication between frontend and backend.',
+        'Built automated testing environment (Vitest) to ensure code quality.',
+      ],
+    },
+    achievements: {
+      ko: [
+        '학생들의 오답 관리 효율성을 높여 학습 성과 개선에 기여했습니다.',
+        '교사가 학생들의 문제 풀이 상황을 실시간으로 모니터링할 수 있도록 하여 적시에 피드백을 제공할 수 있게 했습니다.',
+        '모듈화된 설계로 새로운 기능 추가와 유지보수가 용이한 시스템을 구축했습니다.',
+      ],
+      en: [
+        "Contributed to improving learning outcomes by increasing the efficiency of students' wrong answer management.",
+        "Enabled teachers to monitor students' problem-solving situations in real-time, allowing them to provide timely feedback.",
+        'Built a system that makes it easy to add new features and maintain with a modularized design.',
+      ],
+    },
+  },
+  {
     id: 'personal-nextjs-uri-generator',
     date: '2024-06',
     company: {
