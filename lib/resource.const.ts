@@ -34,6 +34,15 @@ export const resources = {
       screenshots: '스크린샷',
       sourceCode: '소스 코드',
       viewSource: '소스 코드 확인하기',
+      // PDF 다운로드 관련 번역
+      downloadPDF: 'PDF로 다운로드',
+      downloadFiltered: '필터링된 항목 다운로드',
+      projectTitle: '프로젝트명',
+      company: '회사/조직',
+      currentFilter: '현재 필터',
+      filterAll: '모든 카테고리',
+      date: '작업 기간',
+      projectCategories: '분야',
     },
     home: {
       title: '김영민 | 소프트웨어 서비스 엔지니어',
@@ -105,6 +114,15 @@ export const resources = {
       screenshots: 'Screenshots',
       sourceCode: 'Source Code',
       viewSource: 'View Source Code',
+      // PDF download translations
+      downloadPDF: 'Download as PDF',
+      downloadFiltered: 'Download Filtered Items',
+      projectTitle: 'Project Title',
+      company: 'Company/Organization',
+      currentFilter: 'Current Filter',
+      filterAll: 'All Categories',
+      date: 'Work Period',
+      projectCategories: 'Categories',
     },
     home: {
       title: 'Youngmin Kim | Software Service Engineer',
