@@ -83,6 +83,7 @@ export function InteractivePortfolio({ items }: InteractivePortfolioProps) {
     else if (company.includes('Maxst')) return 'bg-blue-500 dark:bg-blue-400';
     else if (company.includes('웨어밸리')) return 'bg-orange-500 dark:bg-orange-400';
     else if (company.includes('프로젝트')) return 'bg-green-500 dark:bg-green-400';
+    else if (company.includes('버터')) return 'bg-yellow-500 dark:bg-yellow-400';
     else return 'bg-blue-500 dark:bg-blue-400';
   };
 

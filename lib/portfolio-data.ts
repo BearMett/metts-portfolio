@@ -95,7 +95,7 @@ export const portfolioDataTranslated: PortfolioItemTranslated[] = [
   },
   {
     id: 'personal-nextjs-uri-generator',
-    date: '2024-06',
+    date: '2024-11',
     company: {
       ko: '개인 프로젝트',
       en: 'Personal Project',
@@ -144,7 +144,7 @@ export const portfolioDataTranslated: PortfolioItemTranslated[] = [
   },
   {
     id: 'bnz-latex-hwpx',
-    date: '2024-03',
+    date: '2024-07',
     company: {
       ko: '주식회사비엔제트 (BnZ)',
       en: 'BnZ Inc.',
@@ -204,7 +204,7 @@ export const portfolioDataTranslated: PortfolioItemTranslated[] = [
   },
   {
     id: 'bnz-mdtex-parser',
-    date: '2024-01',
+    date: '2024-06',
     company: {
       ko: '주식회사비엔제트 (BnZ)',
       en: 'BnZ Inc.',
@@ -269,7 +269,7 @@ export const portfolioDataTranslated: PortfolioItemTranslated[] = [
   },
   {
     id: 'bnz-vector-search',
-    date: '2023-12',
+    date: '2024-05',
     company: {
       ko: '주식회사비엔제트 (BnZ)',
       en: 'BnZ Inc.',
@@ -315,7 +315,7 @@ export const portfolioDataTranslated: PortfolioItemTranslated[] = [
   },
   {
     id: 'bnz-boilerplate',
-    date: '2023-11',
+    date: '2024-05',
     company: {
       ko: '주식회사비엔제트 (BnZ)',
       en: 'BnZ Inc.',
@@ -359,7 +359,7 @@ export const portfolioDataTranslated: PortfolioItemTranslated[] = [
   },
   {
     id: 'bnz-domain-refactoring',
-    date: '2023-10',
+    date: '2024-04',
     company: {
       ko: '주식회사비엔제트 (BnZ)',
       en: 'BnZ Inc.',
@@ -404,6 +404,60 @@ export const portfolioDataTranslated: PortfolioItemTranslated[] = [
         'Improved test coverage from 0% to 50%.',
         'Greatly improved service stability by reducing bug fix time from 2 weeks to 2 days.',
         'Enabled early detection and response to potential problems by establishing a pre-monitoring system.',
+      ],
+    },
+  },
+  {
+    id: 'buttersoft-carbon-credit-exchange',
+    date: '2024-03',
+    company: {
+      ko: '버터소프트',
+      en: 'Buttersoft',
+    },
+    title: {
+      ko: '카본몬스터 백엔드 시스템 (거래소 엔진) 개발',
+      en: 'Development of Carbon Monster Backend System (Exchange Engine)',
+    },
+    shortDesc: {
+      ko: 'NFT 거래 플랫폼의 고성능 주문 매칭 엔진 개발',
+      en: 'Development of high-performance order matching engine for NFT trading platform',
+    },
+    description: {
+      ko: '카본몬스터는 탄소 배출권을 NFT로 토큰화하여 거래할 수 있는 플랫폼입니다. 이 프로젝트에서는 NestJS를 기반으로 확장 가능한 백엔드 아키텍처를 설계 및 구현했으며, 특히 Red-Black Tree 자료구조를 활용한 고성능 주문 매칭 엔진을 개발했습니다. 도메인 주도 설계(DDD) 원칙을 적용하여 복잡한 비즈니스 로직을 명확하게 구조화하고, 마이크로서비스 아키텍처를 통해 각 기능의 독립적인 확장이 가능하도록 구현했습니다.',
+      en: 'Carbon Monster is a platform where carbon credits are tokenized as NFTs and traded. In this project, I designed and implemented a scalable backend architecture based on NestJS, and developed a high-performance order matching engine using the Red-Black Tree data structure. I applied Domain-Driven Design (DDD) principles to clearly structure complex business logic and implemented a microservice architecture to allow independent scaling of each function.',
+    },
+    techStack: ['NestJS', 'TypeScript', 'MySQL', 'Redis', 'Docker', 'WebSocket', 'TypeORM', 'AWS S3'],
+    category: ['backend', 'database'],
+    tasks: {
+      ko: [
+        '확장 가능한 거래 시스템을 위한 전체 프로젝트 구조 설계',
+        'Red-Black Tree 자료구조를 활용한 효율적인 주문 매칭 엔진 개발',
+        '각 종목별로 독립적으로 확장 가능한 수직 확장 아키텍처 설계',
+        '도메인 주도 설계(DDD) 원칙을 적용한 비즈니스 로직 구현',
+        'RESTful API 및 WebSocket을 통한 실시간 주문 처리 시스템 개발',
+        '마이크로서비스 아키텍처의 효율적인 통신을 위한 이벤트 기반 메시징 시스템 구현',
+      ],
+      en: [
+        'Designed overall project structure for a scalable trading system',
+        'Developed an efficient order matching engine using Red-Black Tree data structure',
+        'Designed a vertically scalable architecture allowing independent scaling for each trading item',
+        'Implemented business logic applying Domain-Driven Design (DDD) principles',
+        'Developed real-time order processing system through RESTful API and WebSocket',
+        'Implemented event-based messaging system for efficient communication in microservice architecture',
+      ],
+    },
+    achievements: {
+      ko: [
+        'Red-Black Tree 알고리즘을 활용하여 주문 매칭 시 O(log n)의 시간 복잡도를 달성하여 거래 처리 성능 향상',
+        '종목별 독립적 실행이 가능한 아키텍처로 시스템 확장성 및 안정성 확보',
+        '도메인 주도 설계를 통해 복잡한 비즈니스 로직을 명확하게 구조화하여 유지보수성 향상',
+        '이벤트 기반 아키텍처를 통한 마이크로서비스 간 효율적인 통신 구현',
+      ],
+      en: [
+        'Improved trading processing performance by achieving O(log n) time complexity in order matching using Red-Black Tree algorithms',
+        'Ensured system scalability and stability with architecture allowing independent execution for each trading item',
+        'Enhanced maintainability by clearly structuring complex business logic through domain-driven design',
+        'Implemented efficient communication between microservices through event-based architecture',
       ],
     },
   },
