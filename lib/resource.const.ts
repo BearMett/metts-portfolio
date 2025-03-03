@@ -10,7 +10,7 @@ export const resources = {
     },
     portfolio: {
       title: '포트폴리오',
-      subtitle: '기술 카테고리를 선택하거나 프로젝트를 클릭하여 자세히 살펴보세요',
+      subtitle: '프로젝트를 선택하시면 자세한 내용을 확인 할 수 있습니다! 😊',
       categories: {
         all: '전체 보기',
         backend: '백엔드 개발',
@@ -81,7 +81,7 @@ export const resources = {
     },
     portfolio: {
       title: 'Portfolio',
-      subtitle: 'Select a technology category or click on a project to explore in detail',
+      subtitle: 'Select a project to view more details! 😊',
       categories: {
         all: 'View All',
         backend: 'Backend Development',
