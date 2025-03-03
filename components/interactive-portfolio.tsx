@@ -28,7 +28,7 @@ interface InteractivePortfolioProps {
 }
 
 export function InteractivePortfolio({ items }: InteractivePortfolioProps) {
-  const { t, language } = useLanguage();
+  const { t } = useLanguage();
   const [activeFilters, setActiveFilters] = useState<Record<string, boolean>>({
     all: true,
   });
@@ -178,27 +178,13 @@ export function InteractivePortfolio({ items }: InteractivePortfolioProps) {
     return cn(baseClasses, activeFilters[categoryId] ? activeClass : inactiveClass);
   };
 
-  // Localized text labels
-  const filterTitle = language === 'ko' ? '기술 분야별 필터링' : 'Filter by Technology Area';
-
-  const noProjectsText =
-    language === 'ko' ? '선택한 필터에 해당하는 프로젝트가 없습니다.' : 'No projects match the selected filters.';
-
-  const projectDescLabel = language === 'ko' ? '프로젝트 설명' : 'Project Description';
-  const usedTechLabel = language === 'ko' ? '사용 기술' : 'Technologies Used';
-  const tasksLabel = language === 'ko' ? '진행 업무' : 'Tasks';
-  const achievementsLabel = language === 'ko' ? '주요 성과' : 'Key Achievements';
-  const screenshotsLabel = language === 'ko' ? '스크린샷' : 'Screenshots';
-  const sourceCodeLabel = language === 'ko' ? '소스 코드' : 'Source Code';
-  const viewSourceLabel = language === 'ko' ? '소스 코드 확인하기' : 'View Source Code';
-
   return (
     <div className="w-full">
       {/* 필터 섹션 */}
       <div className="mb-8">
         <div className="flex items-center mb-3">
           <Filter size={18} className="mr-2 text-gray-700 dark:text-gray-300" />
-          <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-100">{filterTitle}</h2>
+          <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-100">{t('portfolio.filterTitle')}</h2>
         </div>
         <div className="flex flex-wrap gap-2">
           {portfolioCategories.map((category) => (
@@ -246,7 +232,7 @@ export function InteractivePortfolio({ items }: InteractivePortfolioProps) {
         <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gray-300 dark:bg-gray-700"></div>
 
         {filteredItems.length === 0 ? (
-          <div className="py-8 text-center text-gray-500 dark:text-gray-400">{noProjectsText}</div>
+          <div className="py-8 text-center text-gray-500 dark:text-gray-400">{t('portfolio.noProjects')}</div>
         ) : (
           <div className="space-y-8">
             {filteredItems.map((item) => (
@@ -337,7 +323,7 @@ export function InteractivePortfolio({ items }: InteractivePortfolioProps) {
                       {/* 상세 설명 */}
                       <div className="mb-4">
                         <h4 className="text-sm font-semibold text-gray-500 dark:text-gray-400 mb-2">
-                          {projectDescLabel}
+                          {t('portfolio.projectDesc')}
                         </h4>
                         <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">{item.description}</p>
                       </div>
@@ -346,7 +332,7 @@ export function InteractivePortfolio({ items }: InteractivePortfolioProps) {
                       {item.sourceUrl && (
                         <div>
                           <h4 className="text-sm font-semibold text-gray-500 dark:text-gray-400 mb-2">
-                            {sourceCodeLabel}
+                            {t('portfolio.sourceCode')}
                           </h4>
                           <a
                             href={item.sourceUrl}
@@ -355,14 +341,16 @@ export function InteractivePortfolio({ items }: InteractivePortfolioProps) {
                             className="inline-flex items-center gap-1 text-blue-600 dark:text-blue-400 hover:underline text-sm"
                           >
                             <Code size={14} />
-                            {viewSourceLabel}
+                            {t('portfolio.viewSource')}
                           </a>
                         </div>
                       )}
 
                       {/* 기술 스택 */}
                       <div className="mb-4">
-                        <h4 className="text-sm font-semibold text-gray-500 dark:text-gray-400 mb-2">{usedTechLabel}</h4>
+                        <h4 className="text-sm font-semibold text-gray-500 dark:text-gray-400 mb-2">
+                          {t('portfolio.usedTech')}
+                        </h4>
                         <div className="flex flex-wrap gap-2">
                           {item.techStack.map((tech) => (
                             <span
@@ -377,7 +365,9 @@ export function InteractivePortfolio({ items }: InteractivePortfolioProps) {
 
                       {/* 진행 업무 */}
                       <div className="mb-4">
-                        <h4 className="text-sm font-semibold text-gray-500 dark:text-gray-400 mb-2">{tasksLabel}</h4>
+                        <h4 className="text-sm font-semibold text-gray-500 dark:text-gray-400 mb-2">
+                          {t('portfolio.tasks')}
+                        </h4>
                         <ul className="list-disc list-inside text-sm text-gray-700 dark:text-gray-300 space-y-1">
                           {item.tasks.map((task) => (
                             <li key={`${item.id}-task-${task.substring(0, 20)}`} className="pl-1">
@@ -390,7 +380,7 @@ export function InteractivePortfolio({ items }: InteractivePortfolioProps) {
                       {/* 성과 */}
                       <div className="mb-4">
                         <h4 className="text-sm font-semibold text-gray-500 dark:text-gray-400 mb-2">
-                          {achievementsLabel}
+                          {t('portfolio.achievements')}
                         </h4>
                         <ul className="list-disc list-inside text-sm text-gray-700 dark:text-gray-300 space-y-1">
                           {item.achievements.map((achievement) => (
@@ -407,7 +397,7 @@ export function InteractivePortfolio({ items }: InteractivePortfolioProps) {
                           <h4 className="text-sm font-semibold text-gray-500 dark:text-gray-400 mb-2">
                             <div className="flex items-center gap-2">
                               <ImageIcon size={16} />
-                              <span>{screenshotsLabel}</span>
+                              <span>{t('portfolio.screenshots')}</span>
                             </div>
                           </h4>
                           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
