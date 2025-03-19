@@ -13,7 +13,7 @@ export function LanguageSwitcher() {
     setLanguage(supportedLanguages[nextIndex]);
   };
 
-  return process.env.NODE_ENV === 'development' ? (
+  return (
     <Button
       variant="ghost"
       size="sm"
@@ -23,7 +23,5 @@ export function LanguageSwitcher() {
     >
       {language === 'ko' ? 'KO' : 'EN'}
     </Button>
-  ) : (
-    <></>
   );
 }
