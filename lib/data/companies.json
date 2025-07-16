@@ -1,0 +1,102 @@
+[
+  {
+    "id": "bnz",
+    "name": {
+      "ko": "주식회사비엔제트 (BnZ)",
+      "en": "BnZ Inc."
+    },
+    "shortName": {
+      "ko": "BnZ",
+      "en": "BnZ"
+    },
+    "description": {
+      "ko": "교육 기술 솔루션을 제공하는 회사",
+      "en": "Educational technology solutions company"
+    },
+    "colors": {
+      "primary": "purple"
+    },
+    "website": "https://bnz.co.kr",
+    "type": "company"
+  },
+  {
+    "id": "maxst",
+    "name": {
+      "ko": "주식회사맥스트 (Maxst)",
+      "en": "Maxst Inc."
+    },
+    "shortName": {
+      "ko": "Maxst",
+      "en": "Maxst"
+    },
+    "description": {
+      "ko": "증강현실 및 AI 기술 전문 회사",
+      "en": "Augmented reality and AI technology company"
+    },
+    "colors": {
+      "primary": "blue"
+    },
+    "website": "https://maxst.com",
+    "type": "company"
+  },
+  {
+    "id": "wearvalley",
+    "name": {
+      "ko": "(주) 웨어밸리",
+      "en": "Wearvalley Co., Ltd."
+    },
+    "shortName": {
+      "ko": "웨어밸리",
+      "en": "Wearvalley"
+    },
+    "description": {
+      "ko": "웨어러블 기술 솔루션 회사",
+      "en": "Wearable technology solutions company"
+    },
+    "colors": {
+      "primary": "orange"
+    },
+    "website": "https://wearvalley.com",
+    "type": "company"
+  },
+  {
+    "id": "buttersoft",
+    "name": {
+      "ko": "버터소프트",
+      "en": "Buttersoft"
+    },
+    "shortName": {
+      "ko": "버터소프트",
+      "en": "Buttersoft"
+    },
+    "description": {
+      "ko": "소프트웨어 개발 회사",
+      "en": "Software development company"
+    },
+    "colors": {
+      "primary": "yellow"
+    },
+    "website": null,
+    "type": "company"
+  },
+  {
+    "id": "personal",
+    "name": {
+      "ko": "개인 프로젝트",
+      "en": "Personal Project"
+    },
+    "shortName": {
+      "ko": "개인",
+      "en": "Personal"
+    },
+    "description": {
+      "ko": "개인적으로 진행한 프로젝트",
+      "en": "Personal development projects"
+    },
+    "colors": {
+      "primary": "green"
+    },
+    "website": null,
+    "type": "personal"
+  }
+]

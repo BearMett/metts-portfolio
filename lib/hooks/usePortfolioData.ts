@@ -5,13 +5,14 @@ import { useLanguage } from '@/components/language-provider';
 import { Language } from '@/lib/resource.const';
 import portfolioItemsData from '@/lib/data/portfolio-items.json';
 import portfolioCategoriesData from '@/lib/data/portfolio-categories.json';
+import { useCompanyData } from './useCompanyData';
 
 // Types for the portfolio data
 export interface PortfolioItemTranslated {
   id: string;
   date: string;
   title: { [key in Language]: string };
-  company: { [key in Language]: string };
+  companyId: string;
   shortDesc: { [key in Language]: string };
   description: { [key in Language]: string };
   techStack: string[];
@@ -52,30 +53,34 @@ export interface PortfolioCategoryTranslated {
 // Custom hook for portfolio data management
 export function usePortfolioData() {
   const { language } = useLanguage();
+  const { getCompanyById } = useCompanyData();
 
   // Transform and memoize portfolio items
   const portfolioItems = useMemo((): PortfolioItem[] => {
     const typedData = portfolioItemsData as PortfolioItemTranslated[];
-    return typedData.map((item) => ({
-      id: item.id,
-      date: item.date,
-      title: item.title[language],
-      company: item.company[language],
-      shortDesc: item.shortDesc[language],
-      description: item.description[language],
-      techStack: item.techStack,
-      category: item.category,
-      tasks: item.tasks[language],
-      achievements: item.achievements[language],
-      sourceUrl: item.sourceUrl,
-      images: item.images
-        ? item.images.map((img) => ({
-            src: img.src,
-            alt: img.alt[language],
-          }))
-        : undefined,
-    }));
-  }, [language]);
+    return typedData.map((item) => {
+      const company = getCompanyById(item.companyId);
+      return {
+        id: item.id,
+        date: item.date,
+        title: item.title[language],
+        company: company?.name || item.companyId,
+        shortDesc: item.shortDesc[language],
+        description: item.description[language],
+        techStack: item.techStack,
+        category: item.category,
+        tasks: item.tasks[language],
+        achievements: item.achievements[language],
+        sourceUrl: item.sourceUrl,
+        images: item.images
+          ? item.images.map((img) => ({
+              src: img.src,
+              alt: img.alt[language],
+            }))
+          : undefined,
+      };
+    });
+  }, [language, getCompanyById]);
 
   // Transform and memoize portfolio categories
   const portfolioCategories = useMemo((): PortfolioCategory[] => {
@@ -133,6 +138,28 @@ export function usePortfolioData() {
     };
   }, [portfolioItems]);
 
+  // Utility function to get items by company
+  const getItemsByCompany = useMemo(() => {
+    return (companyId: string): PortfolioItem[] => {
+      return portfolioItems.filter((item) => {
+        const company = getCompanyById(companyId);
+        return company && item.company === company.name;
+      });
+    };
+  }, [portfolioItems, getCompanyById]);
+
+  // Utility function to get company for an item
+  const getCompanyForItem = useMemo(() => {
+    return (itemId: string) => {
+      const item = portfolioItems.find((item) => item.id === itemId);
+      if (!item) return undefined;
+
+      const typedData = portfolioItemsData as PortfolioItemTranslated[];
+      const rawItem = typedData.find((data) => data.id === itemId);
+      return rawItem ? getCompanyById(rawItem.companyId) : undefined;
+    };
+  }, [portfolioItems, getCompanyById]);
+
   return {
     // Data
     items: portfolioItems,
@@ -144,6 +171,8 @@ export function usePortfolioData() {
     getItemById,
     getAllTechStack,
     getItemsByTechStack,
+    getItemsByCompany,
+    getCompanyForItem,
 
     // Metadata
     totalItems: portfolioItems.length,
