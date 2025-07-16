@@ -18,7 +18,7 @@ import {
   ZoomIn,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { PortfolioItem, portfolioCategories } from '@/lib/portfolio-data';
+import { PortfolioItem, usePortfolioData } from '@/lib/portfolio-data';
 import Image from 'next/image';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 import { useLanguage } from './language-provider';
@@ -29,6 +29,7 @@ interface InteractivePortfolioProps {
 
 export function InteractivePortfolio({ items }: InteractivePortfolioProps) {
   const { t } = useLanguage();
+  const { categories, getFilteredItems } = usePortfolioData();
   const [activeFilters, setActiveFilters] = useState<Record<string, boolean>>({
     all: true,
   });
@@ -39,7 +40,7 @@ export function InteractivePortfolio({ items }: InteractivePortfolioProps) {
     if (filter === 'all') {
       // 'all' 필터 선택 시 다른 모든 필터를 비활성화
       const resetFilters: Record<string, boolean> = { all: true };
-      portfolioCategories.forEach((cat) => {
+      categories.forEach((cat) => {
         if (cat.id !== 'all') resetFilters[cat.id] = false;
       });
       setActiveFilters(resetFilters);
@@ -68,14 +69,7 @@ export function InteractivePortfolio({ items }: InteractivePortfolioProps) {
   };
 
   // 필터링된 아이템 가져오기
-  const getFilteredItems = () => {
-    if (activeFilters.all) {
-      return items;
-    }
-    return items.filter((item) => item.category.some((cat) => activeFilters[cat]));
-  };
-
-  const filteredItems = getFilteredItems();
+  const filteredItems = getFilteredItems(activeFilters);
 
   // 회사별 타임라인 포인트 색상 가져오기
   const getCompanyColorClass = (company: string): string => {
@@ -187,7 +181,7 @@ export function InteractivePortfolio({ items }: InteractivePortfolioProps) {
           <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-100">{t('portfolio.filterTitle')}</h2>
         </div>
         <div className="flex flex-wrap gap-2">
-          {portfolioCategories.map((category) => (
+          {categories.map((category) => (
             <button
               key={category.id}
               onClick={() => handleFilterChange(category.id)}
@@ -220,7 +214,7 @@ export function InteractivePortfolio({ items }: InteractivePortfolioProps) {
                     return <Filter size={14} />;
                 }
               })()}
-              {getCategoryLabel(category.id)}
+              {category.label}
             </button>
           ))}
         </div>
