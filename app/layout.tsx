@@ -14,7 +14,6 @@ const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
   title: '김영민 - 서비스 엔지니어',
   description: '서비스 엔지니어 김영민을 소개합니다',
-  generator: 'v0.dev',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
