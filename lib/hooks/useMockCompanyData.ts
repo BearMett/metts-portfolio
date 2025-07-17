@@ -11,20 +11,6 @@ const mockCompanies: Company[] = [
     description: 'A mock technology company for testing purposes',
     colors: {
       primary: 'blue',
-      timeline: {
-        light: 'bg-blue-500',
-        dark: 'bg-blue-400',
-      },
-      badge: {
-        light: 'bg-blue-100 text-blue-800',
-        dark: 'bg-blue-900 text-blue-100',
-      },
-      filter: {
-        active: 'bg-blue-600 text-white',
-        activeDark: 'bg-blue-500',
-        inactive: 'bg-gray-200 text-gray-700',
-        inactiveDark: 'bg-gray-700 text-gray-300',
-      },
     },
     website: 'https://mocktech.com',
     type: 'company',
@@ -36,20 +22,6 @@ const mockCompanies: Company[] = [
     description: 'A mock startup company for testing',
     colors: {
       primary: 'green',
-      timeline: {
-        light: 'bg-green-500',
-        dark: 'bg-green-400',
-      },
-      badge: {
-        light: 'bg-green-100 text-green-800',
-        dark: 'bg-green-900 text-green-100',
-      },
-      filter: {
-        active: 'bg-green-600 text-white',
-        activeDark: 'bg-green-500',
-        inactive: 'bg-gray-200 text-gray-700',
-        inactiveDark: 'bg-gray-700 text-gray-300',
-      },
     },
     website: null,
     type: 'company',
@@ -61,20 +33,6 @@ const mockCompanies: Company[] = [
     description: 'Mock personal projects for testing',
     colors: {
       primary: 'purple',
-      timeline: {
-        light: 'bg-purple-500',
-        dark: 'bg-purple-400',
-      },
-      badge: {
-        light: 'bg-purple-100 text-purple-800',
-        dark: 'bg-purple-900 text-purple-100',
-      },
-      filter: {
-        active: 'bg-purple-600 text-white',
-        activeDark: 'bg-purple-500',
-        inactive: 'bg-gray-200 text-gray-700',
-        inactiveDark: 'bg-gray-700 text-gray-300',
-      },
     },
     website: null,
     type: 'personal',
@@ -92,52 +50,6 @@ export function useMockCompanyData() {
     return mockCompanies.find(
       (company) => company.name.includes(companyName) || company.shortName.includes(companyName),
     );
-  };
-
-  const getCompanyColorClass = (companyIdOrName: string): string => {
-    let company = getCompanyById(companyIdOrName);
-
-    if (!company) {
-      company = getCompanyByName(companyIdOrName);
-    }
-
-    if (company) {
-      return `${company.colors.timeline.light} dark:${company.colors.timeline.dark}`;
-    }
-
-    return 'bg-blue-500 dark:bg-blue-400';
-  };
-
-  const getCompanyBadgeClass = (companyIdOrName: string): string => {
-    let company = getCompanyById(companyIdOrName);
-
-    if (!company) {
-      company = getCompanyByName(companyIdOrName);
-    }
-
-    if (company) {
-      return `${company.colors.badge.light} dark:${company.colors.badge.dark}`;
-    }
-
-    return 'bg-gray-100 text-gray-800 dark:bg-gray-700 text-gray-100';
-  };
-
-  const getCompanyFilterClass = (companyIdOrName: string, isActive: boolean = false): string => {
-    let company = getCompanyById(companyIdOrName);
-
-    if (!company) {
-      company = getCompanyByName(companyIdOrName);
-    }
-
-    if (company) {
-      return isActive
-        ? `${company.colors.filter.active} dark:${company.colors.filter.activeDark}`
-        : `${company.colors.filter.inactive} dark:${company.colors.filter.inactiveDark}`;
-    }
-
-    return isActive
-      ? 'bg-gray-600 text-white dark:bg-gray-500'
-      : 'bg-gray-200 text-gray-700 dark:bg-gray-700 text-gray-300';
   };
 
   const getCompaniesByType = (type: 'company' | 'personal'): Company[] => {
@@ -159,9 +71,6 @@ export function useMockCompanyData() {
     // Mock utility functions
     getCompanyById,
     getCompanyByName,
-    getCompanyColorClass,
-    getCompanyBadgeClass,
-    getCompanyFilterClass,
     getCompaniesByType,
     getAllCompanyNames,
 
