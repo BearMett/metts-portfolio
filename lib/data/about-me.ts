@@ -3,7 +3,7 @@ import { Language } from '@/lib/resource.const';
 
 export const aboutMeData: AboutMeTranslated = {
   title: {
-    ko: '김영민 | 맥락 중심의 실용주의 소프트웨어 엔지니어',
+    ko: '김영민 | 문맥 주도 - 실용주의 소프트웨어 엔지니어',
     en: 'Youngmin Kim | Context-Driven Pragmatic Software Engineer',
   },
   introduction: {
