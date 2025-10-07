@@ -1,0 +1,59 @@
+{
+  "id": "slk-point-system",
+  "date": "2025-06",
+  "companyId": "slk",
+  "title": {
+    "ko": "사용자 마일리지 적립 및 타사 포인트 전환 시스템 구축",
+    "en": "User Mileage Accumulation and Third-Party Point Conversion System Development"
+  },
+  "shortDesc": {
+    "ko": "수기 이벤트 운영을 자동화하고 실시간 포인트 관리 체계 구축",
+    "en": "Automated manual event operations and built real-time point management system"
+  },
+  "description": {
+    "ko": "영어 듣기 학습 플랫폼에서 사용자 동기부여를 위해 현금성 이벤트를 운영했지만, 기프티콘을 직접 전달하거나 개별 연락을 주고받는 수기 방식으로 진행해야 했습니다. 운영팀은 기프티콘을 일일이 확인하고 전달하는 반복 작업에 시달렸고, 이벤트 처리에 며칠씩 소요되었습니다. 심지어 기프티콘의 중복 지급, 경품을 받지 못했다는 컴플레인, 누락과 같은 오류도 발생했습니다. 빠르고 유연한 이벤트 운영을 도입하기 위해 사용자가 직접 포인트를 관리하고 원하는 타사 포인트로 전환할 수 있는 자동화 시스템이 요구되었습니다.",
+    "en": "In the English listening learning platform, we ran cash-equivalent events to motivate users, but had to manually deliver gift certificates or exchange individual contacts. The operations team struggled with repetitive work of checking and delivering gift certificates one by one, and event processing took several days, reducing users' participation. The more serious issue was the possibility of settlement errors like duplicate payments, missing complaints, and omissions due to manual processing. Fast and flexible event operations were needed, and an automated system where users could directly manage points and convert them to third-party points was required."
+  },
+  "techStack": [
+    "Next.js",
+    "TypeScript",
+    "PostgreSQL",
+    "Prisma",
+    "Welcome Payments API"
+  ],
+  "category": [
+    "frontend",
+    "backend",
+    "database"
+  ],
+  "tasks": {
+    "ko": [
+      "여러 사용자가 동시에 포인트를 사용하거나 적립할 때 중복 차감이나 초과 사용 문제가 발생할 수 있었으므로, 데이터베이스 트랜잭션과 적절한 락을 활용하여 포인트 정합성을 보장하고 회계 정확성을 유지했습니다.",
+      "타사 포인트 전환 시 API 호출 실패나 네트워크 오류가 발생할 수 있으므로, Welcome Payments API 연동 과정에서 실패 시 자동 롤백 처리와 재시도 로직을 구현했습니다.",
+      "운영팀이 포인트 적립 정책을 유연하게 변경하고 개별 사용자 포인트를 조정할 수 있어야 했으므로, 관리자 페이지와 관리 API를 제공하여 실시간 정책 변경 및 포인트 관리가 가능하도록 했습니다.",
+      "복잡한 상태 관리와 폼 처리가 많은 사용자 인터페이스를 일관성 있게 구현해야 했으므로, Vercel v0를 활용하여 검증된 UI 패턴을 빠르게 프로토타이핑하고 일관된 사용자 경험을 제공했습니다.",
+      "모든 포인트 변동 내역을 추적하고 감사할 수 있어야 했으므로, 포인트 히스토리 테이블을 설계하여 적립/차감/전환 내역을 완전히 기록했습니다."
+    ],
+    "en": [
+      "When multiple users simultaneously used or accumulated points, duplicate deductions or overuse issues could occur, so I ensured point consistency and maintained accounting accuracy using database transactions and appropriate locks.",
+      "Third-party point conversion could face API call failures or network errors, so I implemented automatic rollback handling and retry logic for failures during Welcome Payments API integration.",
+      "The operations team needed to flexibly change point accumulation policies and adjust individual user points, so I provided an admin page and management API enabling real-time policy changes and point management.",
+      "The user interface required consistent implementation of complex state management and form handling, so I used Vercel v0 to rapidly prototype proven UI patterns and delivered a consistent user experience.",
+      "All point transaction history needed tracking and auditing, so I designed a point history table to completely record accumulation/deduction/conversion details."
+    ]
+  },
+  "achievements": {
+    "ko": [
+      "수기 기프티콘 전달 방식을 자동화된 포인트 시스템으로 전환하여 운영팀의 이벤트 관리 부담을 대폭 줄였고, 이벤트 진행 속도가 빨라져 사용자 참여도가 향상되었습니다.",
+      "트랜잭션과 롤백 처리로 정산 오류를 완전히 방지했고, 포인트 히스토리 추적으로 모든 거래 내역을 감사 가능하게 만들었습니다.",
+      "월간 약 9,000건의 포인트 트랜잭션을 안정적으로 처리하며 사용자가 직접 타사 포인트로 전환할 수 있게 되어 사용자 만족도가 크게 향상되었습니다.",
+      "관리자 페이지를 통해 운영팀이 실시간으로 포인트 정책을 조정할 수 있게 되어 비즈니스 요구사항에 빠르게 대응할 수 있게 되었습니다."
+    ],
+    "en": [
+      "Transformed manual gift certificate delivery into an automated point system, significantly reducing the operations team's event management burden and accelerating event execution to improve user participation.",
+      "Completely prevented settlement errors with transaction and rollback handling, and made all transaction history auditable through point history tracking.",
+      "Stably processed approximately 9,000 monthly point transactions, and enabling users to directly convert to third-party points significantly improved user satisfaction.",
+      "Enabled the operations team to adjust point policies in real-time through the admin page, allowing rapid response to business requirements."
+    ]
+  }
+}

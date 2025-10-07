@@ -1,4 +1,4 @@
-# 김영민 | 맥락 중심의 실용주의 소프트웨어 엔지니어
+# 김영민 | 문맥 주도 실용주의 소프트웨어 엔지니어
 
 **GitHub**: [github.com/BearMett](https://github.com/BearMett)  
 

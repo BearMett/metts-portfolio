@@ -11,8 +11,12 @@ import maxstLocalServer from './maxst-local-server.json';
 import wvMigration from './wv-migration.json';
 import wvCc from './wv-cc.json';
 import wvPersonnelIntegration from './wv-personnel-integration.json';
+import slkVersionControlSetup from './slk-version-control-setup.json';
+import slkPointSystem from './slk-point-system.json';
 
 export const portfolioItems = [
+  slkPointSystem,
+  slkVersionControlSetup,
   bnzOdapp,
   personalNextjsUriGenerator,
   bnzLatexHwpx,
