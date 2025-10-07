@@ -79,12 +79,6 @@ export default function Home() {
           </CardContent>
         </Card>
       </section>
-      <section className="space-y-4">
-        <h2 className="text-2xl font-bold">{aboutMe.interests}</h2>
-        <div className="prose dark:prose-invert">
-          <p>{aboutMe.interestsContent}</p>
-        </div>
-      </section>
     </div>
   );
 }

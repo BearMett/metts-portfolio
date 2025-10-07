@@ -3,70 +3,72 @@ import { Language } from '@/lib/resource.const';
 
 export const aboutMeData: AboutMeTranslated = {
   title: {
-    ko: '김영민 | 소프트웨어 서비스 엔지니어',
-    en: 'Youngmin Kim | Software Service Engineer',
+    ko: '김영민 | 맥락 중심의 실용주의 소프트웨어 엔지니어',
+    en: 'Youngmin Kim | Context-Driven Pragmatic Software Engineer',
   },
   introduction: {
-    ko: '안녕하세요. 함께 일하는 문화를 즐기는 소프트웨어 엔지니어 김영민입니다.',
-    en: "Hello, I'm Youngmin Kim, a software engineer who enjoys collaborative work culture.",
+    ko: '안녕하세요. 사용자의 불편함을 해결하는 것에서 출발하는 소프트웨어 엔지니어 김영민입니다.',
+    en: "Hello, I'm Youngmin Kim, a software engineer who starts from solving user pain points.",
   },
   values: {
     title: {
-      ko: '제가 일에 임하는 가치관은',
-      en: 'My Work Values',
+      ko: '문제를 바라보는 관점',
+      en: 'My Approach to Problems',
     },
     items: {
       ko: [
-        '사용자와 동료의 문제를 해결하고 만족시키는 데서 보람을 느낍니다.',
-        '문제의 근본 원인을 파악하고 해결하고자 노력합니다.',
-        '팀원들과 작업 경험을 공유하며 인사이트를 확장하는 것을 즐깁니다.',
-        '새로운 기술에 도전하되, 문제 해결의 수단으로 활용하는 것을 원칙으로 삼습니다.',
-        '설계와 준비는 신중하게, 실행은 과감하게 합니다.',
+        '저를 포함한 사용자나 동료가 "무엇을 불편해하는지"에서 출발합니다.',
+        '기능 요청 이면의 본질적 니즈를 파악하려 노력합니다.',
+        '기술은 문제 해결의 수단이지 목적이 아니라고 생각합니다.',
+        '다양한 직군(기획, 영업, 디자이너)과 소통하며 문제의 맥락을 넓게 이해합니다.',
       ],
       en: [
-        'I find fulfillment in solving problems and satisfying both users and colleagues.',
-        'I strive to identify and address the root causes of problems.',
-        'I enjoy sharing work experiences with team members and expanding insights.',
-        'I embrace new technologies while utilizing them as a means to solve problems.',
-        'I design and plan carefully but execute boldly.',
+        'I start from understanding what causes discomfort - for users, colleagues, and myself.',
+        'I strive to identify the essential needs behind feature requests.',
+        'I believe technology is a means to solve problems, not an end in itself.',
+        'I communicate with various roles (planning, sales, designers) to broadly understand problem contexts.',
       ],
     },
   },
   workApproach: {
     title: {
-      ko: '이런 가치관을 토대로 업무에 임할 때',
-      en: 'Based on these values, in my work',
+      ko: '상황에 맞는 해결책 설계',
+      en: 'Designing Context-Appropriate Solutions',
     },
     items: {
       ko: [
-        '제가 작성한 코드나 API를 사용할 동료 역시 제 고객이라는 인식으로 사용법과 오류 상황을 문서화합니다.',
-        '버그나 이슈 발생 시 단순 코드 수정에 그치지 않고 근본 원인을 분석하여 재발 방지책을 강구합니다.',
+        '신규 서비스와 레거시 개선은 다른 접근이 필요하다고 판단하고 전략을 달리합니다.',
+        '완벽한 설계보다 "지금 우리 팀이 감당 가능한 최선의 설계"를 추구합니다.',
+        '장애 대응 시 빠른 복구와 근본 원인 해결의 우선순위를 상황에 맞게 판단합니다.',
+        '팀 상황(레거시 정도, 인력 구성, 일정)에 따라 리팩토링/신규개발/점진적 개선 중 적절한 방식을 선택합니다.',
         '새로운 기술 도입 시 학습 비용과 예상치 못한 리스크를 고려하여 팀원들과 충분한 논의를 거칩니다.',
-        '구현 목적에 따라 객체 설계, 사이드이펙트 고려, PoC, 프로토타입 등 적합한 접근 방식을 선택하여 실행합니다.',
-        '서버 개발이 주 업무지만 프론트엔드 개발자, 영업, 기획 등 다양한 직군의 동료들과 소통하며 인사이트를 얻는 것을 즐깁니다.',
       ],
       en: [
-        'I document usage methods and error scenarios, recognizing that colleagues who use my code or APIs are also my customers.',
-        "When bugs or issues occur, I don't just modify code but analyze root causes to prevent recurrence.",
+        'I recognize that new services and legacy improvements require different approaches and adjust strategies accordingly.',
+        'I pursue "the best design our team can currently manage" rather than perfect design.',
+        'When responding to incidents, I prioritize quick recovery versus root cause resolution based on the situation.',
+        'I choose among refactoring/new development/incremental improvement based on team circumstances (legacy level, team composition, timeline).',
         'When adopting new technologies, I discuss thoroughly with team members, considering learning costs and unexpected risks.',
-        'I choose and implement appropriate approaches such as object design, side effect consideration, PoC, and prototyping based on implementation goals.',
-        'While server development is my main job, I enjoy communicating with colleagues from various roles such as frontend developers, sales, and planning to gain insights.',
       ],
     },
   },
   strengths: {
     title: {
-      ko: '저의 강점은',
-      en: 'My Strengths',
+      ko: '실행과 소통',
+      en: 'Execution and Communication',
     },
     items: {
       ko: [
-        '모듈화와 단위 테스트를 적극 활용하여 코드를 작성합니다. 책임을 명확히 분리하고 재사용 가능한 코드를 구현함으로써 가독성과 유지보수성을 높이고자 합니다.',
+        '기술적 trade-off를 비개발자도 이해할 수 있게 설명합니다.',
+        '제가 작성한 코드나 API를 사용할 동료 역시 제 고객이라는 인식으로 문서화합니다.',
+        '모듈화와 테스트는 유지보수 비용 절감이라는 목적을 위한 수단으로 활용합니다.',
         '적극적인 피드백 문화를 지향합니다. 작업을 마치면 팀원들과 피드백을 주고받으며 장점은 강화하고 개선점은 보완해 나갑니다.',
         '폐쇄망과 온프레미스 환경에서의 네트워크 구축 경험을 보유하고 있습니다. 이를 바탕으로 데이터와 네트워크의 흐름을 도식화하여 관련 이슈를 명확히 파악하고 해결할 수 있습니다.',
       ],
       en: [
-        'I write code utilizing modularization and unit testing. I aim to improve readability and maintainability by clearly separating responsibilities and implementing reusable code.',
+        'I explain technical trade-offs in a way that non-developers can understand.',
+        'I document with the awareness that colleagues who use my code or APIs are also my customers.',
+        'I use modularization and testing as means to reduce maintenance costs.',
         'I advocate for an active feedback culture. After completing tasks, I exchange feedback with team members to reinforce strengths and improve areas for development.',
         'I have experience building networks in closed networks and on-premises environments. Based on this, I can visualize data and network flows to clearly identify and solve related issues.',
       ],
@@ -75,14 +77,6 @@ export const aboutMeData: AboutMeTranslated = {
   skillStack: {
     ko: '기술 스택',
     en: 'Technical Skills',
-  },
-  interests: {
-    ko: '최근 관심사',
-    en: 'Recent Interests',
-  },
-  interestsContent: {
-    ko: '이력 블로그 개발',
-    en: 'Portfolio Blog Development',
   },
 };
 
@@ -103,7 +97,5 @@ export function getAboutMeData(language: Language): AboutMe {
       items: aboutMeData.strengths.items[language],
     },
     skillStack: aboutMeData.skillStack[language],
-    interests: aboutMeData.interests[language],
-    interestsContent: aboutMeData.interestsContent[language],
   };
 }

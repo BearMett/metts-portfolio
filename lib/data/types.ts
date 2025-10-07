@@ -86,8 +86,6 @@ export interface AboutMeTranslated {
     items: { [key in Language]: string[] };
   };
   skillStack: { [key in Language]: string };
-  interests: { [key in Language]: string };
-  interestsContent: { [key in Language]: string };
 }
 
 export interface AboutMe {
@@ -106,6 +104,4 @@ export interface AboutMe {
     items: string[];
   };
   skillStack: string;
-  interests: string;
-  interestsContent: string;
 }
