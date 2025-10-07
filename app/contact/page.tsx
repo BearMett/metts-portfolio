@@ -8,7 +8,7 @@ export default function ContactPage() {
     <div className="mx-auto max-w-4xl space-y-8 py-8 md:py-12">
       <div className="space-y-4">
         <h1 className="text-4xl font-bold">Contact</h1>
-        <p className="text-lg text-muted-foreground">환영합니다!</p>
+        <p className="text-lg text-muted-foreground">연락처</p>
       </div>
 
       <div className="grid gap-8 md:grid-cols-2">
@@ -16,7 +16,6 @@ export default function ContactPage() {
           <Card>
             <CardContent className="p-6">
               <div className="space-y-4">
-                <h2 className="text-2xl font-semibold">연락처 정보</h2>
                 <div className="space-y-3">
                   <div className="flex items-center gap-2">
                     <User className="h-5 w-5" />
