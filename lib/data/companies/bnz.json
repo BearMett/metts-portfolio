@@ -1,0 +1,20 @@
+{
+  "id": "bnz",
+  "name": {
+    "ko": "주식회사비엔제트 (BnZ)",
+    "en": "BnZ Inc."
+  },
+  "shortName": {
+    "ko": "BnZ",
+    "en": "BnZ"
+  },
+  "description": {
+    "ko": "교육 기술 솔루션을 제공하는 회사",
+    "en": "Educational technology solutions company"
+  },
+  "colors": {
+    "primary": "purple"
+  },
+  "website": "https://bnz.co.kr",
+  "type": "company"
+}

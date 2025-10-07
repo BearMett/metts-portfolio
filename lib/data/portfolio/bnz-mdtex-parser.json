@@ -1,0 +1,68 @@
+{
+  "id": "bnz-mdtex-parser",
+  "date": "2024-06",
+  "companyId": "bnz",
+  "title": {
+    "ko": "수학 문제 풀이 솔루션의 텍스트/수식 오류 복구 도구",
+    "en": "Text and Equation Error Recovery Tool for Math Solutions"
+  },
+  "shortDesc": {
+    "ko": "LLM이 생성한 수학 풀이에서 수식 구분자 오류를 자동으로 수정하는 파서 개발",
+    "en": "Developed a parser to auto-correct equation delimiter errors in LLM-generated math solutions"
+  },
+  "description": {
+    "ko": "수학 문제 풀이를 제공하는 LLM 기반 서비스에서 LaTeX 수식과 마크다운 구문 분석기를 개발했습니다. LLM이 생성한 답변에서 수식 구분자($)가 누락되거나 짝이 맞지 않는 문제가 발생했고, 이는 사용자 화면에 잘못된 내용이 렌더링 되는 심각한 UI 문제를 야기했습니다.",
+    "en": "For an LLM-based service providing math problem solutions, I built a parser for LaTeX equations and Markdown syntax. The LLM-generated answers often had missing or mismatched equation delimiters ($), leading to serious UI issues where incorrect content appeared on users' screens."
+  },
+  "techStack": [
+    "TypeScript",
+    "npm"
+  ],
+  "category": [
+    "backend",
+    "parser"
+  ],
+  "tasks": {
+    "ko": [
+      "문서 요소를 인라인 수식, 블록 수식, 마크다운으로 분류하고 각 요소의 문맥과 속성을 분석하는 파서를 구현했습니다.",
+      "블록의 시작과 종료, 수식 포함 여부 등 요소별 속성을 정의하고 잠재적 오류 패턴을 식별하는 로직을 개발했습니다.",
+      "각 오류 패턴별 변환 로직을 모듈화하고, 변환 과정의 추적이 가능하도록 설계했습니다.",
+      "개별 변환 모듈의 단위 테스트와 전체 파이프라인의 통합 테스트를 구축하여 품질을 보장했습니다."
+    ],
+    "en": [
+      "Created a parser to categorize document elements into inline equations, block equations, and Markdown, analyzing their context and properties.",
+      "Developed logic to define element properties—like block boundaries and equation presence—and identify potential error patterns.",
+      "Modularized conversion logic for each error pattern, designing it to track the conversion process.",
+      "Set up unit tests for individual modules and integration tests for the full pipeline to ensure quality."
+    ]
+  },
+  "achievements": {
+    "ko": [
+      "내부 테스트 케이스 500건에 대해 100% 성공률을 달성하여 서비스의 안정성을 크게 향상했습니다.",
+      "모듈화된 설계로 새로운 오류 패턴 발견 시 기존 기능에 영향을 주지 않고 확장이 가능해졌습니다.",
+      "수식 표현 오류로 인한 UI 깨짐 현상이 완전히 해결되어 사용자 경험이 개선되었습니다."
+    ],
+    "en": [
+      "Achieved a 100% success rate across 500 internal test cases, significantly improving service stability.",
+      "Enabled easy expansion for new error patterns without impacting existing features thanks to a modular design.",
+      "Eliminated UI glitches caused by equation errors, enhancing the user experience."
+    ]
+  },
+  "sourceUrl": "https://github.com/BNZinc/mdtex-parser",
+  "images": [
+    {
+      "src": "/portfolio/correctness-latex.png",
+      "alt": {
+        "ko": "올바르게 수정된 LaTeX 구문",
+        "en": "Correctly fixed LaTeX syntax"
+      }
+    },
+    {
+      "src": "/portfolio/borken-latex.png",
+      "alt": {
+        "ko": "사용자에게 잘못 표시되는 LaTeX 구문",
+        "en": "LaTeX syntax displayed incorrectly to users"
+      }
+    }
+  ]
+}

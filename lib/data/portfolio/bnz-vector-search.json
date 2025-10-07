@@ -1,0 +1,52 @@
+{
+  "id": "bnz-vector-search",
+  "date": "2024-05",
+  "companyId": "bnz",
+  "title": {
+    "ko": "학생 질문 유사 문제 검색 벡터 파이프라인 구축",
+    "en": "Vector Pipeline for Similar Problem Search Based on Student Questions"
+  },
+  "shortDesc": {
+    "ko": "임베딩 기반 유사 문제 검색 시스템 개발로 질문-문제 연결성 강화",
+    "en": "Built an embedding-based search system to better connect questions with similar problems"
+  },
+  "description": {
+    "ko": "선생님들의 유사 문제 검색 니즈를 해결하기 위해 임베딩 기반 검색 시스템을 구축했습니다. 기존 키워드 분류와 출처 검색 방식은 인력 부족으로 실현이 어려웠으나, 팀 내 개념 증명을 통해 임베딩과 벡터 검색 기반의 새로운 접근 방식을 도입했습니다.",
+    "en": "To meet teachers' needs for finding similar problems, I developed an embedding-based search system. Traditional keyword and source-based searches were impractical due to limited manpower, so I introduced a new approach using embeddings and vector search, validated through a team proof of concept."
+  },
+  "techStack": [
+    "TypeScript",
+    "Azure OpenAI",
+    "Elastic Search"
+  ],
+  "category": [
+    "backend",
+    "search",
+    "ai",
+    "database"
+  ],
+  "tasks": {
+    "ko": [
+      "Elastic Search를 활용하여 하이브리드 검색 시스템을 구축했습니다. 키워드 검색과 벡터 검색을 결합하여 검색 정확도를 향상했습니다.",
+      "OCR로 추출한 텍스트를 토큰화하여 효율적인 키워드 검색 기능을 구현했습니다.",
+      "Azure OpenAI의 임베딩 모델을 활용하여 512차원 벡터 검색을 구현했으며, 적절한 정확도의 유사도 매칭을 달성했습니다.",
+      "개발 환경의 접근성을 높이기 위해 Elastic Search 환경을 컨테이너화하여 로컬 개발 설정을 간소화했습니다."
+    ],
+    "en": [
+      "Built a hybrid search system with Elastic Search, blending keyword and vector searches to improve accuracy.",
+      "Tokenized OCR-extracted text for efficient keyword search functionality.",
+      "Used Azure OpenAI's embedding model for 512-dimensional vector search, achieving reliable similarity matching.",
+      "Containerized Elastic Search to streamline local development setup and improve accessibility."
+    ]
+  },
+  "achievements": {
+    "ko": [
+      "임베딩 기반 검색으로 별도의 데이터 가공 없이 효율적인 유사 문제 검색 시스템을 구축했습니다.",
+      "검색 서비스와 임베딩 로직을 모듈화하여 Azure OpenAI 외 다른 임베딩 서비스로의 전환이 용이한 아키텍처를 설계했습니다."
+    ],
+    "en": [
+      "Created an efficient similar problem search system using embeddings, no extra data processing required.",
+      "Designed a modular architecture for search and embedding logic, making it easy to switch from Azure OpenAI to other embedding services."
+    ]
+  }
+}

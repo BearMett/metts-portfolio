@@ -2,53 +2,18 @@
 
 import { useMemo } from 'react';
 import { useLanguage } from '@/components/language-provider';
-import { Language } from '@/lib/resource.const';
-import portfolioItemsData from '@/lib/data/portfolio-items.json';
+import portfolioItemsData from '@/lib/data/portfolio';
 import portfolioCategoriesData from '@/lib/data/portfolio-categories.json';
 import { useCompanyData } from './useCompanyData';
+import type {
+  PortfolioItemTranslated,
+  PortfolioItem,
+  PortfolioCategoryTranslated,
+  PortfolioCategory,
+} from '@/lib/data/types';
 
-// Types for the portfolio data
-export interface PortfolioItemTranslated {
-  id: string;
-  date: string;
-  title: { [key in Language]: string };
-  companyId: string;
-  shortDesc: { [key in Language]: string };
-  description: { [key in Language]: string };
-  techStack: string[];
-  category: string[];
-  tasks: { [key in Language]: string[] };
-  achievements: { [key in Language]: string[] };
-  sourceUrl?: string;
-  images?: { src: string; alt: { [key in Language]: string } }[];
-}
-
-export interface PortfolioItem {
-  id: string;
-  date: string;
-  title: string;
-  company: string;
-  shortDesc: string;
-  description: string;
-  techStack: string[];
-  category: string[];
-  tasks: string[];
-  achievements: string[];
-  sourceUrl?: string;
-  images?: { src: string; alt: string }[];
-}
-
-export interface PortfolioCategory {
-  id: string;
-  label: string;
-  icon: string;
-}
-
-export interface PortfolioCategoryTranslated {
-  id: string;
-  label: { [key in Language]: string };
-  icon: string;
-}
+// Re-export types for backward compatibility
+export type { PortfolioItemTranslated, PortfolioItem, PortfolioCategoryTranslated, PortfolioCategory };
 
 // Custom hook for portfolio data management
 export function usePortfolioData() {

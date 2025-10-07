@@ -1,0 +1,63 @@
+{
+  "id": "bnz-odapp",
+  "date": "2025-01",
+  "companyId": "bnz",
+  "title": {
+    "ko": "오답노트 관리 시스템 개발",
+    "en": "Wrong Answer Note Management System Development"
+  },
+  "shortDesc": {
+    "ko": "학생들의 오답을 체계적으로 관리하고 복습할 수 있는 웹 애플리케이션 개발",
+    "en": "Developed a web app to help students systematically manage and review their incorrect answers"
+  },
+  "description": {
+    "ko": "오답노트 관리 시스템은 시험을 치른 학생들의 오답을 체계적으로 관리하고, 문제를 마치 일감 관리하듯 한눈에 확인할 수 있게 해주는 서비스입니다. 학생들은 자신의 오답노트를 효율적으로 관리하고, 선생님은 학생들의 진행 상황을 모니터링하며 필요한 피드백을 제공할 수 있습니다. 이 프로젝트는 Next.js, TypeScript, PostgreSQL을 기반으로 개발되었으며, 다양한 사용자 역할과 권한 관리를 지원합니다.",
+    "en": "The Wrong Answer Note Management System, or \"Odapp,\" is a service designed to help students organize their exam mistakes systematically and review them at a glance, much like a task management tool. It allows students to efficiently manage their error notes while enabling teachers to track progress and offer timely feedback. Built with Next.js, TypeScript, and PostgreSQL, this project supports multiple user roles and permission management."
+  },
+  "techStack": [
+    "Next.js",
+    "TypeScript",
+    "PostgreSQL",
+    "Prisma",
+    "Tailwind CSS",
+    "Docker",
+    "React Query",
+    "Vitest",
+    "SSE"
+  ],
+  "category": [
+    "frontend",
+    "backend",
+    "database"
+  ],
+  "tasks": {
+    "ko": [
+      "사용자(학생, 교사, 관리자)별 맞춤형 인터페이스와 권한 관리 시스템을 구현했습니다.",
+      "Prisma ORM을 활용한 효율적인 데이터베이스 설계 및 마이그레이션 관리 시스템을 개발했습니다.",
+      "저장소 인터페이스를 추상화하여 운영 환경의 실제 데이터를 처리하면서도 동일한 코드 베이스를 유지할 수 있으며, 단위 테스트가 용이해졌습니다.",
+      "RESTful API 설계 및 구현으로 프론트엔드와 백엔드 간의 효율적인 통신을 구현했습니다.",
+      "자동화된 테스트 환경(Vitest)을 구축하여 코드 품질을 보장했습니다.",
+      "프론트엔드의 SSE와 같은 이벤트 핸들러 및 알고리즘 유틸리티를 독립적인 모듈로 추출하여 관심사 분리를 구현했습니다."
+    ],
+    "en": [
+      "Created tailored interfaces and permission management systems for different users, including students, teachers, and admins.",
+      "Designed an efficient database and migration management system using Prisma ORM.",
+      "Abstracted the repository interface to handle real production data with a consistent codebase, making unit testing easier.",
+      "Built RESTful APIs to enable smooth communication between the frontend and backend.",
+      "Set up an automated testing environment with Vitest to ensure code quality.",
+      "Separated frontend event handlers like Server-Sent Events (SSE) and algorithm utilities into standalone modules for better concern separation."
+    ]
+  },
+  "achievements": {
+    "ko": [
+      "학생들의 오답 관리 효율성을 높여 학습 성과 개선에 기여했습니다.",
+      "교사가 학생들의 문제 풀이 상황을 실시간으로 모니터링할 수 있도록 하여 적시에 피드백을 제공할 수 있게 했습니다.",
+      "모듈화된 설계로 새로운 기능 추가와 유지보수가 용이한 시스템을 구축했습니다."
+    ],
+    "en": [
+      "Boosted learning outcomes by streamlining how students manage their incorrect answers.",
+      "Allowed teachers to monitor students' problem-solving progress in real-time, enabling timely feedback.",
+      "Developed a modular system that makes adding new features and maintenance straightforward."
+    ]
+  }
+}

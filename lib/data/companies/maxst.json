@@ -1,0 +1,20 @@
+{
+  "id": "maxst",
+  "name": {
+    "ko": "주식회사맥스트 (Maxst)",
+    "en": "Maxst Inc."
+  },
+  "shortName": {
+    "ko": "Maxst",
+    "en": "Maxst"
+  },
+  "description": {
+    "ko": "증강현실 및 AI 기술 전문 회사",
+    "en": "Augmented reality and AI technology company"
+  },
+  "colors": {
+    "primary": "blue"
+  },
+  "website": "https://maxst.com",
+  "type": "company"
+}

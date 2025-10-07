@@ -1,0 +1,53 @@
+{
+  "id": "maxst-tlona",
+  "date": "2023-08",
+  "companyId": "maxst",
+  "title": {
+    "ko": "메타버스 플랫폼 '틀로나' 웹서버 개발",
+    "en": "'TLONA' Metaverse Platform Web Server Development"
+  },
+  "shortDesc": {
+    "ko": "현실 기반 월드와 소셜 기능을 제공하는 메타버스 백엔드 구현",
+    "en": "Developed a metaverse backend with real-world-based environments and social features"
+  },
+  "description": {
+    "ko": "\"틀로나\"는 현실 세계를 기반으로 한 메타버스 플랫폼으로, 사용자가 가상 공간과 토지를 소유하고 다른 사용자들과 소통 할 수 있습니다. 플랫폼 내에서 NFT 토지 거래와 공간 개발을 통해 콘텐츠 제공자로 활동할 수 있습니다. 저는 메타버스 경험의 핵심 요소인 회원 관리, 가상 아이템 상점, 토지 소유권 관리 등의 기반 시스템을 개발하고 이를 API로 제공했습니다.",
+    "en": "\"TLONA\" is a metaverse platform rooted in the real world, where users can own virtual spaces and land, and interact with others. It allows users to become content creators through NFT land trades and space development. I developed core systems like member management, a virtual item shop, and land ownership management, delivering them via APIs."
+  },
+  "techStack": [
+    "NestJS",
+    "Bitbucket",
+    "Bitbucket Pipeline",
+    "AWS S3",
+    "AWS ECS"
+  ],
+  "category": [
+    "backend",
+    "cloud",
+    "database"
+  ],
+  "tasks": {
+    "ko": [
+      "파트장으로서 기획팀과 긴밀히 소통하며 개발 방향을 정립하고, 이를 팀원들에게 명확하게 전달했습니다.",
+      "상점, 우편함, 인벤토리, 지갑, 토지 관리 등 핵심 기능을 도메인 중심으로 설계하고 구현했습니다.",
+      "핵심 기능의 안정성 확보를 위해 단위 테스트를 구축했습니다.",
+      "실시간 모니터링 시스템을 도입하여 팀원들이 이슈를 신속하게 감지하고 대응할 수 있도록 했습니다."
+    ],
+    "en": [
+      "As team lead, I collaborated closely with planners to shape development direction and communicated it clearly to the team.",
+      "Designed and implemented key features like shops, mailboxes, inventories, wallets, and land management with a domain-centric approach.",
+      "Built unit tests to ensure the stability of core features.",
+      "Introduced real-time monitoring so the team could quickly spot and address issues."
+    ]
+  },
+  "achievements": {
+    "ko": [
+      "도메인 설계 도입 후, 팀원들의 작업 브랜치 병합 주기가 7일 이상에서 1-2일로 단축되었습니다.",
+      "2주간의 클로즈 베타 테스트 동안 웹 서버 로직 관련 버그 리포트가 0건으로 유지되었습니다."
+    ],
+    "en": [
+      "Reduced team branch merge cycles from over 7 days to 1-2 days after adopting domain design.",
+      "Kept web server logic bug reports at zero during a two-week closed beta test."
+    ]
+  }
+}

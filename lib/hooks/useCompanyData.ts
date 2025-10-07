@@ -2,33 +2,11 @@
 
 import { useMemo } from 'react';
 import { useLanguage } from '@/components/language-provider';
-import { Language } from '@/lib/resource.const';
-import companiesData from '@/lib/data/companies.json';
+import companiesData from '@/lib/data/companies';
+import type { CompanyTranslated, Company } from '@/lib/data/types';
 
-// Types for company data
-export interface CompanyTranslated {
-  id: string;
-  name: { [key in Language]: string };
-  shortName: { [key in Language]: string };
-  description: { [key in Language]: string };
-  colors: {
-    primary: string;
-  };
-  website: string | null;
-  type: 'company' | 'personal';
-}
-
-export interface Company {
-  id: string;
-  name: string;
-  shortName: string;
-  description: string;
-  colors: {
-    primary: string;
-  };
-  website: string | null;
-  type: 'company' | 'personal';
-}
+// Re-export types for backward compatibility
+export type { CompanyTranslated, Company };
 
 // Custom hook for company data management
 export function useCompanyData() {

@@ -1,0 +1,54 @@
+{
+  "id": "wv-cc",
+  "date": "2022-03",
+  "companyId": "wearvalley",
+  "title": {
+    "ko": "샤크라맥스 V4의 보안적합성검증(CC) 인증",
+    "en": "ChakraMax V4 Common Criteria (CC) Certification"
+  },
+  "shortDesc": {
+    "ko": "국가 보안 인증을 위한 시스템 개발 및 검증",
+    "en": "Developed and verified a system for national security certification"
+  },
+  "description": {
+    "ko": "보안 제품을 공공기관에 납품하려면 CC 인증이 필요합니다. 이에 따라 새로운 제품의 개발 마지막 단계에서 CC 인증을 진행했습니다. 인증 평가 항목에는 프로그램 덤프 생성 시 비밀 정보가 평문으로 남아있는지, 검증된 암호화 알고리즘을 사용하는지, OS 의존성을 최소화한 상태에서 동작할 수 있는지, 키 관리를 안전하게 수행하는지 등이 포함되며, 다양한 측면에서 평가가 이루어졌습니다.",
+    "en": "To supply security products to public institutions, Common Criteria (CC) certification is required. I handled this certification in the final stages of developing a new product, addressing evaluation criteria like ensuring no plaintext secrets in program dumps, using verified encryption algorithms, minimizing OS dependencies, and securing key management."
+  },
+  "techStack": [
+    "CentOS",
+    "C",
+    "C++",
+    "Makefile",
+    "Bash",
+    "Jenkins"
+  ],
+  "category": [
+    "backend",
+    "security",
+    "devops"
+  ],
+  "tasks": {
+    "ko": [
+      "OS 독립적인 데몬 관리를 위해 자체 데몬 컨트롤러를 C/C++로 개발하여 systemctl 의존성을 제거했습니다.",
+      "Jenkins를 활용해 빌드 완료 시 폐쇄망의 공통 테스트 서버에 자동으로 설치되는 CI/CD 파이프라인을 구축했습니다.",
+      "시큐어 코딩 기준을 충족하기 위해 비밀 정보 메모리의 안전한 할당과 해제를 보장하는 메모리 관리 루틴을 구현했습니다."
+    ],
+    "en": [
+      "Built a custom daemon controller in C/C++ for OS-independent management, eliminating systemctl reliance.",
+      "Set up a Jenkins CI/CD pipeline to auto-deploy builds to a closed-network test server.",
+      "Implemented memory management routines to securely allocate and free secret data, meeting secure coding standards."
+    ]
+  },
+  "achievements": {
+    "ko": [
+      "자동화된 배포 파이프라인 구축으로 QA 팀의 빌드 설치 시간을 기존 대비 크게 단축했습니다.",
+      "OS 의존성이 없는 데몬 관리 시스템 개발로 제품의 호환성과 보안성을 향상했습니다.",
+      "모든 보안 요구사항을 충족하여 최종적으로 CC 인증을 획득했습니다."
+    ],
+    "en": [
+      "Cut QA build installation time significantly with an automated deployment pipeline.",
+      "Enhanced compatibility and security with an OS-independent daemon management system.",
+      "Met all security requirements to secure CC certification."
+    ]
+  }
+}

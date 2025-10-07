@@ -11,9 +11,9 @@ export { usePortfolioData } from './hooks/usePortfolioData';
 
 // Legacy function exports for backward compatibility
 import { Language } from './resource.const';
-import portfolioItemsData from './data/portfolio-items.json';
+import portfolioItemsData from './data/portfolio';
 import portfolioCategoriesData from './data/portfolio-categories.json';
-import companiesData from './data/companies.json';
+import companiesData from './data/companies';
 
 // Legacy function - prefer using the hook instead
 export function getLocalizedPortfolioData(language: Language) {
