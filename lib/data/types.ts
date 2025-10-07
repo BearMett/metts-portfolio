@@ -68,3 +68,44 @@ export interface PortfolioCategory {
   label: string;
   icon: string;
 }
+
+// About Me Types
+export interface AboutMeTranslated {
+  title: { [key in Language]: string };
+  introduction: { [key in Language]: string };
+  values: {
+    title: { [key in Language]: string };
+    items: { [key in Language]: string[] };
+  };
+  workApproach: {
+    title: { [key in Language]: string };
+    items: { [key in Language]: string[] };
+  };
+  strengths: {
+    title: { [key in Language]: string };
+    items: { [key in Language]: string[] };
+  };
+  skillStack: { [key in Language]: string };
+  interests: { [key in Language]: string };
+  interestsContent: { [key in Language]: string };
+}
+
+export interface AboutMe {
+  title: string;
+  introduction: string;
+  values: {
+    title: string;
+    items: string[];
+  };
+  workApproach: {
+    title: string;
+    items: string[];
+  };
+  strengths: {
+    title: string;
+    items: string[];
+  };
+  skillStack: string;
+  interests: string;
+  interestsContent: string;
+}
