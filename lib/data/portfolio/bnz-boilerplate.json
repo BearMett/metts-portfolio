@@ -11,8 +11,8 @@
     "en": "Standardized tech stack and architecture for educational services"
   },
   "description": {
-    "ko": "교육 서비스의 핵심 도메인(학원, 질문, 답변, 교재)을 모듈화한 보일러플레이트 프로젝트를 개발했습니다. 이를 통해 신규 교육 관련 프로젝트 시작 시 참조할 수 있는 표준 아키텍처와 도메인 구현체를 제공했습니다.",
-    "en": "I built a boilerplate project that modularizes key educational domains like academies, questions, answers, and textbooks. This offers a standard architecture and domain implementation for kickstarting new education-related projects."
+    "ko": "매 프로젝트마다 학원, 질문, 답변 등 유사한 도메인 설정을 반복하는 문제가 발생했습니다. 프로젝트마다 다른 구조로 구현하여 유지보수가 어려웠습니다. 이를 해결하기 위해 교육 도메인의 표준 구현체와 자동화된 배포 환경을 포함한 보일러플레이트를 제작했습니다.",
+    "en": "Each project required repeating similar domain setups for academies, questions, and answers. Different structures across projects made maintenance difficult. To solve this, I created a boilerplate with standardized educational domain implementations and automated deployment environment."
   },
   "techStack": [
     "NextJS",
@@ -29,24 +29,24 @@
   ],
   "tasks": {
     "ko": [
-      "NestJS를 활용하여 DDD 기반의 도메인 중심 아키텍처를 설계했으며, 각 도메인의 비즈니스 규칙을 명확히 분리했습니다.",
-      "개발자 경험 향상을 위해 OpenAPI 문서 자동화, 구조화된 로깅 시스템, 테스트 자동화 파이프라인을 구축했습니다.",
-      "GitHub Actions를 활용하여 프론트엔드, 백엔드, 모바일 앱의 CI/CD 파이프라인을 구축하고, GCP 기반 인프라 자동화를 구현했습니다."
+      "여러 프로젝트에서 재사용 가능하도록 도메인 위주로 설계하여, 학원/질문/답변 등 핵심 도메인의 비즈니스 규칙을 명확히 분리했습니다.",
+      "보일러플레이트를 사용하는 개발자의 경험이 좋지 않으면 사용 가치가 떨어지므로, OpenAPI 문서 자동화와 구조화된 로깅 시스템을 구축했습니다.",
+      "개발자가 배포 과정(DB 마이그레이션, 빌드, 배포)에 신경쓰지 않아도 되도록 GitHub Actions 기반 자동화를 구현했습니다."
     ],
     "en": [
-      "Designed a domain-driven architecture with NestJS, clearly separating business rules for each domain.",
-      "Enhanced developer experience with automated OpenAPI docs, a structured logging system, and a test automation pipeline.",
-      "Set up CI/CD pipelines for frontend, backend, and mobile apps using GitHub Actions, plus GCP-based infrastructure automation."
+      "Designed domain-focused architecture for reuse across projects, clearly separating business rules for core domains like academies, questions, and answers.",
+      "Built OpenAPI documentation automation and structured logging system, as poor developer experience would reduce the boilerplate's value.",
+      "Implemented GitHub Actions automation so developers don't need to worry about deployment processes (DB migration, build, deployment)."
     ]
   },
   "achievements": {
     "ko": [
-      "교육 도메인의 표준 구현체를 제공하여 신규 프로젝트의 초기 개발 시간을 단축하고 일관된 아키텍처 적용이 가능해졌습니다.",
-      "자동화된 배포 파이프라인 구축으로 개발팀의 운영 부담을 크게 감소시켰으며, 배포 프로세스의 안정성을 향상했습니다."
+      "교육 도메인의 표준 구현체를 문서화하여 프로젝트 간 일관된 이해와 참조가 가능하도록 했습니다.",
+      "자동화된 배포 파이프라인으로 개발자가 배포 과정에 관여하지 않아도 되어, 소프트웨어 개발 복잡도 감소 및 핵심 기능 개발에 집중 가능해졌습니다."
     ],
     "en": [
-      "Provided a standard implementation for educational domains, cutting initial development time and ensuring consistent architecture.",
-      "Reduced the dev team's operational load and stabilized deployment with automated pipelines."
+      "Documented standard educational domain implementations to enable consistent understanding and reference across projects.",
+      "Automated deployment pipeline freed developers from deployment concerns, reducing software development complexity and enabling focus on core features."
     ]
   }
 }

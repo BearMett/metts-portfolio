@@ -11,8 +11,8 @@
     "en": "Redesigned architecture for better stability and maintainability"
   },
   "description": {
-    "ko": "교육 질의응답 플랫폼 '하이큐썸'의 시스템 구조를 개선하는 프로젝트를 수행했습니다. 서비스 확장으로 인한 시스템 복잡도 증가와 연쇄적 오류 발생 문제를 해결하기 위해 아키텍처를 재설계했습니다.",
-    "en": "I worked on improving the system structure of 'HiQ-Sum,' an educational Q&A platform. The project tackled growing complexity and cascading errors from service expansion by redesigning the architecture."
+    "ko": "교육 질의응답 플랫폼 '하이큐썸'에서 간단한 서비스 로직 변경만으로도 연쇄적으로 다른 기능이 고장나는 문제가 지속적으로 발생했습니다. 예를 들어, 질문 형식을 수정하면 리터럴 값을 읽는 기능이 깨지고, 그것이 트리거를 호출하지 않아 또 다른 기능까지 동작하지 않는 등 이슈 해결에만 매달려야 하는 절망적인 상황이었습니다. 신규 개발이 불가능했고, 서비스 안정성이 급격히 저하되어 근본적인 구조 개선이 필요했습니다.",
+    "en": "In the educational Q&A platform 'HiQ-Sum,' even simple service logic changes caused cascading failures in other features. For example, modifying question formats would break literal value parsing, which failed to trigger events, causing yet another feature to malfunction. This desperate situation forced the team to focus solely on fixing issues. New development became impossible and service stability deteriorated rapidly, requiring fundamental structural improvements."
   },
   "techStack": [
     "NodeJS",
@@ -32,26 +32,26 @@
       "기능들을 회원, 문제, 푸시 알림 등 도메인 단위로 분리하여 모듈화했습니다.",
       "핵심 기능 간의 의존성을 분석하고 서비스 레이어를 재구성하여 유지보수성을 향상했습니다.",
       "중복 코드를 제거하고 공통 기능을 추출하여 코드베이스를 최적화했습니다.",
-      "자동화된 테스트 환경을 구축하고 테스트 커버리지를 0%에서 50%까지 증가시켰습니다.",
+      "핵심 도메인(회원, 문제, 알림)에 대한 테스트를 우선 구축하고, 추가 테스트는 필요에 따라 점진적으로 추가하는 실용주의 전략을 선택했습니다. 완벽한 커버리지보다 팀이 감당 가능한 범위에서 핵심 기능의 안정성을 먼저 확보하여 테스트 커버리지를 0%에서 50%까지 증가시켰습니다.",
       "GCP, Sentry, Slack 기반의 실시간 오류 모니터링 시스템을 구축하여 장애 대응 체계를 강화했습니다."
     ],
     "en": [
       "Split features into modular domains like members, problems, and push notifications.",
       "Analyzed core feature dependencies and restructured the service layer for better maintainability.",
       "Optimized the codebase by removing duplicates and extracting shared functions.",
-      "Built an automated testing setup, raising test coverage from 0% to 50%.",
+      "Prioritized testing for core domains (members, problems, notifications) first, then added additional tests incrementally as needed—a pragmatic strategy. Rather than aiming for perfect coverage, we secured stability for critical functions within the team's capacity, raising test coverage from 0% to 50%.",
       "Set up real-time error monitoring with GCP, Sentry, and Slack to improve issue response."
     ]
   },
   "achievements": {
     "ko": [
       "테스트 커버리지를 0%에서 50%까지 개선했습니다.",
-      "버그 수정 소요 시간을 2주에서 2일로 대폭 단축하여 서비스 안정성을 크게 향상했습니다.",
+      "도메인 분리로 변경 범위가 명확해져 연쇄 버그 없이 안전하게 개발할 수 있게 되었고, 이슈 대응에만 매달리던 팀이 신규 기능 개발에 집중할 수 있게 되었습니다.",
       "사전 모니터링 체계 구축으로 잠재적 문제를 조기에 발견하고 대응할 수 있게 되었습니다."
     ],
     "en": [
       "Boosted test coverage from 0% to 50%.",
-      "Slashed bug fix time from two weeks to two days, greatly improving service stability.",
+      "Domain separation clarified change scope, enabling safe development without cascading bugs, and freed the team from constant issue response to focus on new feature development.",
       "Enabled early issue detection and response with a proactive monitoring system."
     ]
   }
