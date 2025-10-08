@@ -13,8 +13,10 @@ import wvCc from './wv-cc.json';
 import wvPersonnelIntegration from './wv-personnel-integration.json';
 import slkVersionControlSetup from './slk-version-control-setup.json';
 import slkPointSystem from './slk-point-system.json';
+import slkContentManagementSystem from './slk-content-management-system.json';
 
 export const portfolioItems = [
+  slkContentManagementSystem,
   slkPointSystem,
   slkVersionControlSetup,
   bnzOdapp,
