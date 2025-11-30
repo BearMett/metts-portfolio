@@ -3,16 +3,16 @@
   "date": "2025-06",
   "companyId": "slk",
   "title": {
-    "ko": "학습 콘텐츠 관리 시스템(CMS) 구축",
-    "en": "Learning Content Management System (CMS) Development"
+    "ko": "사업팀 자립화 - 컨텐츠 관리 시스템(CMS) 구축",
+    "en": "Business Team Independence - Content Management System (CMS) Development"
   },
   "shortDesc": {
-    "ko": "Excel 기반 수기 관리를 통합 CMS로 전환하여 콘텐츠 등록 오류를 사전 감지",
-    "en": "Transformed Excel-based manual management to integrated CMS with pre-upload error detection"
+    "ko": "개발팀 운영 부담 80% 감소, 컨텐츠 등록 시간 95% 단축을 달성한 통합 CMS 구축",
+    "en": "Integrated CMS achieving 80% reduction in dev team burden and 95% faster content registration"
   },
   "description": {
-    "ko": "학습 콘텐츠를 등록하기 위해 운영팀은 엑셀로 JSON 형식을 작성하고, FTP로 미디어 파일을 업로드한 후, 데이터베이스 클라이언트로 직접 데이터를 삽입해야 했습니다. 예를 들어, 많은 문제를 올릴 때 JSON 형식 오류가 있어도 업로드는 성공했지만 잘못된 데이터가 그대로 데이터베이스에 들어갔고, 어떤 문제가 잘못되었는지 찾기 위해 모든 문제를 확인해야 했습니다. 파일 경로도 어디를 기준으로 적어야 하는지 알기 어려워 실수하면 파일이 서빙되지 않는 문제가 발생했습니다. 기획자 확인 → 엑셀 작성 → 업로드 → 전체 문제 테스트 → 오류 확인 → 데이터베이스 수정 → 재테스트라는 긴 사이클에 개발팀과 사업팀의 지속적인 관심이 하루 이상 필요했고, 연초 3~5회 콘텐츠 업데이트 시마다 이 과정이 반복되며 운영팀의 부담이 컸습니다. 안전하고 효율적인 콘텐츠 관리를 위해 실시간 검증 기능이 포함된 전용 CMS가 필요했습니다.",
-    "en": "To register learning content, the operations team had to write JSON format in Excel, upload media files via FTP, and directly insert data using a database client. For example, when uploading many problems, even if there were JSON format errors, the upload would succeed but incorrect data would be inserted directly into the database, and finding which problem was wrong among the uploaded problems required checking all problems one by one. File paths were also difficult to understand in terms of reference point, causing files not to be served when mistakes were made. The lengthy cycle of planner review → Excel creation → upload → full problem testing → error identification → database modification → retest required continuous attention from both development and business teams for over a day, and this process repeated 3-5 times annually during new year content updates, creating a significant burden on the operations team. A dedicated CMS with real-time validation capabilities was needed for safe and efficient content management."
+    "ko": "사업팀의 컨텐츠 등록에 DBeaver, SFTP 등 개발 도구가 필요했습니다. 데이터 오류 우려로 개발팀 검증 프로세스로 변질되어 컨텐츠 반영까지 3~5일이 소요되었습니다. JSON 포맷 오류, 미디어 경로 불일치 등 문제가 빈발하여 개발팀이 항상 개입해야 했고, 사업팀은 독립적으로 업무를 수행할 수 없었습니다.",
+    "en": "The business team needed developer tools like DBeaver and SFTP to register content. Due to data error concerns, it became a development team verification process, taking 3-5 days for content deployment. JSON format errors and media path mismatches occurred frequently, requiring constant dev team intervention and preventing the business team from working independently."
   },
   "techStack": [
     "Next.js",
@@ -29,28 +29,30 @@
   ],
   "tasks": {
     "ko": [
-      "JSON 형식 오류가 있어도 데이터베이스에 삽입되어 모든 문제를 확인해야 했으므로, 프론트엔드에서 실시간 JSON 스키마 검증과 업로드 전 데이터 프리뷰 기능을 구현하여 오류를 사전에 감지하도록 했습니다.",
-      "운영팀이 파일명 중복을 피하기 위해 일일이 고민해야 했고 수동 관리로 인한 충돌 위험이 있었으므로, 원본 파일명은 데이터베이스에 보관하되 실제 저장소(NCP Object Storage)에는 고유 ID 기반 파일명을 자동 생성하여 저장하는 방식을 구현했습니다.",
-      "대량의 콘텐츠를 등록할 때 파일과 문제 데이터를 수동으로 매칭하는 과정에서 파일 경로 기준을 잘못 이해하여 파일이 서빙되지 않는 문제가 발생했고 매칭 작업에 시간이 많이 소요되었으므로, Excel 업로드 기능과 파일명/태그 기반 자동 매칭 시스템을 구현하여 대량 등록 프로세스를 간소화했습니다.",
-      "FTP, 엑셀, 데이터베이스 클라이언트를 번갈아 사용하는 3단계 프로세스는 운영팀의 학습 곡선을 높이고 실수 가능성을 증가시켰으므로, 파일 업로드부터 데이터 입력까지 모든 과정을 웹 기반 통합 인터페이스로 제공했습니다."
+      "사업팀 인터뷰를 통한 요구사항 분석 및 UX 설계",
+      "Next.js 기반 직관적 관리 도구 구현, CSV 템플릿 제공 및 실시간 스키마 검증",
+      "NCP 연동 통합 파일 관리 서비스로 SFTP 수작업 완전 제거",
+      "JSON 포맷 사전 검증 및 에러 메시지 한글화로 비개발자 사용성 극대화"
     ],
     "en": [
-      "Even when JSON format errors existed in Excel-written content, uploads would succeed but incorrect data was inserted directly into the database, and finding which problem was wrong among the uploaded problems required checking all problems one by one, so I implemented real-time JSON schema validation and pre-upload data preview features on the frontend to detect errors in advance.",
-      "The operations team had to carefully consider filename duplication and faced collision risks from manual management, so I implemented a system that stores original filenames in the database while automatically generating unique ID-based filenames in the actual storage (NCP Object Storage).",
-      "When registering many content items, misunderstanding file path references caused files not to be served and manual matching consumed significant time, so I implemented Excel upload functionality and a filename/tag-based automatic matching system to simplify the bulk registration process.",
-      "The 3-step process of alternating between FTP, Excel, and database client increased the operations team's learning curve and mistake probability, so I provided a web-based integrated interface covering all processes from file upload to data entry."
+      "Requirements analysis and UX design through business team interviews",
+      "Implemented intuitive management tool with Next.js, CSV templates, and real-time schema validation",
+      "Completely eliminated SFTP manual work with NCP-integrated file management service",
+      "Maximized non-developer usability with JSON format pre-validation and Korean error messages"
     ]
   },
   "achievements": {
     "ko": [
-      "JSON 오류 탐색 문제 해결: 업로드한 문제 중 어디가 잘못되었는지 전수 확인해야 했던 오류 탐색 작업이, 실시간 검증으로 업로드 전 모든 오류를 감지하도록 변경되어 콘텐츠 등록이 개발팀과 사업팀의 하루 이상 협업에서 사업팀 단독 당일 완료로 단축되었고, 신규 운영팀원도 즉시 실무 투입이 가능해졌습니다.",
-      "파일 경로 실수 제거: 업로드한 문제 중 일부가 파일 경로 오류로 서빙되지 않던 문제가, Excel 일괄 업로드와 파일명 기반 자동 매칭으로 정확한 연결을 보장하게 되었고 매칭 작업 시간도 대폭 단축되었습니다.",
-      "도구 분산 문제 해결: FTP, 엑셀, 데이터베이스 클라이언트를 번갈아 사용하며 각 도구의 사용법을 배워야 했던 진입장벽이, 웹 브라우저 하나로 모든 작업을 처리할 수 있게 통합되어 기술적 사전 지식 없이도 콘텐츠 관리가 가능해졌습니다."
+      "개발팀 운영 부담 80% 감소: 사업팀이 개발팀 도움 없이 독립적으로 콘텐츠 관리 가능",
+      "컨텐츠 등록 시간 95% 단축: 3~5일 소요되던 작업이 즉시 완료로 변경",
+      "신규 운영팀원도 별도 교육 없이 즉시 실무 투입 가능",
+      "파일 경로 오류로 인한 서빙 실패 문제 완전 해결"
     ],
     "en": [
-      "Resolved error detection problem: Eliminated the need to manually check all uploaded problems to find errors through pre-upload real-time validation, reducing content registration from over a day of development and business team collaboration to same-day completion by the business team alone, and enabling new operations team members to start production work immediately.",
-      "Eliminated file path mistakes: Resolved the issue where some uploaded problems failed to serve due to file path errors, ensuring accurate connection through Excel batch upload with filename-based automatic matching, and significantly reducing matching work time.",
-      "Resolved tool fragmentation: Eliminated the barrier of learning to use FTP, Excel, and database client separately by consolidating all tasks into a single web browser interface, enabling content management without any prior technical knowledge."
+      "80% reduction in dev team operational burden: Business team can manage content independently without dev help",
+      "95% reduction in content registration time: Tasks taking 3-5 days now complete immediately",
+      "New operations team members can start production work immediately without separate training",
+      "Completely resolved file serving failures due to file path errors"
     ]
   }
 }

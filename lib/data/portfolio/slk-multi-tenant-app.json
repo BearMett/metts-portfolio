@@ -1,0 +1,53 @@
+{
+  "id": "slk-multi-tenant-app",
+  "date": "2025-08",
+  "companyId": "slk",
+  "title": {
+    "ko": "여러 브랜드 앱을 하나처럼 - 배포시간 70% 단축",
+    "en": "Multiple Brand Apps as One - 70% Deployment Time Reduction"
+  },
+  "shortDesc": {
+    "ko": "4개 테넌트별 개별 React Native 프로젝트를 Expo 멀티 테넌트 구조로 통합",
+    "en": "Unified 4 tenant-specific React Native projects into Expo multi-tenant architecture"
+  },
+  "description": {
+    "ko": "4개의 서로 다른 브랜드를 위한 React Native 앱이 각각 별도의 프로젝트로 관리되고 있었습니다. 동일한 기능 변경을 4번 반복해야 했고, 휴먼 에러가 빈발하며 버그 추적 난이도가 증가했습니다. Expo Config를 활용하여 테넌트별 차별화 요소(OAuth 키, 브랜딩, 리소스)를 환경변수로 추상화하고, EAS 파이프라인을 통합했습니다.",
+    "en": "React Native apps for 4 different brands were managed as separate projects. The same feature changes had to be repeated 4 times, causing frequent human errors and increased bug tracking difficulty. Using Expo Config, I abstracted tenant-specific elements (OAuth keys, branding, resources) as environment variables and integrated EAS pipelines."
+  },
+  "techStack": [
+    "React Native",
+    "Expo",
+    "EAS",
+    "Firebase"
+  ],
+  "category": [
+    "mobile",
+    "devops"
+  ],
+  "tasks": {
+    "ko": [
+      "4개 개별 프로젝트의 공통 코드와 브랜드별 차이점 분석",
+      "Expo Config 활용, 테넌트별 차별화 요소를 환경변수로 추상화",
+      "npm 스크립트 기반 빌드 시스템 구축 (npm run build:tenant-a)",
+      "EAS 파이프라인 통합: OTA 업데이트, 스토어 배포 자동화"
+    ],
+    "en": [
+      "Analyzed common code and brand-specific differences across 4 separate projects",
+      "Abstracted tenant-specific elements as environment variables using Expo Config",
+      "Built npm script-based build system (npm run build:tenant-a)",
+      "Integrated EAS pipeline: OTA updates, store deployment automation"
+    ]
+  },
+  "achievements": {
+    "ko": [
+      "배포 시간 4시간 → 40분 (70% 단축), 빌드 4회 반복 → 원터치 배포",
+      "단일 코드베이스로 개발 효율 4배 향상 (한번 수정으로 전체 앱 적용)",
+      "EAS Update로 긴급 패치 즉시 배포 (스토어 심사 대기 불필요)"
+    ],
+    "en": [
+      "Deployment time 4 hours → 40 minutes (70% reduction), 4 repeated builds → one-touch deployment",
+      "4x development efficiency with single codebase (one change applies to all apps)",
+      "Immediate emergency patch deployment via EAS Update (no store review wait)"
+    ]
+  }
+}

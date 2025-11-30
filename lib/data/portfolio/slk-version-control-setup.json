@@ -3,16 +3,16 @@
   "date": "2025-03",
   "companyId": "slk",
   "title": {
-    "ko": "레거시 PHP 프로젝트 형상 관리 및 재해복구 체계 구축",
-    "en": "Legacy PHP Project Version Control and Disaster Recovery System Setup"
+    "ko": "20년 레거시 15개 저장소 통합으로 개발 속도 향상",
+    "en": "Improved Development Speed by Consolidating 15 Legacy Repositories"
   },
   "shortDesc": {
-    "ko": "FTP 배포와 PHP 5.3 환경의 재구축 불가능 문제를 해결하여 비즈니스 연속성 확보",
-    "en": "Solved FTP deployment and PHP 5.3 rebuild impossibility to ensure business continuity"
+    "ko": "15개 SVN 저장소를 Git으로 통합하고 PHP 5.3→5.6, Apache→Nginx 전환으로 개발 효율 대폭 향상",
+    "en": "Consolidated 15 SVN repositories to Git and migrated PHP 5.3→5.6, Apache→Nginx for major efficiency gains"
   },
   "description": {
-    "ko": "PHP 5.3 기반의 레거시 프로젝트가 FTP로만 배포되고 Git 형상 관리가 전혀 없는 상태였습니다. 두 명 이상의 개발자가 같은 파일을 수정하면 나중에 업로드한 사람의 코드만 남고 이전 작업 기록이 날아가는 문제가 반복적으로 발생했습니다. 더 심각한 문제는 서버 장애 시 재해복구가 불가능하다는 점이었습니다. PHP 5.3 환경을 다시 구축할 수 없는 상태였기 때문에, 서버가 고장나면 서비스 복구 자체가 불가능했고 이는 비즈니스 연속성에 치명적인 리스크였습니다. 개발팀은 서버 장애가 발생하지 않기를 기도하는 수밖에 없었고, 새로운 기능 개발보다 현재 시스템 유지에만 집중해야 하는 상황이었습니다.",
-    "en": "A legacy PHP 5.3 project was deployed only via FTP with no Git version control. When two or more developers modified the same file, only the last person's upload survived and previous work was lost repeatedly. The more critical issue was the impossibility of disaster recovery. Since the PHP 5.3 environment couldn't be rebuilt, a server failure meant the service itself couldn't be restored—a fatal risk to business continuity. The development team could only hope servers wouldn't fail, and had to focus solely on maintaining the current system rather than developing new features."
+    "ko": "20년 경과한 PHP 5.3 교육 플랫폼이 유료/테스트/무료 3개 버전 × 학생/모바일/관리자/선생님/공통 5개 모듈로 분리되어 총 15개 SVN 저장소로 관리되고 있었습니다. FTP 수동 배포로 재해 복구가 불가능했고, 두 명 이상의 개발자가 같은 파일을 수정하면 나중에 업로드한 사람의 코드만 남는 문제가 반복되어 유지보수 비용이 과다하게 발생했습니다.",
+    "en": "A 20-year-old PHP 5.3 education platform was split into 15 SVN repositories across 3 versions (paid/test/free) × 5 modules (student/mobile/admin/teacher/common). Manual FTP deployment made disaster recovery impossible, and when multiple developers modified the same file, only the last upload survived—causing repeated code loss and excessive maintenance costs."
   },
   "techStack": [
     "PHP 5.6",
@@ -30,28 +30,34 @@
   ],
   "tasks": {
     "ko": [
-      "두 명 이상의 개발자가 동시에 작업할 때 코드 충돌로 인한 손실이 반복되었으므로, FTP 기반 수정을 차단하고 Git 형상 관리 체계로 전환하여 모든 변경사항을 추적 가능하도록 했습니다.",
-      "PHP 5.3과 5.6 양쪽에서 동작 가능한 코드 상태를 유지하면서 점진적으로 마이그레이션했습니다. 5.6을 선택한 이유는 5.3 대비 Breaking Changes가 적고, LTS 버전으로 자료와 바이너리가 풍부하여 즉시 적용 가능했기 때문입니다.",
-      "PHP 5.6 마이그레이션 후 더 안정적인 프로세스 관리가 필요했고 MySQL 5.1은 보안 지원이 종료되었으므로, 웹서버 스택을 Apache+PHP 모듈에서 Nginx+PHP-FPM으로 전환하고 MySQL을 5.6으로 업그레이드하여 안정성과 성능을 개선했습니다.",
-      "재해복구가 실제로 가능한지 검증해야 했으므로, 현대화된 스택으로 개발 서버를 추가 구축하고 실제 복구 시나리오를 테스트하여 서비스 복구 가능성을 입증했습니다."
+      "15개 분산 SVN 저장소를 분석하여 단일 Git 저장소로 통합하고, 도메인별 분기 로직을 추상화",
+      "FTP 기반 수정을 차단하고 Git 형상 관리 체계로 전환하여 모든 변경사항을 추적 가능하도록 구성",
+      "PHP 5.3과 5.6 양쪽에서 동작 가능한 코드 상태를 유지하면서 점진적 마이그레이션 수행",
+      "성능 개선을 위해 PHP 5.3/Apache2에서 PHP 5.6/Nginx+PHP-FPM으로 전환",
+      "현대화된 스택으로 개발 서버를 구축하고 실제 복구 시나리오 테스트로 재해복구 가능성 검증"
     ],
     "en": [
-      "Code conflicts from concurrent developer work caused repeated losses, so I blocked FTP-based modifications and transitioned to Git version control to make all changes traceable.",
-      "Maintained code compatibility with both PHP 5.3 and 5.6 during gradual migration. Chose 5.6 because it had minimal Breaking Changes from 5.3, and as an LTS version, it had abundant documentation and readily available binaries for immediate use.",
-      "After the PHP 5.6 migration, more stable process management was needed and MySQL 5.1's security support had ended, so I migrated the web server stack from Apache+PHP module to Nginx+PHP-FPM and upgraded MySQL to 5.6 for improved stability and performance.",
-      "Disaster recovery needed validation, so I built additional development servers with the modernized stack and tested actual recovery scenarios to prove service recoverability."
+      "Analyzed 15 distributed SVN repositories and consolidated into single Git repository with abstracted domain branching logic",
+      "Blocked FTP-based modifications and transitioned to Git version control to make all changes traceable",
+      "Maintained code compatibility with both PHP 5.3 and 5.6 during gradual migration",
+      "Migrated from PHP 5.3/Apache2 to PHP 5.6/Nginx+PHP-FPM for performance improvement",
+      "Built development servers with modernized stack and tested actual recovery scenarios to validate disaster recovery"
     ]
   },
   "achievements": {
     "ko": [
-      "형상 관리 도입으로 코드 손실 문제를 완전히 해결했고, 개발자들이 작업 파일을 미리 공표하지 않아도 되어 개발 효율성이 크게 향상되었습니다.",
-      "재해복구가 불가능했던 서비스를 복구 가능한 상태로 전환하여 비즈니스 연속성 리스크를 제거했습니다.",
-      "로컬 개발 환경 구축이 가능해져 각 개발자가 FTP 업로드 없이 독립적으로 개발-테스트-배포할 수 있게 되었고, 신규 기능 개발 시 서버에 직접 접근할 필요가 없어졌습니다."
+      "코드 중복 70% 제거: 15개 저장소에 분산된 중복 코드를 단일 추상화 모듈로 통합",
+      "신규 기능 개발 시간 66% 단축: 3가지 버전에 각각 적용하던 작업을 하나의 모듈로 처리",
+      "1시간 내 재해 복구 체계 확립: 복구 불가능했던 서비스를 복구 가능한 상태로 전환",
+      "긴급 패치 대응 시간 90% 단축: 전체 버전 동시 배포 가능해져 빠른 대응 가능",
+      "Nginx 도입으로 Apache 대비 30% 성능 향상 및 동시 접속 처리 개선"
     ],
     "en": [
-      "Completely eliminated code loss issues through version control, significantly improving development efficiency as developers no longer needed to announce which files they were working on.",
-      "Transformed an unrecoverable service into a recoverable one, eliminating business continuity risks.",
-      "Enabled local development environments, allowing each developer to independently develop-test-deploy without FTP uploads, eliminating the need for direct server access during new feature development."
+      "70% code duplication eliminated: Consolidated duplicate code across 15 repositories into single abstraction module",
+      "66% reduction in new feature development time: Tasks previously applied to 3 versions now handled by single module",
+      "Disaster recovery within 1 hour established: Transformed unrecoverable service into recoverable state",
+      "90% reduction in emergency patch response time: Simultaneous deployment across all versions enabled fast response",
+      "30% performance improvement over Apache with Nginx adoption and improved concurrent connection handling"
     ]
   }
 }

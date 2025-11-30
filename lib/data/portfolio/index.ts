@@ -14,8 +14,12 @@ import wvPersonnelIntegration from './wv-personnel-integration.json';
 import slkVersionControlSetup from './slk-version-control-setup.json';
 import slkPointSystem from './slk-point-system.json';
 import slkContentManagementSystem from './slk-content-management-system.json';
+import slkEolSecurityRebuild from './slk-eol-security-rebuild.json';
+import slkMultiTenantApp from './slk-multi-tenant-app.json';
 
 export const portfolioItems = [
+  slkEolSecurityRebuild,
+  slkMultiTenantApp,
   slkContentManagementSystem,
   slkPointSystem,
   slkVersionControlSetup,

@@ -9,6 +9,7 @@
   { "id": "refactoring", "label": { "ko": "리팩토링", "en": "Refactoring" }, "icon": "RefreshCw" },
   { "id": "integration", "label": { "ko": "시스템 연동", "en": "System Integration" }, "icon": "Link" },
   { "id": "frontend", "label": { "ko": "프론트엔드", "en": "Frontend" }, "icon": "Layout" },
+  { "id": "mobile", "label": { "ko": "네이티브 앱", "en": "Native App" }, "icon": "Smartphone" },
   { "id": "search", "label": { "ko": "검색 엔진", "en": "Search Engine" }, "icon": "Search" },
   { "id": "cloud", "label": { "ko": "클라우드", "en": "Cloud" }, "icon": "Cloud" }
 ]
