@@ -25,14 +25,14 @@
   ],
   "tasks": {
     "ko": [
-      "실시간 멀티플레이어 동기화 서버, 비동기 웹서버, 데이터베이스, 캐시 시스템을 컨테이너화했습니다.",
-      "컨테이너 실행 시 로컬 CSV 파일을 읽어 독립적인 서버 환경을 구성하는 자동화 스크립트를 개발했습니다.",
-      "팀 내 '로컬 서버' 기능의 도입 목적을 공유하고, 상세한 사용 매뉴얼을 작성했습니다."
+      "기획자들이 개발 서버에서 직접 데이터를 수정하면서 다른 개발자의 테스트 환경이 영향을 받았으므로, 실시간 멀티플레이어 동기화 서버, 비동기 웹서버, 데이터베이스, 캐시 시스템을 컨테이너화하여 각자 독립된 환경에서 작업할 수 있도록 했습니다.",
+      "기획자가 데이터를 수정할 때마다 개발팀에 요청해야 하는 번거로움이 있었으므로, 컨테이너 실행 시 로컬 CSV 파일을 읽어 독립적인 서버 환경을 자동으로 구성하는 스크립트를 개발하여 기획자가 직접 데이터를 수정하고 테스트할 수 있도록 했습니다.",
+      "새로운 도구의 사용법을 모르면 활용도가 떨어지므로, 팀 내에 '로컬 서버' 기능의 도입 목적을 공유하고 상세한 사용 매뉴얼을 작성하여 즉시 활용 가능하도록 했습니다."
     ],
     "en": [
-      "Containerized the real-time multiplayer sync server, async web server, database, and cache system.",
-      "Wrote automation scripts to read local CSV files and set up independent server environments on container startup.",
-      "Explained the purpose of the \"local server\" feature to the team and created a detailed usage guide."
+      "Since planners modifying data directly on the development server affected other developers' test environments, I containerized the real-time multiplayer sync server, async web server, database, and cache system so everyone could work in independent environments.",
+      "Planners had to request the development team every time they needed data changes, so I developed automation scripts that read local CSV files on container startup to automatically configure independent server environments, enabling planners to modify and test data themselves.",
+      "Without knowing how to use new tools, adoption would be low, so I shared the purpose of the 'local server' feature with the team and created a detailed usage manual for immediate use."
     ]
   },
   "achievements": {

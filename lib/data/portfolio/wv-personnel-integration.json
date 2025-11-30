@@ -26,16 +26,16 @@
   ],
   "tasks": {
     "ko": [
-      "고객사별 맞춤형 인사 연동 요구사항을 분석하고 최적화된 연동 프로그램을 개발했습니다.",
-      "기존 운영 중인 연동 프로그램의 유지보수와 기술 지원을 수행했습니다.",
-      "망분리 환경에서 발생하는 연동 이슈를 분석하고, 현장 엔지니어를 위한 기술 지원을 제공했습니다.",
-      "고객사별 인사 연동 요건과 구현 방식을 문서화했습니다."
+      "고객사마다 특정 부서만 동기화하거나 휴직자 계정을 비활성화하는 등 요구사항이 달랐으므로, 각 고객사별 맞춤형 인사 연동 요구사항을 분석하고 최적화된 연동 프로그램을 개발했습니다.",
+      "연동 프로그램에 문제가 생기면 인사 정보와 사용자 계정이 불일치하여 보안 문제가 발생할 수 있으므로, 기존 운영 중인 연동 프로그램의 유지보수와 기술 지원을 수행했습니다.",
+      "망분리 환경에서는 원격 디버깅이 불가능하여 현장 엔지니어가 직접 문제를 해결해야 했으므로, 연동 이슈를 분석하고 현장에서 바로 적용 가능한 기술 지원을 제공했습니다.",
+      "유사한 요구사항의 신규 프로젝트에서 동일한 분석을 반복하는 비효율이 있었으므로, 고객사별 인사 연동 요건과 구현 방식을 문서화하여 사내 지식 베이스를 구축했습니다."
     ],
     "en": [
-      "Analyzed and built optimized integration programs tailored to each client's HR needs.",
-      "Maintained and supported existing integration programs in operation.",
-      "Troubleshot integration issues in network-separated environments and assisted field engineers.",
-      "Documented HR integration requirements and implementations per client."
+      "Each client had different requirements like syncing only specific departments or deactivating accounts on leave, so I analyzed each client's custom HR integration needs and developed optimized integration programs.",
+      "Integration program issues could cause mismatches between HR data and user accounts, creating security problems, so I maintained and supported existing integration programs in operation.",
+      "Remote debugging was impossible in network-separated environments, requiring field engineers to solve problems on-site, so I analyzed integration issues and provided technical support that could be applied immediately on-site.",
+      "There was inefficiency in repeating the same analysis for new projects with similar requirements, so I documented HR integration requirements and implementations per client to build an internal knowledge base."
     ]
   },
   "achievements": {

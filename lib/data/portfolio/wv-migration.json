@@ -26,24 +26,24 @@
   ],
   "tasks": {
     "ko": [
-      "망분리 환경의 고객사 시스템에서 샘플 데이터를 추출하여 이관 프로그램의 프로토타입을 개발했고, 이후 현장에서 실제 이관 프로그램을 구현했습니다.",
-      "경쟁사 제품의 데이터 구조를 분석하고 자사 제품의 정책 체계에 맞게 재해석했으며, 도출된 매핑 로직을 고객사와 지속적으로 검증했습니다.",
-      "개발된 이관 프로그램과 상세 운영 매뉴얼을 현장 엔지니어에게 인계하고, 이후 발생하는 패치 요청과 모니터링을 지원했습니다."
+      "고객사의 망분리 환경에서는 외부 접근이 불가능하여 원격 개발이 불가능했으므로, 샘플 데이터를 추출하여 프로토타입을 먼저 개발하고 이후 현장에서 실제 이관 프로그램을 구현하는 2단계 접근법을 적용했습니다.",
+      "경쟁사와 자사 제품의 정책 체계가 달라 단순 복사로는 이관이 불가능했으므로, 경쟁사 제품의 데이터 구조를 분석하고 자사 제품의 정책 체계에 맞게 재해석하는 매핑 로직을 개발했습니다.",
+      "현장 엔지니어가 이관 프로그램을 직접 운영해야 했으므로, 개발된 이관 프로그램과 상세 운영 매뉴얼을 인계하고 이후 발생하는 패치 요청과 모니터링을 지원했습니다."
     ],
     "en": [
-      "Extracted sample data from the client's network-separated system to prototype a migration program, later implementing it on-site.",
-      "Analyzed the competitor's data structure, adapted it to our policy system, and continuously validated the mapping logic with the client.",
-      "Handed over the migration program and a detailed manual to field engineers, supporting subsequent patches and monitoring."
+      "External access was impossible in the client's network-separated environment, making remote development unfeasible, so I applied a two-stage approach: first developing a prototype with extracted sample data, then implementing the actual migration program on-site.",
+      "Simple copying was impossible because the competitor's and our product's policy systems differed, so I developed mapping logic by analyzing the competitor's data structure and reinterpreting it to fit our policy system.",
+      "Field engineers needed to operate the migration program directly, so I handed over the developed migration program with a detailed operation manual and supported subsequent patch requests and monitoring."
     ]
   },
   "achievements": {
     "ko": [
-      "약 2,000대의 데이터베이스에 적용된 5,000여 개의 접근 제어 정책을 성공적으로 이관했습니다.",
-      "기존 정책과 새로운 정책 간의 매핑 검증 쿼리를 개발하여 100% 이관 완료를 입증했습니다."
+      "수동으로는 수개월이 소요됐을 5,000여 개의 접근 제어 정책을 자동화된 이관 프로그램으로 단기간에 완료하여, 대기업 고객사의 경쟁사 제품에서 자사 제품으로의 전환을 성공적으로 지원했습니다.",
+      "매핑 검증 쿼리로 100% 이관 완료를 입증하여 보안 정책의 연속성을 보장했고, 보안 공백 없이 안전하게 제품을 전환할 수 있었습니다."
     ],
     "en": [
-      "Successfully migrated over 5,000 access control policies across roughly 2,000 databases.",
-      "Developed verification queries to confirm 100% migration accuracy between old and new policies."
+      "Completed migration of over 5,000 access control policies—which would have taken months manually—in a short period using an automated migration program, successfully supporting a major enterprise client's transition from a competitor's product to ours.",
+      "Verified 100% migration completion through mapping validation queries, ensuring security policy continuity and enabling a safe product transition without security gaps."
     ]
   }
 }

@@ -29,14 +29,14 @@
   ],
   "tasks": {
     "ko": [
-      "OS 독립적인 데몬 관리를 위해 자체 데몬 컨트롤러를 C/C++로 개발하여 systemctl 의존성을 제거했습니다.",
-      "Jenkins를 활용해 빌드 완료 시 폐쇄망의 공통 테스트 서버에 자동으로 설치되는 CI/CD 파이프라인을 구축했습니다.",
-      "시큐어 코딩 기준을 충족하기 위해 비밀 정보 메모리의 안전한 할당과 해제를 보장하는 메모리 관리 루틴을 구현했습니다."
+      "CC 인증 평가에서 OS 의존성 최소화가 요구되었고 systemctl은 특정 OS에 종속되어 호환성 문제가 있었으므로, 자체 데몬 컨트롤러를 C/C++로 개발하여 다양한 운영체제에서 동작 가능하도록 했습니다.",
+      "폐쇄망 환경의 QA 팀이 새 빌드를 직접 설치해야 하는 번거로움이 있었으므로, Jenkins를 활용해 빌드 완료 시 공통 테스트 서버에 자동으로 설치되는 CI/CD 파이프라인을 구축했습니다.",
+      "CC 인증 평가에서 프로그램 덤프 생성 시 비밀 정보가 평문으로 남으면 안 되므로, 비밀 정보 메모리의 안전한 할당과 해제를 보장하는 메모리 관리 루틴을 구현했습니다."
     ],
     "en": [
-      "Built a custom daemon controller in C/C++ for OS-independent management, eliminating systemctl reliance.",
-      "Set up a Jenkins CI/CD pipeline to auto-deploy builds to a closed-network test server.",
-      "Implemented memory management routines to securely allocate and free secret data, meeting secure coding standards."
+      "CC certification required minimizing OS dependencies, and systemctl was tied to specific operating systems causing compatibility issues, so I developed a custom daemon controller in C/C++ to work across various operating systems.",
+      "The QA team in the closed network environment had to manually install new builds, so I built a Jenkins CI/CD pipeline to automatically deploy builds to the shared test server upon completion.",
+      "CC certification required that secret information not remain in plaintext when program dumps are generated, so I implemented memory management routines to ensure secure allocation and release of secret data memory."
     ]
   },
   "achievements": {

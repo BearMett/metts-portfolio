@@ -106,9 +106,9 @@ Don't invent business constraints or problems that didn't exist. **If context is
 
 ## File Locations
 
-**Portfolio items:** `/Users/gpc-slk/work/portfolio/lib/data/portfolio/[project-id].json`
-**Portfolio data:** `/Users/gpc-slk/work/portfolio/lib/hooks/usePortfolioData.ts`
-**Resume:** `/Users/gpc-slk/work/portfolio/app/resume/resume.md`
+**Portfolio items:** `lib/data/portfolio/[project-id].json`
+**Portfolio data:** `lib/hooks/usePortfolioData.ts`
+**Resume:** `app/resume/resume.md`
 
 ## Communication Style
 

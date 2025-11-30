@@ -23,14 +23,14 @@
   ],
   "tasks": {
     "ko": [
-      "마크다운 테이블을 한글과컴퓨터의 XML 데이터 구조에 맞춰 변환하는 파서 모듈을 개발했습니다.",
-      "LaTeX 수식을 한글 문서의 자체 수식 형식으로 변환하는 엔진을 구현했습니다.",
+      "학원 환경에서 한글 문서가 표준이었고, 선생님들이 마크다운 테이블 문법을 이해하지 못해 생성된 문제를 그대로 활용하기 어려웠습니다. 이를 해결하기 위해 마크다운 테이블을 한글과컴퓨터의 XML 데이터 구조에 맞춰 자동 변환하는 파서 모듈을 개발했습니다.",
+      "선생님들이 LaTeX 수식을 이해하지 못해 수식을 캡처 후 이미지로 붙여넣는 방식을 했습니다. 이 방식은 수식 수정이 불가능하여 불편했으므로, LaTeX 수식을 한글 문서의 자체 수식 형식으로 변환하는 엔진을 구현하여 문서 내에서 직접 수정 가능하도록 했습니다.",
       "지속적으로 발견되는 새로운 수식 패턴에 대응하기 위해 변환 알고리즘을 모듈화하고, 단위 테스트를 통해 안정성과 유지보수성을 확보했습니다."
     ],
     "en": [
-      "Developed a parser module to convert Markdown tables into the XML structure used by Hangul and Computer (HWP).",
-      "Built an engine to transform LaTeX equations into HWP's native equation format.",
-      "Modularized the conversion algorithms to adapt to new equation patterns and ensured stability and maintainability with unit tests."
+      "Since Korean word processor documents were standard in the academy environment and teachers couldn't understand Markdown table syntax, making it difficult to use generated problems directly. I developed a parser module to automatically convert Markdown tables into the XML structure used by Hangul and Computer (HWP).",
+      "Teachers didn't understand LaTeX equations and had to capture equations as images to paste them. This method made equation editing impossible and inconvenient, so I built an engine to transform LaTeX equations into HWP's native equation format, enabling direct editing within the document.",
+      "Modularized the conversion algorithms to adapt to new equation patterns discovered continuously, and ensured stability and maintainability with unit tests."
     ]
   },
   "achievements": {
