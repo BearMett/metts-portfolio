@@ -6,9 +6,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "generate:resume": "tsx scripts/generate-resume-pdf.tsx",
+    "prebuild": "yarn generate:resume"
   },
   "dependencies": {
+    "@fontsource/noto-sans-kr": "^5.2.8",
     "@hookform/resolvers": "^4.1.1",
     "@mdx-js/loader": "^3.1.0",
     "@mdx-js/react": "^3.1.0",
@@ -39,6 +42,7 @@
     "@radix-ui/react-toggle": "^1.1.1",
     "@radix-ui/react-toggle-group": "^1.1.1",
     "@radix-ui/react-tooltip": "^1.1.6",
+    "@react-pdf/renderer": "^4.3.1",
     "@vercel/analytics": "^1.5.0",
     "@vercel/speed-insights": "^1.2.0",
     "autoprefixer": "^10.4.20",
@@ -89,6 +93,7 @@
     "postcss": "^8",
     "prettier": "^3.5.2",
     "tailwindcss": "^3.4.17",
+    "tsx": "^4.20.6",
     "typescript": "^5",
     "vitest": "^3.0.6"
   }
