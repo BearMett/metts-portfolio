@@ -1,9 +1,6 @@
 import type { Config } from 'tailwindcss';
 import tailwindcssAnimate from 'tailwindcss-animate';
 
-const calcLineHeight = (lineHeight: number) => {
-  return lineHeight.toPrecision(10);
-};
 const config: Config = {
   darkMode: ['class'],
   content: [

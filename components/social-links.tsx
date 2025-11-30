@@ -3,16 +3,13 @@ import { useTheme } from 'next-themes';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import { GITHUB_URL } from '@/lib/consts';
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export function SocialLinks() {
   const { theme, resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
-  // 컴포넌트가 마운트된 후에만 테마 관련 코드 실행
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  useEffect(() => setMounted(true), []);
 
   // 현재 테마에 기반한 아이콘 경로 결정
   const getIconPath = (darkIcon: string, lightIcon: string) => {

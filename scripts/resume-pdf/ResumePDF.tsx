@@ -1,6 +1,6 @@
 import React from 'react';
 import { Document, Page, View, Text } from '@react-pdf/renderer';
-import { styles, colors } from './styles';
+import { styles } from './styles';
 import type { ResumeData } from '../../lib/resume-parser';
 
 interface ResumePDFProps {

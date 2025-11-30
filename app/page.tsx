@@ -36,7 +36,7 @@ export default function Home() {
       <section className="flex flex-col gap-4 md:flex-row md:gap-8">
         <div className="flex-shrink-0">
           <Image
-            src="/profile/hereiam.jpg?height=300&width=300"
+            src="/profile/hereiam.jpg"
             alt="Profile picture"
             width={300}
             height={300}

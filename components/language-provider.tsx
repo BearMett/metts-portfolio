@@ -1,5 +1,5 @@
 'use client';
-import React, { createContext, useContext, useState, useEffect, useMemo } from 'react';
+import React, { createContext, useContext, useState, useEffect, useMemo, useSyncExternalStore } from 'react';
 import { defaultLanguage, Language, resources, supportedLanguages } from '@/lib/resource.const';
 
 type LanguageContextType = {
@@ -10,21 +10,28 @@ type LanguageContextType = {
 
 const LanguageContext = createContext<LanguageContextType | null>(null);
 
+function getStoredLanguage(): Language {
+  if (typeof window === 'undefined') return defaultLanguage;
+  const stored = localStorage.getItem('language') as Language;
+  return stored && supportedLanguages.includes(stored) ? stored : defaultLanguage;
+}
+
+function subscribeToStorage(callback: () => void) {
+  window.addEventListener('storage', callback);
+  return () => window.removeEventListener('storage', callback);
+}
+
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [language, setLanguage] = useState<Language>(defaultLanguage);
+  const storedLanguage = useSyncExternalStore(subscribeToStorage, getStoredLanguage, () => defaultLanguage);
+  const [language, setLanguageState] = useState<Language>(storedLanguage);
 
-  // Load language preference from localStorage on mount
-  useEffect(() => {
-    const storedLanguage = localStorage.getItem('language') as Language;
-    if (storedLanguage && supportedLanguages.includes(storedLanguage)) {
-      setLanguage(storedLanguage);
-    }
-  }, []);
+  const setLanguage = (lang: Language) => {
+    setLanguageState(lang);
+    localStorage.setItem('language', lang);
+  };
 
-  // Save language preference to localStorage when it changes
+  // Update html lang attribute when language changes
   useEffect(() => {
-    localStorage.setItem('language', language);
-    // Also update html lang attribute
     document.documentElement.lang = language;
   }, [language]);
 
