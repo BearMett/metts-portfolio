@@ -19,7 +19,8 @@
     "NestJS",
     "Expo",
     "GitHub Actions",
-    "PostgreSQL"
+    "PostgreSQL",
+    "GCP"
   ],
   "category": [
     "backend",

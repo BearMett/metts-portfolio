@@ -45,11 +45,13 @@
   },
   "achievements": {
     "ko": [
+      "작업 시간 1-3주에서 1-3일로 단축, 이슈 감지 개선",
       "테스트 커버리지를 0%에서 50%까지 개선했습니다.",
       "도메인 분리로 변경 범위가 명확해져 연쇄 버그 없이 안전하게 개발할 수 있게 되었고, 이슈 대응에만 매달리던 팀이 신규 기능 개발에 집중할 수 있게 되었습니다.",
       "사전 모니터링 체계 구축으로 잠재적 문제를 조기에 발견하고 대응할 수 있게 되었습니다."
     ],
     "en": [
+      "Reduced task completion time from 1-3 weeks to 1-3 days, improved issue detection",
       "Boosted test coverage from 0% to 50%.",
       "Domain separation clarified change scope, enabling safe development without cascading bugs, and freed the team from constant issue response to focus on new feature development.",
       "Enabled early issue detection and response with a proactive monitoring system."

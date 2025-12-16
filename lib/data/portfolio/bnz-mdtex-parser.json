@@ -36,14 +36,14 @@
   },
   "achievements": {
     "ko": [
+      "500건 테스트 케이스 100% 성공률로 UI 오류 해결, 사용자 경험 개선",
       "검토 없이 제품에 적용 가능한 수준의 안정성을 확보하여, 새로운 패턴 발견 시마다 긴급 대응하던 상황에서 벗어나 안정적으로 해설 모듈을 서비스에 배포할 수 있게 되었습니다.",
-      "모듈화된 설계로 새로운 오류 패턴 발견 시 기존 기능에 영향을 주지 않고 확장이 가능해졌습니다.",
-      "수식 표현 오류로 인한 UI 깨짐 현상이 완전히 해결되어 사용자 경험이 개선되었습니다."
+      "모듈화된 설계로 새로운 오류 패턴 발견 시 기존 기능에 영향을 주지 않고 확장이 가능해졌습니다."
     ],
     "en": [
+      "Achieved 100% success rate across 500 test cases, resolving UI errors and improving user experience",
       "Secured stability sufficient for production deployment without review, eliminating the need for emergency responses to each new pattern discovery and enabling stable service deployment of the explanation module.",
-      "Enabled easy expansion for new error patterns without impacting existing features thanks to a modular design.",
-      "Eliminated UI glitches caused by equation errors, enhancing the user experience."
+      "Enabled easy expansion for new error patterns without impacting existing features thanks to a modular design."
     ]
   },
   "sourceUrl": "https://github.com/BNZinc/mdtex-parser",
