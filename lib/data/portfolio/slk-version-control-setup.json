@@ -20,6 +20,7 @@
     "PHP-FPM",
     "MySQL 5.6",
     "Git",
+    "Docker",
     "Shell Script"
   ],
   "category": [
