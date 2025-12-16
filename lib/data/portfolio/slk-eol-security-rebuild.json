@@ -27,30 +27,30 @@
   ],
   "tasks": {
     "ko": [
-      "기존 CodeIgniter 2.x 시스템의 SQL 인젝션 취약점 분석 및 공격 벡터 파악",
-      "레거시 개선 vs 재구축 비용 분석 후 경영진 설득",
-      "Next.js 15 + Prisma 기반의 독립 API 서비스 설계, 타입 안전성 확보",
-      "다층 보안 아키텍처 구축 (JWT 인증, SQL Prepared Statement, XSS 방지, HTTPS 강제)",
-      "무중단 배포 전략 수립: Blue-Green 배포, 데이터 정합성 자동 검증, 롤백 플랜"
+      "의사결정 주도: 레거시 개선 vs 재구축 비용·리스크 분석 후 경영진에 2주 재구축안 제안 및 승인",
+      "영향 범위 확인: 인증/인가 시스템을 사용하는 서비스 담당자들과 현재 연동 방식 파악",
+      "단독 개발: Next.js 15 + Prisma 기반 독립 API 서비스 설계, 타입 안전성 확보",
+      "다층 보안 아키텍처: JWT 인증, SQL Prepared Statement, XSS 방지, HTTPS 강제",
+      "무중단 전환: Blue-Green 배포, 데이터 정합성 자동 검증, 롤백 플랜 수립"
     ],
     "en": [
-      "Analyzed SQL injection vulnerabilities and attack vectors in existing CodeIgniter 2.x system",
-      "Convinced management after cost analysis of legacy improvement vs rebuild",
-      "Designed independent API service based on Next.js 15 + Prisma with type safety",
-      "Built multi-layer security architecture (JWT auth, SQL Prepared Statement, XSS prevention, HTTPS enforcement)",
-      "Established zero-downtime deployment strategy: Blue-Green deployment, automatic data consistency verification, rollback plan"
+      "Led decision-making: Proposed and got approval for 2-week rebuild after cost-risk analysis of legacy improvement vs rebuild",
+      "Verified impact scope: Identified current integration methods with service managers using the auth system",
+      "Solo development: Designed independent API service based on Next.js 15 + Prisma with type safety",
+      "Multi-layer security architecture: JWT auth, SQL Prepared Statement, XSS prevention, HTTPS enforcement",
+      "Zero-downtime transition: Blue-Green deployment, automatic data consistency verification, rollback plan"
     ]
   },
   "achievements": {
     "ko": [
-      "2주 내 완성으로 보안 사고 및 법적 리스크 제거",
-      "최신 LTS 스택 선정으로 향후 5년간 보안 패치 적용 가능 환경 구축",
-      "파라미터화된 쿼리와 ORM 도입으로 SQL 인젝션 공격 원천 차단"
+      "2주 내 완성으로 추가 공격 차단, 법적 리스크 제거",
+      "기존 서비스 무중단 전환 완료",
+      "최신 LTS 스택으로 향후 5년간 보안 패치 적용 가능 환경 구축"
     ],
     "en": [
-      "Completed within 2 weeks, eliminating security incidents and legal risks",
-      "Built environment capable of security patches for next 5 years with latest LTS stack",
-      "Blocked SQL injection attacks at source with parameterized queries and ORM"
+      "Completed within 2 weeks, blocking additional attacks and eliminating legal risks",
+      "Completed zero-downtime transition of existing services",
+      "Built environment capable of security patches for next 5 years with latest LTS stack"
     ]
   }
 }

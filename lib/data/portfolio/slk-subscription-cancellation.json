@@ -1,0 +1,54 @@
+{
+  "id": "slk-subscription-cancellation",
+  "date": "2025-05",
+  "companyId": "slk",
+  "title": {
+    "ko": "구독 취소 관리 페이지 통합",
+    "en": "Subscription Cancellation Management Page Integration"
+  },
+  "shortDesc": {
+    "ko": "분리된 결제/라이선스/구독 시스템을 통합하여 운영팀이 개발팀 개입 없이 취소·환불을 자체 처리할 수 있도록 구현",
+    "en": "Integrated separated payment/license/subscription systems enabling operations team to handle cancellations and refunds independently"
+  },
+  "description": {
+    "ko": "운영팀에서 결제 취소와 라이선스 회수 요청이 반복적으로 개발팀에 전달되었습니다. 운영팀에 미팅을 요청해 실제 업무 화면을 함께 본 결과, 결제 취소 후에도 사용자가 서비스에 접근할 수 있는 구조적 문제를 발견했습니다. 결제 시스템, 라이선스 시스템, 구독 시스템이 분리되어 있어 취소 처리가 연동되지 않았습니다.",
+    "en": "Payment cancellation and license retrieval requests were repeatedly passed from the operations team to the development team. After requesting a meeting with the operations team to view their actual workflow, I discovered a structural problem where users could still access the service after payment cancellation. The payment, license, and subscription systems were separated, so cancellation processing wasn't integrated."
+  },
+  "techStack": [
+    "Next.js",
+    "TypeScript",
+    "PostgreSQL",
+    "Prisma"
+  ],
+  "category": [
+    "backend",
+    "frontend",
+    "integration"
+  ],
+  "tasks": {
+    "ko": [
+      "반복 요청 패턴을 발견하고 직접 운영팀 미팅을 요청하여 결제사 사이트에서 취소 후 개발팀에 라이선스 회수를 요청하는 실제 워크플로우 확인",
+      "표면적 '취소 자동화' 요청이 아닌 시스템 간 연동 부재가 근본 원인임을 파악",
+      "결제/라이선스 시스템 먼저 이관 후 단위 테스트로 검증",
+      "구독 시스템은 며칠간 수동 갱신으로 모니터링한 후 자동화 범위 확장"
+    ],
+    "en": [
+      "Discovered recurring request patterns and directly requested operations team meeting to verify actual workflow of requesting license retrieval from dev team after cancellation on payment provider site",
+      "Identified that the root cause was lack of system integration, not the surface-level 'cancellation automation' request",
+      "Migrated payment/license systems first and verified with unit tests",
+      "Monitored subscription system with manual updates for several days before expanding automation scope"
+    ]
+  },
+  "achievements": {
+    "ko": [
+      "개발팀에 전달되던 취소/환불/라이선스 관련 요청이 더 이상 발생하지 않음",
+      "운영팀이 개발팀 개입 없이 취소·환불·구독 관리 자체 처리 가능",
+      "결제 취소 후 서비스 접근 가능했던 보안 리스크 해소"
+    ],
+    "en": [
+      "Cancellation/refund/license-related requests that were passed to the dev team no longer occur",
+      "Operations team can handle cancellation/refund/subscription management independently without dev team involvement",
+      "Resolved security risk where users could access service after payment cancellation"
+    ]
+  }
+}

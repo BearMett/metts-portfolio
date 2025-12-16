@@ -11,8 +11,8 @@
     "en": "Unified 4 tenant-specific React Native projects into Expo multi-tenant architecture"
   },
   "description": {
-    "ko": "4개의 서로 다른 브랜드를 위한 React Native 앱이 각각 별도의 프로젝트로 관리되고 있었습니다. 동일한 기능 변경을 4번 반복해야 했고, 휴먼 에러가 빈발하며 버그 추적 난이도가 증가했습니다. Expo Config를 활용하여 테넌트별 차별화 요소(OAuth 키, 브랜딩, 리소스)를 환경변수로 추상화하고, EAS 파이프라인을 통합했습니다.",
-    "en": "React Native apps for 4 different brands were managed as separate projects. The same feature changes had to be repeated 4 times, causing frequent human errors and increased bug tracking difficulty. Using Expo Config, I abstracted tenant-specific elements (OAuth keys, branding, resources) as environment variables and integrated EAS pipelines."
+    "ko": "동일한 버그 수정을 4개 앱에 각각 반영하다 일부 앱에만 적용되는 휴먼 에러가 반복 발생했습니다. 개발팀원들과 배포 과정을 리뷰한 결과, 4개 React Native 프로젝트를 개별 관리하는 구조 자체가 문제임을 확인했습니다. 버그 추적 시 '어느 앱에서 발생한 건지' 파악하는 데만 시간이 소요되었습니다.",
+    "en": "Human errors repeatedly occurred where the same bug fix was applied to some apps but missed in others. After reviewing the deployment process with team members, we confirmed that managing 4 React Native projects separately was the structural problem itself. Time was wasted just figuring out 'which app the bug occurred in'."
   },
   "techStack": [
     "React Native",
@@ -26,27 +26,31 @@
   ],
   "tasks": {
     "ko": [
-      "4개 개별 프로젝트의 공통 코드와 브랜드별 차이점 분석",
-      "Expo Config 활용, 테넌트별 차별화 요소를 환경변수로 추상화",
-      "npm 스크립트 기반 빌드 시스템 구축 (npm run build:tenant-a)",
+      "현황 파악: 각 테넌트별 실제 차이점(OAuth 키, 브랜딩, 리소스) 전수 조사, 공통 로직과 분기점 식별",
+      "단계적 통합: 공통 모듈부터 통합 시작, 한 테넌트씩 검증 후 순차 확장",
+      "Expo Config 활용: 테넌트별 차별화 요소를 환경변수로 추상화",
+      "빌드 자동화: npm 스크립트 기반 원터치 빌드 (npm run build:tenant-a)",
       "EAS 파이프라인 통합: OTA 업데이트, 스토어 배포 자동화"
     ],
     "en": [
-      "Analyzed common code and brand-specific differences across 4 separate projects",
-      "Abstracted tenant-specific elements as environment variables using Expo Config",
-      "Built npm script-based build system (npm run build:tenant-a)",
-      "Integrated EAS pipeline: OTA updates, store deployment automation"
+      "Status assessment: Comprehensive survey of actual differences per tenant (OAuth keys, branding, resources), identified common logic and branch points",
+      "Gradual integration: Started integration from common modules, verified one tenant at a time then expanded sequentially",
+      "Expo Config utilization: Abstracted tenant-specific differentiation elements as environment variables",
+      "Build automation: npm script-based one-touch build (npm run build:tenant-a)",
+      "EAS pipeline integration: OTA updates, store deployment automation"
     ]
   },
   "achievements": {
     "ko": [
-      "배포 시간 4시간 → 40분 (70% 단축), 빌드 4회 반복 → 원터치 배포",
-      "단일 코드베이스로 개발 효율 4배 향상 (한번 수정으로 전체 앱 적용)",
+      "동일 수정 작업: 4회 반복 → 1회 (단일 코드베이스)",
+      "배포 시간: 4시간 → 40분 (70% 단축)",
+      "휴먼 에러로 인한 앱별 버전 불일치 문제 해소",
       "EAS Update로 긴급 패치 즉시 배포 (스토어 심사 대기 불필요)"
     ],
     "en": [
-      "Deployment time 4 hours → 40 minutes (70% reduction), 4 repeated builds → one-touch deployment",
-      "4x development efficiency with single codebase (one change applies to all apps)",
+      "Same modification work: 4 repetitions → 1 (single codebase)",
+      "Deployment time: 4 hours → 40 minutes (70% reduction)",
+      "Resolved app version inconsistency issues caused by human error",
       "Immediate emergency patch deployment via EAS Update (no store review wait)"
     ]
   }
