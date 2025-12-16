@@ -26,26 +26,32 @@
   ],
   "tasks": {
     "ko": [
-      "고객사마다 특정 부서만 동기화하거나 휴직자 계정을 비활성화하는 등 요구사항이 달랐으므로, 각 고객사별 맞춤형 인사 연동 요구사항을 분석하고 최적화된 연동 프로그램을 개발했습니다.",
-      "연동 프로그램에 문제가 생기면 인사 정보와 사용자 계정이 불일치하여 보안 문제가 발생할 수 있으므로, 기존 운영 중인 연동 프로그램의 유지보수와 기술 지원을 수행했습니다.",
-      "망분리 환경에서는 원격 디버깅이 불가능하여 현장 엔지니어가 직접 문제를 해결해야 했으므로, 연동 이슈를 분석하고 현장에서 바로 적용 가능한 기술 지원을 제공했습니다.",
-      "유사한 요구사항의 신규 프로젝트에서 동일한 분석을 반복하는 비효율이 있었으므로, 고객사별 인사 연동 요건과 구현 방식을 문서화하여 사내 지식 베이스를 구축했습니다."
+      "고객사 DB 접근 관리자와 직접 인터뷰하여 사용자 라이프사이클 관리 요구사항 파악 (계정 추가/비활성화/제거 시점)",
+      "대화를 통해 단순 기능 요청 이면의 보안 감사 요건과 내부 규정 발견 및 이해",
+      "고객사별 차별화된 정책 구현 (예: A사 - 퇴사자 즉시 삭제, B사 - 임시 그룹 이동 후 수동 처리)",
+      "고객사별 코드베이스 개발 및 형상 관리를 통한 맞춤형 솔루션 제공",
+      "연동 프로그램 유지보수 및 기술 지원 지속 제공"
     ],
     "en": [
-      "Each client had different requirements like syncing only specific departments or deactivating accounts on leave, so I analyzed each client's custom HR integration needs and developed optimized integration programs.",
-      "Integration program issues could cause mismatches between HR data and user accounts, creating security problems, so I maintained and supported existing integration programs in operation.",
-      "Remote debugging was impossible in network-separated environments, requiring field engineers to solve problems on-site, so I analyzed integration issues and provided technical support that could be applied immediately on-site.",
-      "There was inefficiency in repeating the same analysis for new projects with similar requirements, so I documented HR integration requirements and implementations per client to build an internal knowledge base."
+      "Directly interviewed client DB access managers to understand user lifecycle management requirements (account addition/deactivation/removal timing)",
+      "Discovered and understood security audit requirements and internal regulations behind simple feature requests through conversation",
+      "Implemented differentiated policies per client (e.g., Company A - immediate deletion upon resignation, Company B - move to temporary group for manual processing)",
+      "Provided customized solutions through client-specific codebase development and configuration management",
+      "Provided ongoing maintenance and technical support for integration programs"
     ]
   },
   "achievements": {
     "ko": [
-      "인사 연동 솔루션 제공을 통해 고객사별 커스터마이징 및 유지보수 계약으로 추가 수익을 창출했습니다.",
-      "연동 프로그램 개발 경험과 기술 지원 내용을 체계적으로 문서화하여 사내 지식 베이스를 구축했으며, 이를 통해 유사 프로젝트의 효율적인 수행이 가능해졌습니다."
+      "고객사별 보안 정책과 규정을 충족하는 안정적인 인사 연동 시스템 구축",
+      "안정적인 운영으로 고객사 신뢰 확보",
+      "맞춤형 솔루션 제공을 통한 추가 수익 창출 기여",
+      "고객사 요구사항 대응 역량 확보"
     ],
     "en": [
-      "Generated extra revenue through client-specific customization and maintenance contracts via HR integration.",
-      "Created an internal knowledge base by documenting development and support experiences, streamlining similar projects."
+      "Built stable HR integration systems meeting each client's security policies and regulations",
+      "Secured client trust through stable operations",
+      "Contributed to additional revenue generation through customized solution provision",
+      "Developed capability to respond to client requirements"
     ]
   }
 }
