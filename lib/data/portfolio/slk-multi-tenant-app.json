@@ -3,8 +3,8 @@
   "date": "2025-08",
   "companyId": "slk",
   "title": {
-    "ko": "여러 브랜드 앱을 하나처럼 - 배포시간 70% 단축",
-    "en": "Multiple Brand Apps as One - 70% Deployment Time Reduction"
+    "ko": "다중 브랜드 앱을 단일 프로젝트로 통합",
+    "en": "Unified Multiple Brand Apps into Single Project"
   },
   "shortDesc": {
     "ko": "4개 테넌트별 개별 React Native 프로젝트를 Expo 멀티 테넌트 구조로 통합",
