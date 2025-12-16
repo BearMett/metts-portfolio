@@ -1,0 +1,54 @@
+{
+  "id": "slk-coupon-api",
+  "date": "2025-05",
+  "companyId": "slk",
+  "title": {
+    "ko": "여러 외부 판매처와 연동할 수 있는 쿠폰 API 개발",
+    "en": "Coupon API Development for Multiple External Sales Channels"
+  },
+  "shortDesc": {
+    "ko": "KB스타뱅킹 등 외부 판매처 연동을 위한 REST API 설계 및 개발",
+    "en": "REST API design and development for external sales channel integration including KB Star Banking"
+  },
+  "description": {
+    "ko": "기존 쿠폰 시스템은 200건씩 통째로 외부에 전달하는 방식으로, 개별 판매 추적이 불가능하고 정산 신뢰성 문제가 예상되었습니다. KB스타뱅킹 이벤트 페이지 판매 연동 기회가 생겨 사업 담당자에게 먼저 '현재 방식으로 정산이 가능한가' 질문했고, 실시간 판매 추적과 환불 처리가 필요하다는 것을 확인했습니다.",
+    "en": "The existing coupon system delivered 200 coupons in bulk to external parties, making individual sales tracking impossible and raising settlement reliability concerns. When a KB Star Banking event page sales integration opportunity arose, I proactively asked the business manager 'Is settlement possible with the current method?' and confirmed that real-time sales tracking and refund processing were needed."
+  },
+  "techStack": [
+    "Next.js",
+    "TypeScript",
+    "PostgreSQL",
+    "Prisma",
+    "REST API"
+  ],
+  "category": [
+    "backend",
+    "integration"
+  ],
+  "tasks": {
+    "ko": [
+      "정산 신뢰성 문제를 먼저 예측하고 사업 담당자와 대화로 검증",
+      "연동하는 KB 개발자 입장에서 '쿠폰을 비활성화한다'처럼 자연스러운 문장으로 읽히는 REST API 설계",
+      "엔드포인트 구성: POST /coupon(생성), GET /coupon/{id}(상태 확인), PUT /coupon/{id}/deactivate(비활성화), PUT /coupon/{id}/cancel(취소) 등 엔티티와 행위가 명확한 구조",
+      "스토어 단위 API 키 생성·구분 기능으로 멀티 판매처 대응"
+    ],
+    "en": [
+      "Predicted settlement reliability issues first and verified through conversation with business manager",
+      "Designed REST API that reads naturally from KB developer's perspective, like 'deactivate a coupon'",
+      "Endpoint structure: POST /coupon (create), GET /coupon/{id} (status check), PUT /coupon/{id}/deactivate, PUT /coupon/{id}/cancel - clear entity and action separation",
+      "Store-level API key generation and differentiation for multi-sales channel support"
+    ]
+  },
+  "achievements": {
+    "ko": [
+      "KB 연동 테스트 하루 만에 완료 (문서 전달 → 즉시 연동 가능)",
+      "실시간 판매 추적, 환불 정책 지원으로 정산 신뢰성 확보",
+      "네이버 스토어 등 추가 판매처 연동 시 추가 개발 없이 즉시 적용 가능"
+    ],
+    "en": [
+      "KB integration testing completed in one day (documentation delivered → immediate integration possible)",
+      "Secured settlement reliability with real-time sales tracking and refund policy support",
+      "Additional sales channels like Naver Store can be integrated immediately without additional development"
+    ]
+  }
+}
