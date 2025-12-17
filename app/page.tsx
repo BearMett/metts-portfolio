@@ -53,12 +53,6 @@ export default function Home() {
               <li key={`value-${index}`}>{item}</li>
             ))}
           </ul>
-          <h2 className="text-2xl text-muted-foreground">{aboutMe.workApproach.title}</h2>
-          <ul className="list-disc list-inside text-lg text-muted-foreground space-y-2">
-            {aboutMe.workApproach.items.map((item: string, index: number) => (
-              <li key={`approach-${index}`}>{item}</li>
-            ))}
-          </ul>
           <h2 className="text-2xl text-muted-foreground">{aboutMe.strengths.title}</h2>
           <ul className="list-disc list-inside text-lg text-muted-foreground space-y-2">
             {aboutMe.strengths.items.map((item: string, index: number) => (

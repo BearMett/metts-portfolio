@@ -3,12 +3,12 @@ import { Language } from '@/lib/resource.const';
 
 export const aboutMeData: AboutMeTranslated = {
   title: {
-    ko: '김영민 | 함께 일하는 가치를 아는 소프트웨어 개발자',
-    en: 'Youngmin Kim | Software Developer Who Values Collaboration',
+    ko: '김영민 | 먼저 묻고, 사용자의 불편함을 해결하는 소프트웨어 엔지니어',
+    en: 'Youngmin Kim | Software Engineer Who Asks First and Solves User Pain Points',
   },
   introduction: {
-    ko: '함께 일하는 가치를 아는 소프트웨어 개발자, 김영민입니다.',
-    en: "I'm Youngmin Kim, a software developer who values working together.",
+    ko: '먼저 묻고, 사용자의 불편함을 해결하는 소프트웨어 엔지니어, 김영민입니다.',
+    en: "I'm Youngmin Kim, a software engineer who asks first and solves user pain points.",
   },
   values: {
     title: {
@@ -17,38 +17,16 @@ export const aboutMeData: AboutMeTranslated = {
     },
     items: {
       ko: [
-        '문제의 본질과 원인 파악: 표면적인 현상 해결에 그치지 않고, 근본 원인을 파악하여 재발을 방지하는 데 집중합니다.',
-        '사용자에게 제공하는 가치: 기술 그 자체보다 사용자가 겪는 문제를 해결하고 실질적인 만족을 주는 것에 보람을 느낍니다.',
-        '동료와 함께하는 가치: 팀원들과 지식을 공유하고 팀을 넘어 조직 전체의 인사이트를 함께합니다.',
-        '기술적 실용주의: 새로운 기술에 열려있되, 비즈니스 문제 해결을 위한 최적의 수단으로 활용하는 것을 원칙으로 삼습니다.',
-        '신중한 설계와 과감한 실행: 기획과 설계는 깊게 검토하고, 결정된 사항은 빠르게 실행합니다.',
+        '먼저 묻고, 직접 확인합니다: 반복되는 요청이나 오류를 발견하면 담당자에게 미팅을 요청해 실제 업무 화면을 함께 봅니다. 표면적 요청 뒤에 있는 구조적 문제를 파악합니다.',
+        '사용자가 인식하지 못한 불편함을 찾습니다: 비개발자가 당연하게 여기던 복잡한 작업 과정에서 구조적 문제를 발견하고, 익숙한 도구 위에 검증과 자동화를 얹어 쉽게 사용할 수 있는 해결책을 제안합니다.',
+        '먼저 해결하고, 점진적으로 자동화합니다: 완벽한 자동화보다 문제 해결을 우선합니다. 작동하는 해결책을 먼저 만들고, 안정성을 확인하며 점진적으로 고도화합니다.',
+        '사람의 언어로 설계합니다: API를 설계할 때 엔티티와 행위가 자연스러운 문장으로 읽히도록 구성합니다. 연동하는 개발자가 직관적으로 이해할 수 있는 구조를 지향합니다.',
       ],
       en: [
-        'Identifying Root Causes: I focus on understanding fundamental causes to prevent recurrence, not just addressing surface-level symptoms.',
-        'Delivering User Value: I find fulfillment in solving real user problems and providing genuine satisfaction, rather than technology for its own sake.',
-        'Collaborative Value: I share knowledge with team members and contribute insights across the entire organization.',
-        'Technical Pragmatism: While open to new technologies, I use them as optimal means to solve business problems.',
-        'Careful Design, Bold Execution: I review planning and design thoroughly, then execute decisions quickly.',
-      ],
-    },
-  },
-  workApproach: {
-    title: {
-      ko: '문제 해결 방식',
-      en: 'Problem-Solving Approach',
-    },
-    items: {
-      ko: [
-        '레거시 개선과 신규 구축의 비용을 분석하여 상황에 맞는 전략을 선택합니다.',
-        '완벽한 설계보다 "지금 우리 팀이 감당 가능한 최선의 설계"를 추구합니다.',
-        '비개발자도 이해할 수 있도록 기술적 trade-off를 설명합니다.',
-        '팀 상황(레거시 정도, 인력 구성, 일정)에 따라 적절한 방식을 선택합니다.',
-      ],
-      en: [
-        'I analyze costs between legacy improvement and new development to choose the right strategy.',
-        'I pursue "the best design our team can currently manage" rather than perfect design.',
-        'I explain technical trade-offs in ways non-developers can understand.',
-        'I choose appropriate approaches based on team circumstances (legacy level, team composition, timeline).',
+        'Ask first, verify directly: When I notice repeated requests or errors, I schedule meetings with stakeholders to observe their actual workflows. I identify structural problems behind surface-level requests.',
+        "Find pain points users don't recognize: I discover structural issues in complex processes that non-developers take for granted, and propose easy-to-use solutions by adding validation and automation on top of familiar tools.",
+        'Solve first, automate incrementally: I prioritize problem-solving over perfect automation. I build working solutions first, verify stability, and gradually enhance them.',
+        'Design in human language: When designing APIs, I structure entities and actions to read like natural sentences. I aim for structures that developers can intuitively understand.',
       ],
     },
   },
@@ -87,10 +65,6 @@ export function getAboutMeData(language: Language): AboutMe {
     values: {
       title: aboutMeData.values.title[language],
       items: aboutMeData.values.items[language],
-    },
-    workApproach: {
-      title: aboutMeData.workApproach.title[language],
-      items: aboutMeData.workApproach.items[language],
     },
     strengths: {
       title: aboutMeData.strengths.title[language],

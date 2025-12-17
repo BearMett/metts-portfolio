@@ -77,10 +77,6 @@ export interface AboutMeTranslated {
     title: { [key in Language]: string };
     items: { [key in Language]: string[] };
   };
-  workApproach: {
-    title: { [key in Language]: string };
-    items: { [key in Language]: string[] };
-  };
   strengths: {
     title: { [key in Language]: string };
     items: { [key in Language]: string[] };
@@ -92,10 +88,6 @@ export interface AboutMe {
   title: string;
   introduction: string;
   values: {
-    title: string;
-    items: string[];
-  };
-  workApproach: {
     title: string;
     items: string[];
   };
