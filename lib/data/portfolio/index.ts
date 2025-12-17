@@ -20,12 +20,12 @@ import slkSubscriptionCancellation from './slk-subscription-cancellation.json';
 import slkCouponApi from './slk-coupon-api.json';
 
 export const portfolioItems = [
-  slkEolSecurityRebuild,
-  slkMultiTenantApp,
-  slkCouponApi,
-  slkContentManagementSystem,
-  slkPointSystem,
   slkSubscriptionCancellation,
+  slkCouponApi,
+  slkPointSystem,
+  slkContentManagementSystem,
+  slkMultiTenantApp,
+  slkEolSecurityRebuild,
   slkVersionControlSetup,
   bnzOdapp,
   personalNextjsUriGenerator,
