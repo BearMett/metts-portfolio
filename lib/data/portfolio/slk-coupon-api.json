@@ -29,7 +29,7 @@
       "정산 신뢰성 문제를 선제적으로 예측하고 사업 담당자와 대화로 검증",
       "연동하는 KB 개발자 입장에서 '쿠폰을 비활성화한다'처럼 자연스러운 문장으로 읽히는 REST API 설계",
       "POST /coupon(생성), GET /coupon/{id}(상태 확인), PUT /coupon/{id}/deactivate(비활성화), PUT /coupon/{id}/cancel(취소) 등 엔티티와 행위가 명확한 엔드포인트 구성",
-      "스토어 단위 API 키 생성·구분 기능으로 멀티 판매처 대응"
+      "스토어 단위 API 키 생성·구분 기능으로 여러 판매처 대응"
     ],
     "en": [
       "Proactively predicted settlement reliability issues and verified through discussion with business manager",
