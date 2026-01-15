@@ -8,6 +8,7 @@ import { Toaster } from '@/components/ui/toaster';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { LanguageProvider } from '@/components/language-provider';
+import { ClarityProvider } from '@/components/clarity-provider';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -31,6 +32,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </ThemeProvider>
         {process.env.NODE_ENV === 'production' && <SpeedInsights />}
         {process.env.NODE_ENV === 'production' && <Analytics />}
+        {process.env.NODE_ENV === 'production' && <ClarityProvider />}
       </body>
     </html>
   );
