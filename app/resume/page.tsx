@@ -7,12 +7,11 @@ export default async function ResumePage() {
   const { fileContent } = await getMarkdownContent(path.join(process.cwd(), 'app/resume/resume.md'));
 
   return (
-    <div className="relative">
+    <>
       <ResumeDownloadButton />
       <div className="container max-w-4xl py-8 md:py-12">
         <MarkdownContent content={fileContent} />
       </div>
-      <ResumeDownloadButton />
-    </div>
+    </>
   );
 }

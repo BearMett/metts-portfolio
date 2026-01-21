@@ -1,0 +1,15 @@
+[
+  { "id": "all", "label": { "ko": "전체 보기", "en": "View All" }, "icon": "Filter" },
+  { "id": "backend", "label": { "ko": "백엔드 개발", "en": "Backend Development" }, "icon": "Server" },
+  { "id": "database", "label": { "ko": "데이터베이스", "en": "Database" }, "icon": "Database" },
+  { "id": "devops", "label": { "ko": "DevOps/인프라", "en": "DevOps/Infrastructure" }, "icon": "Cloud" },
+  { "id": "security", "label": { "ko": "보안", "en": "Security" }, "icon": "Shield" },
+  { "id": "parser", "label": { "ko": "파서/분석", "en": "Parser/Analysis" }, "icon": "Code" },
+  { "id": "ai", "label": { "ko": "AI/머신러닝", "en": "AI/Machine Learning" }, "icon": "Brain" },
+  { "id": "refactoring", "label": { "ko": "리팩토링", "en": "Refactoring" }, "icon": "RefreshCw" },
+  { "id": "integration", "label": { "ko": "시스템 연동", "en": "System Integration" }, "icon": "Link" },
+  { "id": "frontend", "label": { "ko": "프론트엔드", "en": "Frontend" }, "icon": "Layout" },
+  { "id": "mobile", "label": { "ko": "네이티브 앱", "en": "Native App" }, "icon": "Smartphone" },
+  { "id": "search", "label": { "ko": "검색 엔진", "en": "Search Engine" }, "icon": "Search" },
+  { "id": "cloud", "label": { "ko": "클라우드", "en": "Cloud" }, "icon": "Cloud" }
+]

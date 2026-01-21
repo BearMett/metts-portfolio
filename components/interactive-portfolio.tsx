@@ -19,7 +19,7 @@ import {
   FileDown,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { PortfolioItem, portfolioCategories } from '@/lib/portfolio-data';
+import { PortfolioItem, usePortfolioData } from '@/lib/portfolio-data';
 import Image from 'next/image';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 import { useLanguage } from './language-provider';
@@ -30,8 +30,9 @@ interface InteractivePortfolioProps {
   items: PortfolioItem[];
 }
 
-export function InteractivePortfolio({ items }: InteractivePortfolioProps) {
+export function InteractivePortfolio({ items: _items }: InteractivePortfolioProps) {
   const { t, language } = useLanguage();
+  const { categories, getFilteredItems, getCompanyForItem } = usePortfolioData();
   const [activeFilters, setActiveFilters] = useState<Record<string, boolean>>({
     all: true,
   });
@@ -42,7 +43,7 @@ export function InteractivePortfolio({ items }: InteractivePortfolioProps) {
     if (filter === 'all') {
       // 'all' 필터 선택 시 다른 모든 필터를 비활성화
       const resetFilters: Record<string, boolean> = { all: true };
-      portfolioCategories.forEach((cat) => {
+      categories.forEach((cat) => {
         if (cat.id !== 'all') resetFilters[cat.id] = false;
       });
       setActiveFilters(resetFilters);
@@ -71,14 +72,39 @@ export function InteractivePortfolio({ items }: InteractivePortfolioProps) {
   };
 
   // 필터링된 아이템 가져오기
-  const getFilteredItems = () => {
-    if (activeFilters.all) {
-      return items;
-    }
-    return items.filter((item) => item.category.some((cat) => activeFilters[cat]));
-  };
+  const filteredItems = getFilteredItems(activeFilters);
 
-  const filteredItems = getFilteredItems();
+  // 회사별 타임라인 포인트 색상 가져오기 (hook 기반)
+  const getTimelineColorClass = (itemId: string): string => {
+    const company = getCompanyForItem(itemId);
+    if (!company) {
+      return 'bg-blue-500 dark:bg-blue-400';
+    }
+
+    // Tailwind CSS 색상 맵 미리 정의
+    const colorMap: Record<string, string> = {
+      purple: 'bg-purple-500 dark:bg-purple-400',
+      blue: 'bg-blue-500 dark:bg-blue-400',
+      orange: 'bg-orange-500 dark:bg-orange-400',
+      yellow: 'bg-yellow-500 dark:bg-yellow-400',
+      green: 'bg-green-500 dark:bg-green-400',
+      red: 'bg-red-500 dark:bg-red-400',
+      indigo: 'bg-indigo-500 dark:bg-indigo-400',
+      pink: 'bg-pink-500 dark:bg-pink-400',
+      teal: 'bg-teal-500 dark:bg-teal-400',
+      cyan: 'bg-cyan-500 dark:bg-cyan-400',
+      emerald: 'bg-emerald-500 dark:bg-emerald-400',
+      lime: 'bg-lime-500 dark:bg-lime-400',
+      amber: 'bg-amber-500 dark:bg-amber-400',
+      rose: 'bg-rose-500 dark:bg-rose-400',
+      violet: 'bg-violet-500 dark:bg-violet-400',
+      slate: 'bg-slate-500 dark:bg-slate-400',
+      gray: 'bg-gray-500 dark:bg-gray-400',
+    };
+
+    // 회사의 primary 색상 키를 사용해서 색상 클래스 반환
+    return colorMap[company.colors.primary] || 'bg-blue-500 dark:bg-blue-400';
+  };
 
   // PDF 다운로드 처리 함수 - 현재 필터링된 항목만 포함
   const handleFilteredDownloadPDF = async () => {
@@ -109,21 +135,11 @@ export function InteractivePortfolio({ items }: InteractivePortfolioProps) {
       return forFilename ? 'all' : t('portfolio.filterAll');
     }
 
-    const activeFilterNames = portfolioCategories
+    const activeFilterNames = categories
       .filter((cat) => cat.id !== 'all' && activeFilters[cat.id])
       .map((cat) => (forFilename ? cat.id : getCategoryLabel(cat.id)));
 
     return activeFilterNames.join(forFilename ? '_' : ', ');
-  };
-
-  // 회사별 타임라인 포인트 색상 가져오기
-  const getCompanyColorClass = (company: string): string => {
-    if (company.includes('BnZ')) return 'bg-purple-500 dark:bg-purple-400';
-    else if (company.includes('Maxst')) return 'bg-blue-500 dark:bg-blue-400';
-    else if (company.includes('웨어밸리')) return 'bg-orange-500 dark:bg-orange-400';
-    else if (company.includes('프로젝트')) return 'bg-green-500 dark:bg-green-400';
-    else if (company.includes('버터')) return 'bg-yellow-500 dark:bg-yellow-400';
-    else return 'bg-blue-500 dark:bg-blue-400';
   };
 
   // 아이콘 매핑
@@ -244,7 +260,7 @@ export function InteractivePortfolio({ items }: InteractivePortfolioProps) {
         </div>
 
         <div className="flex flex-wrap gap-2">
-          {portfolioCategories.map((category) => (
+          {categories.map((category) => (
             <button
               key={category.id}
               onClick={() => handleFilterChange(category.id)}
@@ -277,7 +293,7 @@ export function InteractivePortfolio({ items }: InteractivePortfolioProps) {
                     return <Filter size={14} />;
                 }
               })()}
-              {getCategoryLabel(category.id)}
+              {category.label}
             </button>
           ))}
         </div>
@@ -303,7 +319,7 @@ export function InteractivePortfolio({ items }: InteractivePortfolioProps) {
               <div key={item.id} className="relative pl-16">
                 {/* 타임라인 포인트 */}
                 <div
-                  className={`absolute left-6 w-6 h-6 rounded-full transform -translate-x-1/2 mt-3 z-10 border-2 border-white dark:border-gray-800 shadow-md ${getCompanyColorClass(item.company)}`}
+                  className={`absolute left-6 w-6 h-6 rounded-full transform -translate-x-1/2 mt-3 z-10 border-2 border-white dark:border-gray-800 shadow-md ${getTimelineColorClass(item.id)}`}
                 ></div>
 
                 {/* 아이템 카드 */}

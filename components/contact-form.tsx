@@ -43,7 +43,7 @@ export function ContactForm() {
         title: 'Message sent!',
         description: "Thank you for your message. I'll get back to you soon.",
       });
-    } catch (error) {
+    } catch (_error) {
       toast({
         variant: 'destructive',
         title: 'Error',

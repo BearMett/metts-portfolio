@@ -1,0 +1,56 @@
+{
+  "id": "slk-eol-security-rebuild",
+  "date": "2025-09",
+  "companyId": "slk",
+  "title": {
+    "ko": "2주 만에 보안 위협 제거 - EOL 스택 전면 재구축",
+    "en": "Eliminated Security Threat in 2 Weeks - Complete EOL Stack Rebuild"
+  },
+  "shortDesc": {
+    "ko": "SQL 인젝션 공격이 성공한 EOL 스택을 Next.js 15 기반 보안 아키텍처로 전면 재구축",
+    "en": "Rebuilt EOL stack vulnerable to SQL injection attacks with Next.js 15 secure architecture"
+  },
+  "description": {
+    "ko": "CodeIgniter 2.x와 PHP 5.6 기반의 레거시 시스템에서 SQL 인젝션 공격이 실제로 성공하는 보안 사고가 발생했습니다. EOL(End of Life) 상태의 스택은 보안 패치가 불가능했고, 부분 개선은 리스크 지연만 초래할 것으로 분석했습니다. 레거시 개선(예상 3개월) vs 재구축(2주) 비용을 분석하여 경영진을 설득하고, 완전히 새로운 아키텍처로 재구축했습니다.",
+    "en": "A SQL injection attack actually succeeded on a legacy system built with CodeIgniter 2.x and PHP 5.6. The EOL (End of Life) stack couldn't receive security patches, and partial improvements would only delay risks. After analyzing costs between legacy improvement (estimated 3 months) vs rebuild (2 weeks) and convincing management, I rebuilt with a completely new architecture."
+  },
+  "techStack": [
+    "Next.js 15",
+    "Tailwind CSS",
+    "TanStack Query",
+    "Prisma"
+  ],
+  "category": [
+    "security",
+    "backend",
+    "frontend"
+  ],
+  "tasks": {
+    "ko": [
+      "의사결정 주도: 레거시 개선 vs 재구축 비용·리스크 분석 후 경영진에 2주 재구축안 제안 및 승인",
+      "영향 범위 확인: 인증/인가 시스템을 사용하는 서비스 담당자들과 현재 연동 방식 파악",
+      "단독 개발: Next.js 15 + Prisma 기반 독립 API 서비스 설계, 타입 안전성 확보",
+      "다층 보안 아키텍처: JWT 인증, SQL Prepared Statement, XSS 방지, HTTPS 강제",
+      "무중단 전환: Blue-Green 배포, 데이터 정합성 자동 검증, 롤백 플랜 수립"
+    ],
+    "en": [
+      "Led decision-making: Proposed and got approval for 2-week rebuild after cost-risk analysis of legacy improvement vs rebuild",
+      "Verified impact scope: Identified current integration methods with service managers using the auth system",
+      "Solo development: Designed independent API service based on Next.js 15 + Prisma with type safety",
+      "Multi-layer security architecture: JWT auth, SQL Prepared Statement, XSS prevention, HTTPS enforcement",
+      "Zero-downtime transition: Blue-Green deployment, automatic data consistency verification, rollback plan"
+    ]
+  },
+  "achievements": {
+    "ko": [
+      "2주 내 완성으로 추가 공격 차단, 법적 리스크 제거",
+      "기존 서비스 무중단 전환 완료",
+      "최신 LTS 스택으로 향후 5년간 보안 패치 적용 가능 환경 구축"
+    ],
+    "en": [
+      "Completed within 2 weeks, blocking additional attacks and eliminating legal risks",
+      "Completed zero-downtime transition of existing services",
+      "Built environment capable of security patches for next 5 years with latest LTS stack"
+    ]
+  }
+}

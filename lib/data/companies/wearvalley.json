@@ -1,0 +1,20 @@
+{
+  "id": "wearvalley",
+  "name": {
+    "ko": "(주) 웨어밸리",
+    "en": "Wearvalley Co., Ltd."
+  },
+  "shortName": {
+    "ko": "웨어밸리",
+    "en": "Wearvalley"
+  },
+  "description": {
+    "ko": "웨어러블 기술 솔루션 회사",
+    "en": "Wearable technology solutions company"
+  },
+  "colors": {
+    "primary": "orange"
+  },
+  "website": "https://wearvalley.com",
+  "type": "company"
+}

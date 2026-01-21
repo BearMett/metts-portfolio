@@ -1,21 +1,19 @@
-import { FlatCompat } from '@eslint/eslintrc';
-const compat = new FlatCompat({
-  baseDirectory: import.meta.dirname,
-});
+import nextVitals from 'eslint-config-next/core-web-vitals';
+import nextTs from 'eslint-config-next/typescript';
+import prettier from 'eslint-plugin-prettier';
+import prettierConfig from 'eslint-config-prettier';
 
 const eslintConfig = [
   {
-    ignores: ['node_modules', '.next', 'out', 'public'],
+    ignores: ['node_modules/**', '.next/**', 'out/**', 'public/**'],
   },
-  ...compat.config({
-    extends: [
-      'plugin:@typescript-eslint/eslint-recommended',
-      'plugin:@typescript-eslint/recommended',
-      'plugin:prettier/recommended',
-      'next',
-    ],
-  }),
+  ...nextVitals,
+  ...nextTs,
+  prettierConfig,
   {
+    plugins: {
+      prettier,
+    },
     rules: {
       '@typescript-eslint/no-var-requires': 'off',
       '@typescript-eslint/interface-name-prefix': 'off',

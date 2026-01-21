@@ -1,0 +1,59 @@
+{
+  "id": "slk-content-management-system",
+  "date": "2025-06",
+  "companyId": "slk",
+  "title": {
+    "ko": "영어 교육 콘텐츠 관리 시스템(CMS) 구축",
+    "en": "English Education Content Management System (CMS) Development"
+  },
+  "shortDesc": {
+    "ko": "개발팀 운영 부담 80% 감소, 콘텐츠 등록 시간 1주일→당일 즉시로 단축한 통합 CMS 구축",
+    "en": "Integrated CMS achieving 80% reduction in dev team burden, content registration from 1 week to same-day completion"
+  },
+  "description": {
+    "ko": "영어 듣기 콘텐츠가 재생되지 않거나 이상하게 표시되는 오류가 반복 발생했습니다. 콘텐츠 운영팀이 SFTP로 파일 업로드 → URL 확인 → DBeaver로 JSON 데이터 입력하는 구조로 작업 중이었습니다. 전체 업로드 매뉴얼을 분석한 결과, 비개발자가 이 구조를 따라하는 것 자체가 문제임을 발견했습니다. 담당자들은 이 불편함을 당연하게 여기고 있었습니다.",
+    "en": "Errors where English listening content wouldn't play or displayed incorrectly occurred repeatedly. The content operations team was working with a structure of SFTP file upload → URL verification → JSON data entry via DBeaver. After analyzing the complete upload manual, I discovered that the problem was non-developers trying to follow this structure itself. The team had accepted this inconvenience as normal."
+  },
+  "techStack": [
+    "Next.js",
+    "Tailwind CSS",
+    "TanStack Query",
+    "TypeScript",
+    "PostgreSQL",
+    "Prisma",
+    "NCP Object Storage"
+  ],
+  "category": [
+    "frontend",
+    "backend",
+    "database"
+  ],
+  "tasks": {
+    "ko": [
+      "콘텐츠 담당자가 인식하지 못한 구조적 문제를 파악하고 개선안 제안",
+      "담당자들이 익숙한 엑셀 기반 작업 방식 유지, 100개 이상 대량 처리 패턴 고려",
+      "Next.js 기반 CMS 구현: CSV 템플릿 다운로드 → 미디어 업로드 → 데이터 입력 → 실시간 검증 → DB 반영",
+      "에러 메시지 한글화, 입력 시점에 스키마 검증으로 학습 곡선 최소화"
+    ],
+    "en": [
+      "Identified structural problems unrecognized by content team and proposed improvements",
+      "Maintained familiar Excel-based workflow for staff, considered batch processing patterns for 100+ items",
+      "Implemented Next.js-based CMS: CSV template download → media upload → data entry → real-time validation → DB commit",
+      "Minimized learning curve with Korean error messages and schema validation at input time"
+    ]
+  },
+  "achievements": {
+    "ko": [
+      "콘텐츠 등록 시간: 1주일 → 당일 즉시",
+      "개발팀 검증 프로세스 불필요, 운영 업무 부담 80% 감소",
+      "담당자가 개발팀 개입 없이 자립적으로 콘텐츠 운영",
+      "SFTP/DBeaver 완전 제거, 업로드 전 즉각 피드백으로 오류 사전 차단"
+    ],
+    "en": [
+      "Content registration time: 1 week → same-day immediate",
+      "Dev team verification process unnecessary, 80% reduction in operational burden",
+      "Staff operate content independently without dev team involvement",
+      "Complete removal of SFTP/DBeaver, pre-upload immediate feedback blocks errors in advance"
+    ]
+  }
+}

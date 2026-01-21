@@ -1,15 +1,15 @@
 'use client';
 
 import { InteractivePortfolio } from '@/components/interactive-portfolio';
-import { getLocalizedPortfolioData } from '@/lib/portfolio-data';
+import { usePortfolioData } from '@/lib/portfolio-data';
 import { useLanguage } from '@/components/language-provider';
 import { Button } from '@/components/ui/button';
 import { FileDown } from 'lucide-react';
 import { downloadPortfolioPDF } from '@/lib/pdf-generator';
 
 export default function PortfolioPage() {
-  const { t, language } = useLanguage();
-  const localizedData = getLocalizedPortfolioData(language);
+  const { t } = useLanguage();
+  const { items } = usePortfolioData();
 
   // PDF 다운로드 처리 함수
   const handleDownloadPDF = async () => {
@@ -47,7 +47,7 @@ export default function PortfolioPage() {
         )}
       </div>
       <p className="text-lg text-gray-600 dark:text-gray-300 mb-10 text-center">{t('portfolio.subtitle')}</p>
-      <InteractivePortfolio items={localizedData} />
+      <InteractivePortfolio items={items} />
     </div>
   );
 }

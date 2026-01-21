@@ -1,0 +1,47 @@
+{
+  "id": "wv-migration",
+  "date": "2022-09",
+  "companyId": "wearvalley",
+  "title": {
+    "ko": "경쟁사 제품의 DB 접근제어 정책 이관",
+    "en": "Migration of Competitor DB Access Control Policies"
+  },
+  "shortDesc": {
+    "ko": "대규모 보안 정책의 자동화된 분석 및 이관 시스템 구축",
+    "en": "Developed an automated system for analyzing and migrating large-scale security policies"
+  },
+  "description": {
+    "ko": "대기업 고객사가 경쟁사 제품에서 자사 제품으로 전환하면서, 약 2천대의 데이터베이스에 적용된 5천여 개의 보안 정책을 이관해야 하는 상황이 발생했습니다. 정책의 규모가 수동 이관이 불가능한 수준이었기 때문에, 데이터 분석을 통한 자동화된 정책 생성 솔루션이 필요했습니다.",
+    "en": "When a major client switched from a competitor's product to ours, we needed to migrate around 5,000 security policies across 2,000 databases. The sheer volume made manual migration impossible, so I built an automated solution using data analysis to generate the policies."
+  },
+  "techStack": [
+    "CentOS",
+    "SQL",
+    "Lua"
+  ],
+  "category": [
+    "backend",
+    "database",
+    "security"
+  ],
+  "tasks": {
+    "ko": [
+      "경쟁사 정책 분석 및 자사 솔루션 정책 매핑 로직 개발",
+      "정책 무결성 검증 보고용 데이터 쿼리 작성 (100% 검증)"
+    ],
+    "en": [
+      "Analyzed competitor policies and developed policy mapping logic for our solution",
+      "Created data queries for policy integrity verification reports (100% verification)"
+    ]
+  },
+  "achievements": {
+    "ko": [
+      "5,000개 정책 100% 이관 및 무결성 검증 완료",
+      "경쟁사 제품 마이그레이션 선례 확립"
+    ],
+    "en": [
+      "Completed 100% migration and integrity verification of 5,000 policies",
+      "Established precedent for competitor product migration"
+    ]
+  }
+}

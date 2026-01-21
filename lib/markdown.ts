@@ -12,7 +12,7 @@ const metadataSchema = z.object({
   description: z.string().optional(),
 });
 
-type Metadata = z.infer<typeof metadataSchema>;
+type _Metadata = z.infer<typeof metadataSchema>;
 
 export async function getMarkdownContent(filepath: string) {
   const fileContent = fs.readFileSync(filepath, 'utf8');

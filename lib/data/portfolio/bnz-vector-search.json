@@ -1,0 +1,52 @@
+{
+  "id": "bnz-vector-search",
+  "date": "2024-05",
+  "companyId": "bnz",
+  "title": {
+    "ko": "학생 질문 유사 문제 검색 벡터 파이프라인 구축",
+    "en": "Vector Pipeline for Similar Problem Search Based on Student Questions"
+  },
+  "shortDesc": {
+    "ko": "임베딩 기반 유사 문제 검색 시스템 개발로 질문-문제 연결성 강화",
+    "en": "Built an embedding-based search system to better connect questions with similar problems"
+  },
+  "description": {
+    "ko": "학생의 오답노트나 질문에 대한 이해도를 확인하기 위해 유사한 문제를 제공하는 기능이 필요했습니다. 기존 키워드 기반 검색은 키워드가 비슷해도 전혀 다른 문제가 검색되는 한계가 있었고, 키워드 분류 방식은 수동 라벨링 작업이 필요해 인력 부족으로 실현이 어려웠습니다. 데이터 가공 없이 LLM 리소스만으로 문제의 의미를 이해하는 임베딩 기반 검색 시스템을 구축했습니다.",
+    "en": "We needed to provide similar problems to verify students' understanding of wrong answers or questions. Existing keyword-based search had limitations where completely different problems appeared even with similar keywords, and keyword classification required manual labeling, which was impractical due to manpower shortage. I built an embedding-based search system that understands problem meaning using only LLM resources without data processing."
+  },
+  "techStack": [
+    "TypeScript",
+    "Azure OpenAI",
+    "Elastic Search"
+  ],
+  "category": [
+    "backend",
+    "search",
+    "ai",
+    "database"
+  ],
+  "tasks": {
+    "ko": [
+      "키워드가 비슷해도 전혀 다른 문제가 검색되는 한계를 극복하기 위해 Azure OpenAI의 임베딩 모델을 활용한 벡터 검색을 구현하여 문제의 의미를 기반으로 유사도를 판단하도록 했습니다.",
+      "키워드 검색과 벡터 검색을 결합한 하이브리드 검색 시스템을 Elastic Search로 구축하여 검색 정확도를 향상했습니다.",
+      "개발 환경의 접근성을 높이기 위해 Elastic Search 환경을 컨테이너화하여 로컬 개발 설정을 간소화했습니다."
+    ],
+    "en": [
+      "To overcome the limitation where completely different problems appeared despite similar keywords, I implemented vector search using Azure OpenAI's embedding model to judge similarity based on problem meaning.",
+      "Built a hybrid search system combining keyword and vector search with Elastic Search to improve search accuracy.",
+      "Containerized Elastic Search environment to improve development accessibility and simplify local development setup."
+    ]
+  },
+  "achievements": {
+    "ko": [
+      "수동 라벨링 없이 임베딩으로 문제의 의미를 자동 분석하여, 인력 부족 상황에서도 유사 문제 검색 시스템을 구축할 수 있었습니다.",
+      "키워드 유사성이 아닌 의미 기반 검색으로 전환하여, 학생의 이해도 확인에 적합한 유사 문제를 정확히 제공할 수 있게 되었습니다.",
+      "검색 서비스와 임베딩 로직을 모듈화하여 Azure OpenAI 외 다른 임베딩 서비스로의 전환이 용이한 아키텍처를 설계했습니다."
+    ],
+    "en": [
+      "Automatically analyzed problem meaning with embeddings without manual labeling, enabling similar problem search system construction even with manpower shortage.",
+      "Transitioned from keyword similarity to meaning-based search, enabling accurate provision of similar problems suitable for verifying student understanding.",
+      "Designed a modular architecture for search and embedding logic, making it easy to switch from Azure OpenAI to other embedding services."
+    ]
+  }
+}

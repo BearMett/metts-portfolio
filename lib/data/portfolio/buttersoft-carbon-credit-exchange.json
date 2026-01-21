@@ -1,0 +1,55 @@
+{
+  "id": "buttersoft-carbon-credit-exchange",
+  "date": "2024-03",
+  "companyId": "buttersoft",
+  "title": {
+    "ko": "카본몬스터 백엔드 시스템 (거래소 엔진) 개발",
+    "en": "Carbon Monster Backend System (Exchange Engine) Development"
+  },
+  "shortDesc": {
+    "ko": "NFT 거래 플랫폼의 고성능 주문 매칭 엔진 개발",
+    "en": "Built a high-performance order matching engine for an NFT trading platform"
+  },
+  "description": {
+    "ko": "카본몬스터는 탄소 배출권을 NFT로 거래하는 플랫폼입니다. 실시간 거래량이 많아질 수 있는 구조였고, 블록체인과 거래소 간 데이터 불일치로 인한 거래 지연 문제가 발생했습니다. 블록체인 원장은 초당 약 20건의 트랜잭션 처리 제약이 있었으므로, 거래소 엔진 자체를 최적화하여 블록체인이 병목이 되더라도 거래소 측 처리는 빠르게 동작하도록 시스템을 설계했습니다.",
+    "en": "Carbon Monster is a platform for trading carbon credits as NFTs. With potential for high real-time trading volume, we faced transaction delays from blockchain-exchange data inconsistencies. Since the blockchain ledger had a constraint of about 20 transactions per second, I optimized the exchange engine itself so that the exchange side could operate quickly even when the blockchain became the bottleneck."
+  },
+  "techStack": [
+    "NestJS",
+    "TypeScript",
+    "MySQL",
+    "Redis",
+    "Docker",
+    "WebSocket",
+    "TypeORM",
+    "AWS S3"
+  ],
+  "category": [
+    "backend",
+    "database"
+  ],
+  "tasks": {
+    "ko": [
+      "실시간 거래량 증가에 대응하기 위해 Red-Black Tree 기반 주문 매칭 엔진을 선택하여 효율적인 주문 처리를 구현했습니다.",
+      "블록체인과 거래소 간 데이터 불일치 문제를 최소화하기 위해 이벤트 기반 아키텍처로 상태 동기화를 설계했습니다.",
+      "종목별로 독립적으로 확장 가능한 아키텍처를 설계하여, 특정 종목의 거래량 증가 시 해당 종목만 스케일 아웃 가능하도록 했습니다."
+    ],
+    "en": [
+      "Implemented efficient order processing with a Red-Black Tree-based matching engine to handle increasing real-time trading volume.",
+      "Designed state synchronization with an event-based architecture to minimize data inconsistencies between blockchain and exchange.",
+      "Created an architecture for independent scaling per item, enabling scale-out of specific items when their trading volume increases."
+    ]
+  },
+  "achievements": {
+    "ko": [
+      "거래소 엔진 처리 속도를 최적화하여 블록체인 원장의 초당 20건 제약 상황에서도 거래소 측은 빠르게 동작 가능하도록 구현했습니다.",
+      "종목별 독립 실행 가능한 구조로 특정 종목의 트래픽 급증 시에도 다른 종목 거래에 영향을 주지 않도록 격리했습니다.",
+      "이벤트 기반 아키텍처로 블록체인과 거래소 간 상태 동기화를 구현하여 데이터 불일치로 인한 거래 지연을 최소화했습니다."
+    ],
+    "en": [
+      "Optimized exchange engine processing speed to operate quickly on the exchange side even with the blockchain ledger's 20 transactions per second constraint.",
+      "Isolated items with independent execution structure so that traffic spikes in specific items don't affect trading in other items.",
+      "Implemented state synchronization between blockchain and exchange with event-based architecture, minimizing transaction delays from data inconsistencies."
+    ]
+  }
+}

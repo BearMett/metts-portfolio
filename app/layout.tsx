@@ -8,13 +8,13 @@ import { Toaster } from '@/components/ui/toaster';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { LanguageProvider } from '@/components/language-provider';
+import { ClarityProvider } from '@/components/clarity-provider';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: '김영민 - 서비스 엔지니어',
   description: '서비스 엔지니어 김영민을 소개합니다',
-  generator: 'v0.dev',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -32,6 +32,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </ThemeProvider>
         {process.env.NODE_ENV === 'production' && <SpeedInsights />}
         {process.env.NODE_ENV === 'production' && <Analytics />}
+        {process.env.NODE_ENV === 'production' && <ClarityProvider />}
       </body>
     </html>
   );

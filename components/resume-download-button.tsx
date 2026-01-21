@@ -19,7 +19,7 @@ export default function ResumeDownloadButton() {
     <>
       <button
         onClick={handleDownload}
-        className="bg-primary text-primary-foreground py-2 px-4 rounded shadow hover:bg-primary/90 transition-colors"
+        className="fixed bottom-4 right-4 z-50 bg-primary text-primary-foreground py-3 px-5 rounded-full shadow-lg hover:bg-primary/90 transition-all hover:shadow-xl md:py-2 md:px-4"
       >
         이력서 내려받기
       </button>

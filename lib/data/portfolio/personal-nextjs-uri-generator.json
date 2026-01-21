@@ -1,0 +1,49 @@
+{
+  "id": "personal-nextjs-uri-generator",
+  "date": "2024-11",
+  "companyId": "personal",
+  "title": {
+    "ko": "Next.js URI 자동 생성기 개발",
+    "en": "Next.js URI Generator Development"
+  },
+  "shortDesc": {
+    "ko": "Next.js 앱 라우터 API의 URL을 간편하게 생성하는 VS Code 확장 프로그램",
+    "en": "Built a VS Code extension to simplify URL generation for Next.js App Router APIs"
+  },
+  "description": {
+    "ko": "Next.js는 파일 경로 기반으로 API 주소가 생성됩니다. 개발 중 현재 파일의 정확한 API 엔드포인트를 파악하려면 파일 경로를 확인하고 route나 디렉터리 표시를 수동으로 지워가며 역추적해야 했습니다. 이 과정에서 잘못된 API를 호출하거나 엔드포인트를 틀리게 입력하는 실수가 자주 발생했습니다. Babel 기반 코드 분석으로 실제 경로를 표시해야 하는 함수를 정확히 식별하고, VS Code에서 즉시 API 주소를 확인할 수 있는 확장 프로그램을 개발했습니다.",
+    "en": "Next.js generates API endpoints based on file paths. To identify the exact API endpoint for the current file during development, I had to manually trace back by checking the file path and removing route or directory markers. This process frequently led to mistakes like calling the wrong API or mistyping endpoints. I developed a VS Code extension that uses Babel-based code analysis to accurately identify functions that should display actual paths, enabling instant API address verification in VS Code."
+  },
+  "techStack": [
+    "TypeScript",
+    "Next.js",
+    "Babel",
+    "VS Code Extension API"
+  ],
+  "category": [
+    "parser"
+  ],
+  "tasks": {
+    "ko": [
+      "Next.js App Router는 GET, POST, PUT, DELETE 등 다양한 HTTP 메서드를 파일 내 함수로 정의하는데, 수동으로 확인 시 현재 파일이 어떤 메서드를 지원하는지 일일이 열어봐야 했으므로 모든 HTTP 메서드를 자동 감지하여 한눈에 파악할 수 있도록 설계했습니다.",
+      "개발자마다 Next.js API를 작성하는 방식(export default, export const, export function 등)이 달라 일부 패턴만 지원하면 도구가 제대로 동작하지 않으므로, Babel AST 파서로 모든 내보내기 패턴을 지원하여 작성 방식에 관계없이 정확한 API 주소를 표시할 수 있도록 했습니다.",
+      "VS Code의 Code Lens API를 활용해 코드 에디터를 벗어나지 않고도 API 주소를 즉시 확인하여 복사할 수 있도록 했습니다."
+    ],
+    "en": [
+      "Next.js App Router defines various HTTP methods (GET, POST, PUT, DELETE, etc.) as functions within files. Manual verification required opening each file to check which methods were supported, so I designed automatic detection of all HTTP methods for at-a-glance identification.",
+      "Developers write Next.js APIs in different ways (export default, export const, export function, etc.), and supporting only some patterns would cause the tool to malfunction. I used the Babel AST parser to support all export patterns, enabling accurate API address display regardless of coding style.",
+      "Leveraged VS Code's Code Lens API to enable instant API address verification and copying without leaving the code editor."
+    ]
+  },
+  "achievements": {
+    "ko": [
+      "수동 역추적 과정을 제거하여 API 엔드포인트 확인 실수를 완전히 방지했습니다.",
+      "Next.js App Router API의 모든 라우팅 패턴을 완전 지원하여 개발 과정에서 즉시 정확한 API 주소를 확인할 수 있게 했습니다."
+    ],
+    "en": [
+      "Eliminated manual traceback process, completely preventing API endpoint verification errors.",
+      "Fully supported all Next.js App Router API routing patterns, enabling instant and accurate API address verification during development."
+    ]
+  },
+  "sourceUrl": "https://github.com/BearMett/nextjs-url-generator"
+}

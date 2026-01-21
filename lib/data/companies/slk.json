@@ -1,0 +1,20 @@
+{
+  "id": "slk",
+  "name": {
+    "ko": "(주)스마트러닝코리아",
+    "en": "Smart Learning Korea Co., Ltd."
+  },
+  "shortName": {
+    "ko": "SLK",
+    "en": "SLK"
+  },
+  "description": {
+    "ko": "EBS 컨텐츠를 활용한 영어 학습 솔루션 및 학원 관리 ERP 솔루션 제공",
+    "en": "Provides English learning solutions using EBS content and ERP solutions for educational institutions management"
+  },
+  "colors": {
+    "primary": "indigo"
+  },
+  "website": null,
+  "type": "company"
+}

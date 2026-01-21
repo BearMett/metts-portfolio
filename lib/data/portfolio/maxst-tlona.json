@@ -1,0 +1,53 @@
+{
+  "id": "maxst-tlona",
+  "date": "2023-08",
+  "companyId": "maxst",
+  "title": {
+    "ko": "메타버스 플랫폼 '틀로나' 웹서버 개발",
+    "en": "'TLONA' Metaverse Platform Web Server Development"
+  },
+  "shortDesc": {
+    "ko": "현실 기반 월드와 소셜 기능을 제공하는 메타버스 백엔드 구현",
+    "en": "Developed a metaverse backend with real-world-based environments and social features"
+  },
+  "description": {
+    "ko": "\"틀로나\"는 현실 세계를 기반으로 한 메타버스 플랫폼으로, 사용자가 가상 공간과 토지를 소유하고 다른 사용자들과 소통할 수 있습니다. 초기 개발 단계에서 각 기능이 분리되지 않아 작은 기능 수정에도 시간이 오래 걸렸고, 한 기능을 수정하면 다른 기능에 영향을 주어 개발 속도가 저하되는 문제가 있었습니다. 파트장으로서 이 문제를 해결하기 위해 도메인 중심 설계를 도입하여 회원 관리, 가상 아이템 상점, 토지 소유권 관리 등의 핵심 시스템을 독립적인 모듈로 개발하고 API로 제공했습니다.",
+    "en": "\"TLONA\" is a metaverse platform rooted in the real world, where users can own virtual spaces and land, and interact with others. In the early development stage, features weren't separated, causing even small modifications to take a long time, and changing one feature would affect others, slowing down development. As team lead, I introduced domain-driven design to solve this problem, developing core systems like member management, virtual item shop, and land ownership management as independent modules and delivering them via APIs."
+  },
+  "techStack": [
+    "NestJS",
+    "Bitbucket",
+    "Bitbucket Pipeline",
+    "AWS S3",
+    "AWS ECS"
+  ],
+  "category": [
+    "backend",
+    "cloud",
+    "database"
+  ],
+  "tasks": {
+    "ko": [
+      "기획 요구사항이 자주 변경되어 개발 방향이 불명확해지는 문제가 있었으므로, 파트장으로서 기획팀과 긴밀히 소통하며 개발 방향을 정립하고 팀원들에게 명확하게 전달하여 혼선을 줄였습니다.",
+      "기능 간 의존성이 높아 한 기능 수정 시 다른 기능에 영향을 주었으므로, 상점, 우편함, 인벤토리, 지갑, 토지 관리 등 핵심 기능을 도메인 중심으로 분리하여 독립적으로 개발 및 배포할 수 있도록 설계했습니다.",
+      "기능 변경 시 예상치 못한 버그가 발생하여 안정성을 보장하기 어려웠으므로, 핵심 기능에 대한 단위 테스트를 구축하여 변경 영향을 사전에 감지할 수 있도록 했습니다.",
+      "운영 중 발생하는 이슈를 늦게 발견하여 대응이 지연되었으므로, 실시간 모니터링 시스템을 도입하여 팀원들이 이슈를 신속하게 감지하고 대응할 수 있도록 했습니다."
+    ],
+    "en": [
+      "Frequently changing requirements made development direction unclear, so as team lead I collaborated closely with planners to establish clear development direction and communicated it to the team, reducing confusion.",
+      "High inter-feature dependencies meant modifying one feature affected others, so I designed core features like shops, mailboxes, inventories, wallets, and land management with domain-centric separation for independent development and deployment.",
+      "Feature changes caused unexpected bugs, making stability difficult to guarantee, so I built unit tests for core features to detect change impacts in advance.",
+      "Issues during operation were discovered late, delaying responses, so I introduced real-time monitoring to help the team quickly detect and address issues."
+    ]
+  },
+  "achievements": {
+    "ko": [
+      "도메인 설계 도입 후, 팀원들의 작업 브랜치 병합 주기가 7일 이상에서 1-2일로 단축되었습니다.",
+      "2주간의 클로즈 베타 테스트 동안 웹 서버 로직 관련 버그 리포트가 0건으로 유지되었습니다."
+    ],
+    "en": [
+      "Reduced team branch merge cycles from over 7 days to 1-2 days after adopting domain design.",
+      "Kept web server logic bug reports at zero during a two-week closed beta test."
+    ]
+  }
+}

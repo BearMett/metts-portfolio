@@ -1,0 +1,20 @@
+{
+  "id": "buttersoft",
+  "name": {
+    "ko": "버터소프트",
+    "en": "Buttersoft"
+  },
+  "shortName": {
+    "ko": "버터소프트",
+    "en": "Buttersoft"
+  },
+  "description": {
+    "ko": "소프트웨어 개발 회사",
+    "en": "Software development company"
+  },
+  "colors": {
+    "primary": "yellow"
+  },
+  "website": null,
+  "type": "company"
+}

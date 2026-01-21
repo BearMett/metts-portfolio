@@ -5,6 +5,7 @@
 
 # next.js
 /.next/
+/.next-dev/
 /out/
 
 # production
@@ -28,3 +29,6 @@ next-env.d.ts
 
 sandbox/
 .DS_Store
+
+# Resume PDF (auto-generated from resume.md)
+public/resume.pdf
