@@ -8,7 +8,7 @@ import { FileDown } from 'lucide-react';
 import { downloadPortfolioPDF } from '@/lib/pdf-generator';
 
 export default function PortfolioPage() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const { items } = usePortfolioData();
 
   // PDF 다운로드 처리 함수
@@ -30,7 +30,7 @@ export default function PortfolioPage() {
     const filename = language === 'ko' ? '포트폴리오.pdf' : 'portfolio.pdf';
 
     // PDF 다운로드 실행
-    await downloadPortfolioPDF(localizedData, pdfLabels, filename);
+    await downloadPortfolioPDF(items, pdfLabels, filename);
   };
 
   return (
