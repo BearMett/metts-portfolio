@@ -16,19 +16,22 @@ import {
   Search,
   Image as ImageIcon,
   ZoomIn,
+  FileDown,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { PortfolioItem, usePortfolioData } from '@/lib/portfolio-data';
 import Image from 'next/image';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 import { useLanguage } from './language-provider';
+import { Button } from '@/components/ui/button';
+import { downloadPortfolioPDF } from '@/lib/pdf-generator';
 
 interface InteractivePortfolioProps {
   items: PortfolioItem[];
 }
 
 export function InteractivePortfolio({ items: _items }: InteractivePortfolioProps) {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const { categories, getFilteredItems, getCompanyForItem } = usePortfolioData();
   const [activeFilters, setActiveFilters] = useState<Record<string, boolean>>({
     all: true,
@@ -101,6 +104,42 @@ export function InteractivePortfolio({ items: _items }: InteractivePortfolioProp
 
     // 회사의 primary 색상 키를 사용해서 색상 클래스 반환
     return colorMap[company.colors.primary] || 'bg-blue-500 dark:bg-blue-400';
+  };
+
+  // PDF 다운로드 처리 함수 - 현재 필터링된 항목만 포함
+  const handleFilteredDownloadPDF = async () => {
+    // 라벨을 현지화된 버전으로 준비
+    const pdfLabels = {
+      portfolioTitle: `${t('portfolio.title')} - ${getFilterLabel()}`,
+      title: t('portfolio.projectTitle'),
+      company: t('portfolio.company'),
+      description: t('portfolio.projectDesc'),
+      techStack: t('portfolio.usedTech'),
+      tasks: t('portfolio.tasks'),
+      achievements: t('portfolio.achievements'),
+      category: t('portfolio.projectCategories'),
+      date: t('portfolio.date'),
+    };
+
+    // 파일 이름 설정 (언어와 필터에 따라 다르게)
+    const filterLabel = getFilterLabel(true);
+    const filename = language === 'ko' ? `포트폴리오_${filterLabel}.pdf` : `portfolio_${filterLabel}.pdf`;
+
+    // 현재 필터링된 항목만 PDF로 다운로드
+    await downloadPortfolioPDF(filteredItems, pdfLabels, filename);
+  };
+
+  // 현재 필터 라벨 가져오기
+  const getFilterLabel = (forFilename: boolean = false) => {
+    if (activeFilters.all) {
+      return forFilename ? 'all' : t('portfolio.filterAll');
+    }
+
+    const activeFilterNames = categories
+      .filter((cat) => cat.id !== 'all' && activeFilters[cat.id])
+      .map((cat) => (forFilename ? cat.id : getCategoryLabel(cat.id)));
+
+    return activeFilterNames.join(forFilename ? '_' : ', ');
   };
 
   // 아이콘 매핑
@@ -198,10 +237,28 @@ export function InteractivePortfolio({ items: _items }: InteractivePortfolioProp
     <div className="w-full">
       {/* 필터 섹션 */}
       <div className="mb-8">
-        <div className="flex items-center mb-3">
-          <Filter size={18} className="mr-2 text-gray-700 dark:text-gray-300" />
-          <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-100">{t('portfolio.filterTitle')}</h2>
+        <div className="flex items-center justify-between mb-3">
+          <div className="flex items-center">
+            <Filter size={18} className="mr-2 text-gray-700 dark:text-gray-300" />
+            <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-100">{t('portfolio.filterTitle')}</h2>
+          </div>
+
+          {/* 필터링된 항목 PDF 다운로드 버튼 */}
+          {process.env.NODE_ENV === 'development' ? (
+            <Button
+              variant="outline"
+              size="sm"
+              className="flex items-center gap-1 text-xs px-2"
+              onClick={handleFilteredDownloadPDF}
+            >
+              <FileDown size={14} />
+              <span>{t('portfolio.downloadFiltered')}</span>
+            </Button>
+          ) : (
+            <></>
+          )}
         </div>
+
         <div className="flex flex-wrap gap-2">
           {categories.map((category) => (
             <button
@@ -240,6 +297,13 @@ export function InteractivePortfolio({ items: _items }: InteractivePortfolioProp
             </button>
           ))}
         </div>
+
+        {/* 현재 필터 표시 */}
+        {!activeFilters.all && (
+          <div className="mt-2 text-sm text-gray-600 dark:text-gray-400">
+            {t('portfolio.currentFilter')}: {getFilterLabel()}
+          </div>
+        )}
       </div>
 
       {/* 타임라인 섹션 */}
