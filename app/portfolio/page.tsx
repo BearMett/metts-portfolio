@@ -37,10 +37,14 @@ export default function PortfolioPage() {
     <div className="container max-w-5xl py-8 md:py-12">
       <div className="flex justify-between items-center mb-4">
         <h1 className="text-4xl font-bold text-center">{t('portfolio.title')}</h1>
-        <Button variant="outline" className="flex items-center gap-2" onClick={handleDownloadPDF}>
-          <FileDown size={16} />
-          <span>{t('portfolio.downloadPDF')}</span>
-        </Button>
+        {process.env.NODE_ENV === 'development' ? (
+          <Button variant="outline" className="flex items-center gap-2" onClick={handleDownloadPDF}>
+            <FileDown size={16} />
+            <span>{t('portfolio.downloadPDF')}</span>
+          </Button>
+        ) : (
+          <></>
+        )}
       </div>
       <p className="text-lg text-gray-600 dark:text-gray-300 mb-10 text-center">{t('portfolio.subtitle')}</p>
       <InteractivePortfolio items={items} />
