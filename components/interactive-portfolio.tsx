@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import {
   Filter,
   Code,
@@ -19,7 +19,8 @@ import {
   FileDown,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { PortfolioItem, usePortfolioData } from '@/lib/portfolio-data';
+import type { PortfolioServerData } from '@/lib/data/types';
+import { localizePortfolioItems, localizePortfolioCategories } from '@/lib/portfolio-utils';
 import Image from 'next/image';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 import { useLanguage } from './language-provider';
@@ -27,12 +28,15 @@ import { Button } from '@/components/ui/button';
 import { downloadPortfolioPDF } from '@/lib/pdf-generator';
 
 interface InteractivePortfolioProps {
-  items: PortfolioItem[];
+  portfolioData: PortfolioServerData;
 }
 
-export function InteractivePortfolio({ items: _items }: InteractivePortfolioProps) {
+export function InteractivePortfolio({ portfolioData }: InteractivePortfolioProps) {
   const { t, language } = useLanguage();
-  const { categories, getFilteredItems, getCompanyForItem } = usePortfolioData();
+
+  const items = useMemo(() => localizePortfolioItems(portfolioData, language), [portfolioData, language]);
+
+  const categories = useMemo(() => localizePortfolioCategories(portfolioData, language), [portfolioData, language]);
   const [activeFilters, setActiveFilters] = useState<Record<string, boolean>>({
     all: true,
   });
@@ -72,11 +76,18 @@ export function InteractivePortfolio({ items: _items }: InteractivePortfolioProp
   };
 
   // 필터링된 아이템 가져오기
-  const filteredItems = getFilteredItems(activeFilters);
+  const filteredItems = useMemo(() => {
+    if (activeFilters.all) {
+      return items;
+    }
+    return items.filter((item) => item.category.some((cat) => activeFilters[cat]));
+  }, [items, activeFilters]);
 
-  // 회사별 타임라인 포인트 색상 가져오기 (hook 기반)
+  // 회사별 타임라인 포인트 색상 가져오기
   const getTimelineColorClass = (itemId: string): string => {
-    const company = getCompanyForItem(itemId);
+    const rawItem = portfolioData.items.find((i) => i.id === itemId);
+    if (!rawItem) return 'bg-blue-500 dark:bg-blue-400';
+    const company = portfolioData.companies.find((c) => c.id === rawItem.companyId);
     if (!company) {
       return 'bg-blue-500 dark:bg-blue-400';
     }
@@ -244,7 +255,7 @@ export function InteractivePortfolio({ items: _items }: InteractivePortfolioProp
           </div>
 
           {/* 필터링된 항목 PDF 다운로드 버튼 */}
-          {process.env.NODE_ENV === 'development' ? (
+          {process.env.NODE_ENV === 'development' && (
             <Button
               variant="outline"
               size="sm"
@@ -254,8 +265,6 @@ export function InteractivePortfolio({ items: _items }: InteractivePortfolioProp
               <FileDown size={14} />
               <span>{t('portfolio.downloadFiltered')}</span>
             </Button>
-          ) : (
-            <></>
           )}
         </div>
 

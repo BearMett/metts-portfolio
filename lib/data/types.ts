@@ -97,3 +97,10 @@ export interface AboutMe {
   };
   skillStack: string;
 }
+
+// Server-to-client data transfer type (bilingual portfolio data)
+export interface PortfolioServerData {
+  items: PortfolioItemTranslated[];
+  categories: PortfolioCategoryTranslated[];
+  companies: CompanyTranslated[];
+}
