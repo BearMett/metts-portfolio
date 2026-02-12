@@ -7,11 +7,11 @@
     "en": "Subscription Cancellation Management Page Integration"
   },
   "shortDesc": {
-    "ko": "분리된 결제/라이선스/구독 시스템을 통합하여 운영팀이 개발팀 개입 없이 취소·환불을 자체 처리할 수 있도록 구현",
+    "ko": "분리된 결제/라이선스/구독 시스템을 통합. 운영팀이 개발팀 개입 없이 취소·환불을 자체 처리할 수 있게 구현",
     "en": "Integrated separated payment/license/subscription systems enabling operations team to handle cancellations and refunds independently"
   },
   "description": {
-    "ko": "운영팀에서 결제 취소와 라이선스 회수 요청이 반복적으로 개발팀에 전달되었습니다. 운영팀에 미팅을 요청해 실제 업무 화면을 함께 본 결과, 결제 취소 후에도 사용자가 서비스에 접근할 수 있는 구조적 문제를 발견했습니다. 결제 시스템, 라이선스 시스템, 구독 시스템이 분리되어 있어 취소 처리가 연동되지 않았습니다.",
+    "ko": "운영팀에서 결제 취소와 라이선스 회수 요청이 반복적으로 개발팀에 전달되었습니다. 운영팀에 미팅을 요청해 실제 업무 화면을 함께 본 결과, 결제 취소 후에도 사용자가 서비스에 접근할 수 있는 구조적 문제를 발견했습니다. 결제 시스템, 라이선스 시스템, 구독 시스템이 분리되어 있어 결제 취소 처리가 연동되지 않았습니다.",
     "en": "Payment cancellation and license retrieval requests were repeatedly passed from the operations team to the development team. After requesting a meeting with the operations team to view their actual workflow, I discovered a structural problem where users could still access the service after payment cancellation. The payment, license, and subscription systems were separated, so cancellation processing wasn't integrated."
   },
   "techStack": [

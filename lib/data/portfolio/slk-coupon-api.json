@@ -15,7 +15,7 @@
     "en": "The existing coupon system delivered 200 coupons in bulk to external parties, making individual sales tracking impossible and raising settlement reliability concerns. When the opportunity arose to integrate with KB Star Banking event page sales, I proactively asked the business manager 'Is settlement possible with the current method?' and confirmed that real-time sales tracking and refund processing were needed."
   },
   "techStack": [
-    "NestJS",
+    "Next.js",
     "TypeScript",
     "PostgreSQL",
     "REST API"
