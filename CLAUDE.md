@@ -5,72 +5,107 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Development Commands
 
 - `yarn dev` - Start development server on http://localhost:3000
-- `yarn build` - Build for production 
+- `yarn build` - Build for production (runs `yarn generate:resume` as prebuild)
 - `yarn start` - Start production server
-- `yarn lint` - Run ESLint to check code quality
+- `yarn lint` - Run ESLint
+- `yarn generate:resume` - Generate resume PDF to `public/resume.pdf`
 
 ## Tech Stack
 
-- **Next.js 14** (App Router) - React framework
-- **TypeScript** - Type-safe JavaScript
-- **Tailwind CSS** - Utility-first CSS framework with custom design system
-- **Radix UI** - Headless UI components (extensive shadcn/ui setup)
+- **Next.js 16** (App Router) - React framework
+- **React 19** - UI library
+- **TypeScript 5** - Type-safe JavaScript (strict mode)
+- **Tailwind CSS 3.4** - Utility-first CSS with custom design system
+- **Radix UI** - Headless UI components (shadcn/ui pattern)
+- **@react-pdf/renderer** - Resume PDF generation (build-time)
 - **MDX** - Markdown with JSX for blog content
 - **Vitest** - Testing framework
 - **Vercel Analytics & Speed Insights** - Performance monitoring
+- **Node.js >= 20.9.0** required
 
 ## Architecture Overview
 
-### Internationalization (i18n)
-- Bilingual site supporting Korean (default) and English
-- Language resources centralized in `lib/resource.const.ts`
-- Language context provider in `components/language-provider.tsx`
-- Language switching via `components/language-switcher.tsx`
+### Server/Client Data Flow
 
-### Portfolio Data Management
-- Portfolio items with translations defined in `lib/portfolio-data.ts`
-- Each portfolio item includes Korean/English versions of title, description, tasks, achievements
-- Category-based filtering system with translated labels
-- Portfolio displayed via `components/interactive-portfolio.tsx`
+Pages are **server components** that fetch bilingual data, then pass it to client components for localization:
+
+```
+app/page.tsx (server)
+  -> lib/server/about-me-data.ts -> getAboutMeDataBothLanguages()
+  -> components/client/home-content.tsx (client, localizes with useLanguage)
+
+app/portfolio/page.tsx (server)
+  -> lib/server/portfolio-data.ts -> getPortfolioDataBothLanguages()
+  -> components/client/portfolio-page-content.tsx (client)
+  -> lib/portfolio-utils.ts -> localizePortfolioItems(), localizePortfolioCategories()
+  -> components/interactive-portfolio.tsx
+```
+
+### Data Model
+
+Bilingual data uses `Translated` suffix types with `{ ko: string, en: string }` fields. Client components convert these to single-language types via localization utils.
+
+Key types in `lib/data/types.ts`:
+- `PortfolioItemTranslated` / `PortfolioItem` - Portfolio project entries
+- `CompanyTranslated` / `Company` - Company metadata
+- `PortfolioCategoryTranslated` / `PortfolioCategory` - Filter categories
+- `AboutMeTranslated` / `AboutMe` - About me section
+- `PortfolioServerData` - Server-to-client data bundle (items + categories + companies)
+
+### Data Sources
+
+- `lib/data/portfolio/*.json` - 21 portfolio items (JSON, bilingual)
+- `lib/data/portfolio/index.ts` - Barrel export with display order
+- `lib/data/companies/*.json` - 6 company entries (JSON, bilingual)
+- `lib/data/portfolio-categories.json` - 13 filter categories
+- `lib/data/about-me.ts` - About me section data
+- `lib/resource.const.ts` - All UI translatable strings
+
+### Internationalization (i18n)
+
+- Bilingual: Korean (default) + English
+- Language context: `components/language-provider.tsx`
+- Language switcher: `components/language-switcher.tsx`
+- UI strings: `lib/resource.const.ts`
+- Data localization: `lib/portfolio-utils.ts`
 
 ### Component Architecture
-- **shadcn/ui pattern**: Components in `components/ui/` following Radix UI + Tailwind
+
+- **shadcn/ui pattern**: Components in `components/ui/` (Radix UI + Tailwind)
+- **Server components**: `app/` pages fetch data
+- **Client wrappers**: `components/client/` handle localization
 - **Theme system**: Light/dark mode via `components/theme-provider.tsx`
-- **Navigation**: Responsive navigation with language switching
 - **Path aliases**: `@/*` maps to project root
 
-### Key Files
-- `app/layout.tsx` - Root layout with providers (Theme, Language, Navigation)
-- `app/page.tsx` - Home page with personal introduction
-- `lib/resource.const.ts` - All translatable strings
-- `lib/portfolio-data.ts` - Portfolio project data with translations
-- `lib/markdown.ts` - MDX processing utilities
-- `components/language-provider.tsx` - i18n context and translation function
+### Key Directories
 
-### Content Structure
-- **Portfolio**: Interactive portfolio showcase with filtering
-- **Resume**: Static resume page with download functionality
-- **Blog**: MDX-based blog system (basic setup)
-- **Contact**: Contact form with social links
+- `app/` - Next.js App Router pages (server components)
+- `components/` - React components
+- `components/client/` - Client wrapper components for pages
+- `components/ui/` - shadcn/ui components
+- `lib/data/` - Static data (JSON + TypeScript)
+- `lib/server/` - Server-only data fetching functions
+- `lib/` - Utilities, constants, types
+- `scripts/` - Build helper scripts (PDF generation)
+- `public/portfolio/` - Portfolio images
+- `public/profile/` - Profile image
+
+### Build Configuration
+
+- `next.config.mjs`: Separates build output (`.next-dev` for dev, `.next` for prod)
+- `prebuild` script auto-generates `public/resume.pdf` before `yarn build`
 
 ## Development Practices
 
 ### Code Style
-- ESLint + Prettier configured with custom rules
-- TypeScript strict mode enabled
+- ESLint 9 + Prettier configured
+- TypeScript strict mode
 - 120 character line length
 - Single quotes, trailing commas
 
-### File Organization
-- `app/` - Next.js App Router pages
-- `components/` - Reusable React components
-- `components/ui/` - shadcn/ui components
-- `lib/` - Utility functions and data
-- `public/` - Static assets including portfolio images
-
 ### Important Notes
-- Portfolio images stored in `public/portfolio/`
-- Profile image in `public/profile/`
-- Environment variables for contact info in `lib/consts.ts`
 - Korean is the default language, English is secondary
-- All user-facing text should be translatable via the resource system
+- All user-facing text must be translatable via the resource system
+- Portfolio JSON must have both `ko` and `en` keys for all translated fields
+- New categories require sync across: `portfolio-categories.json`, `resource.const.ts`, icon mapping in `interactive-portfolio.tsx`, and item JSON `category` arrays
+- Environment variables for contact info in `lib/consts.ts`
