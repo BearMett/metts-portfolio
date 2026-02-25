@@ -162,7 +162,7 @@ export const styles = StyleSheet.create({
     color: colors.textLight,
   },
   project: {
-    marginBottom: 8,
+    marginBottom: 10,
     paddingLeft: 10,
   },
   projectTitle: {
@@ -171,15 +171,36 @@ export const styles = StyleSheet.create({
     color: colors.text,
     marginBottom: 3,
   },
-  projectDetail: {
+  projectSubsectionLabel: {
+    fontSize: 8,
+    fontWeight: 700,
+    color: colors.accent,
+    marginBottom: 2,
+    marginTop: 3,
+  },
+  projectBackground: {
+    fontSize: 8,
+    lineHeight: 1.5,
+    color: colors.textLight,
+    textAlign: 'justify',
+  },
+  projectBulletList: {
+    marginLeft: 4,
+  },
+  projectBulletItem: {
+    flexDirection: 'row',
+    marginBottom: 1,
+  },
+  projectBulletText: {
     fontSize: 8,
     color: colors.textLight,
-    marginBottom: 2,
-    paddingLeft: 8,
+    lineHeight: 1.4,
+    flex: 1,
   },
-  projectLabel: {
-    fontWeight: 700,
+  projectTechLine: {
+    fontSize: 8,
     color: colors.secondary,
+    marginTop: 2,
   },
 
   // Footer sections

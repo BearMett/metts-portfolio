@@ -2,13 +2,17 @@ import { AboutMeTranslated, AboutMe } from './types';
 import { Language } from '@/lib/resource.const';
 
 export const aboutMeData: AboutMeTranslated = {
-  title: {
-    ko: '김영민 | 먼저 묻고, 사용자의 불편함을 해결하는 소프트웨어 엔지니어',
-    en: 'Youngmin Kim | Software Engineer Who Asks First and Solves User Pain Points',
+  name: {
+    ko: '김영민',
+    en: 'Youngmin Kim',
+  },
+  tagline: {
+    ko: '일하는 사람들과 함께, 더 나은 워크플로우를 만드는 개발자',
+    en: 'A Developer Who Builds Better Workflows, Together with the People Who Use Them',
   },
   introduction: {
-    ko: '먼저 묻고, 사용자의 불편함을 해결하는 소프트웨어 엔지니어, 김영민입니다.',
-    en: "I'm Youngmin Kim, a software engineer who asks first and solves user pain points.",
+    ko: '사람들이 반복하는 일을 관찰하고, 더 나은 흐름을 만듭니다. 현장의 업무 과정을 함께 보며 병목을 찾고, 비개발자도 직접 처리할 수 있는 도구를 만들어 운영 부담을 줄입니다. 분산된 시스템을 통합하고, 레거시를 점진적으로 현대화하는 일을 해왔습니다.',
+    en: 'I observe repetitive work alongside the people who do it, and build better workflows. I identify bottlenecks by reviewing real work processes together, and build tools that let non-developers handle tasks on their own, reducing operational burden. I have experience consolidating distributed systems and incrementally modernizing legacy infrastructure.',
   },
   values: {
     title: {
@@ -37,15 +41,15 @@ export const aboutMeData: AboutMeTranslated = {
     },
     items: {
       ko: [
-        '레거시 시스템 현대화: 20년 경과 PHP 프로젝트를 Git 기반으로 통합하고 성능을 개선한 경험',
-        '보안 아키텍처: SQL 인젝션 대응부터 CC 인증까지 보안 요구사항 충족 경험',
+        '레거시 현대화: 운영 중인 시스템을 멈추지 않고 점진적으로 전환하는 경험',
+        '보안: 취약점 대응부터 보안 인증까지, 요구사항에 맞는 아키텍처 설계 경험',
         '자동화 및 DevOps: CI/CD 파이프라인 구축, 멀티테넌트 앱 배포 자동화',
         '도메인 설계: 교육, 보안, 메타버스 등 다양한 도메인에서 DDD 원칙 적용',
         '폐쇄망과 온프레미스 환경에서의 네트워크 구축 및 문제 해결 경험',
       ],
       en: [
-        'Legacy Modernization: Experience integrating 20-year-old PHP projects to Git and improving performance',
-        'Security Architecture: Experience meeting security requirements from SQL injection response to CC certification',
+        'Legacy Modernization: Experience incrementally migrating live systems without downtime',
+        'Security: Architecture design experience from vulnerability response to security certification',
         'Automation & DevOps: CI/CD pipeline setup, multi-tenant app deployment automation',
         'Domain Design: Applied DDD principles across education, security, and metaverse domains',
         'Experience building and troubleshooting in closed networks and on-premises environments',
@@ -60,7 +64,8 @@ export const aboutMeData: AboutMeTranslated = {
 
 export function getAboutMeData(language: Language): AboutMe {
   return {
-    title: aboutMeData.title[language],
+    name: aboutMeData.name[language],
+    tagline: aboutMeData.tagline[language],
     introduction: aboutMeData.introduction[language],
     values: {
       title: aboutMeData.values.title[language],

@@ -16,5 +16,6 @@
     "primary": "orange"
   },
   "website": "https://wearvalley.com",
-  "type": "company"
+  "type": "company",
+  "period": { "from": "2020-01", "to": "2023-04" }
 }

@@ -27,7 +27,7 @@ export default function ResumeDownloadButton() {
       <a
         ref={downloadRef}
         href="/resume.pdf"
-        download="김영민-소프트웨어-서비스-엔지니어.pdf"
+        download="김영민-소프트웨어-엔지니어.pdf"
         style={{ display: 'none' }}
       >
         download

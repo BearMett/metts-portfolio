@@ -8,6 +8,14 @@ export const resources = {
       blog: '블로그',
       contact: '연락처',
     },
+    home: {
+      achievements: '핵심 성과',
+      attitudes: '업무 철학',
+    },
+    scrollTransition: {
+      next: '다음',
+      goToNext: '다음 페이지로 이동',
+    },
     portfolio: {
       title: '포트폴리오',
       subtitle: '프로젝트를 선택하시면 자세한 내용을 확인 할 수 있습니다! 😊',
@@ -38,6 +46,8 @@ export const resources = {
       // PDF 다운로드 관련 번역
       downloadPDF: 'PDF로 다운로드',
       downloadFiltered: '필터링된 항목 다운로드',
+      expandAll: '모두 열기',
+      collapseAll: '모두 닫기',
       projectTitle: '프로젝트명',
       company: '회사/조직',
       currentFilter: '현재 필터',
@@ -53,6 +63,14 @@ export const resources = {
       portfolio: 'Portfolio',
       blog: 'Blog',
       contact: 'Contact',
+    },
+    home: {
+      achievements: 'Key Achievements',
+      attitudes: 'Work Philosophy',
+    },
+    scrollTransition: {
+      next: 'Next',
+      goToNext: 'Go to next page',
     },
     portfolio: {
       title: 'Portfolio',
@@ -84,6 +102,8 @@ export const resources = {
       // PDF download translations
       downloadPDF: 'Download as PDF',
       downloadFiltered: 'Download Filtered Items',
+      expandAll: 'Expand All',
+      collapseAll: 'Collapse All',
       projectTitle: 'Project Title',
       company: 'Company/Organization',
       currentFilter: 'Current Filter',

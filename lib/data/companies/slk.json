@@ -16,5 +16,6 @@
     "primary": "indigo"
   },
   "website": null,
-  "type": "company"
+  "type": "company",
+  "period": { "from": "2025-03", "to": "2026-02" }
 }

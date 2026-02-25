@@ -1,5 +1,5 @@
 import type { Language } from '@/lib/resource.const';
-import type { PortfolioServerData, PortfolioItem, PortfolioCategory } from '@/lib/data/types';
+import type { PortfolioServerData, PortfolioItem, PortfolioCategory, Company, CompanyGroup } from '@/lib/data/types';
 
 export function localizePortfolioItems(portfolioData: PortfolioServerData, language: Language): PortfolioItem[] {
   return portfolioData.items.map((item) => {
@@ -8,6 +8,7 @@ export function localizePortfolioItems(portfolioData: PortfolioServerData, langu
       id: item.id,
       date: item.date,
       title: item.title[language],
+      companyId: item.companyId,
       company: company ? company.name[language] : item.companyId,
       shortDesc: item.shortDesc[language],
       description: item.description[language],
@@ -35,4 +36,47 @@ export function localizePortfolioCategories(
     label: cat.label[language],
     icon: cat.icon,
   }));
+}
+
+export function localizeCompanies(portfolioData: PortfolioServerData, language: Language): Company[] {
+  return portfolioData.companies.map((c) => ({
+    id: c.id,
+    name: c.name[language],
+    shortName: c.shortName[language],
+    description: c.description[language],
+    colors: c.colors,
+    website: c.website,
+    type: c.type,
+    period: c.period,
+  }));
+}
+
+export function groupPortfolioItemsByCompany(items: PortfolioItem[], companies: Company[]): CompanyGroup[] {
+  const companyMap = new Map(companies.map((c) => [c.id, c]));
+  const grouped = new Map<string, PortfolioItem[]>();
+
+  for (const item of items) {
+    const list = grouped.get(item.companyId) || [];
+    list.push(item);
+    grouped.set(item.companyId, list);
+  }
+
+  const groups: CompanyGroup[] = [];
+  for (const [companyId, groupItems] of grouped) {
+    const company = companyMap.get(companyId);
+    if (!company) continue;
+
+    const sorted = groupItems.sort((a, b) => b.date.localeCompare(a.date));
+
+    // Use company.period.to for sorting if available, otherwise latest item date
+    const latestDate = company.period?.to ?? sorted[0].date;
+
+    groups.push({
+      company,
+      items: sorted,
+      latestDate,
+    });
+  }
+
+  return groups.sort((a, b) => b.latestDate.localeCompare(a.latestDate));
 }

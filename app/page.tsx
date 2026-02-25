@@ -1,8 +1,16 @@
 import { HomeContent } from '@/components/client/home-content';
-import { getAboutMeDataBothLanguages } from '@/lib/server/about-me-data';
+import {
+  getAboutMeDataBothLanguages,
+  getSkillCategoriesBothLanguages,
+  getAttitudesBothLanguages,
+} from '@/lib/server/about-me-data';
 
 export default function Home() {
   const aboutMeData = getAboutMeDataBothLanguages();
+  const skillCategories = getSkillCategoriesBothLanguages();
+  const attitudes = getAttitudesBothLanguages();
 
-  return <HomeContent aboutMeData={aboutMeData} />;
+  return (
+    <HomeContent aboutMeData={aboutMeData} skillCategories={skillCategories} attitudes={attitudes} />
+  );
 }

@@ -32,3 +32,12 @@ sandbox/
 
 # Resume PDF (auto-generated from resume.md)
 public/resume.pdf
+
+# Playwright MCP logs
+.playwright-mcp/
+
+# Temporary docs/mockups
+/docs/
+
+# Temporary screenshots/mockups in root
+/*.png
