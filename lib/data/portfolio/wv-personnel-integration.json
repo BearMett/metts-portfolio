@@ -7,11 +7,11 @@
     "en": "Client HR and User Info Integration Solution"
   },
   "shortDesc": {
-    "ko": "대기업 맞춤형 인사 데이터 통합 및 자동화 시스템",
+    "ko": "3~4인 팀으로 대기업 맞춤형 인사 데이터 연동 및 자동화 시스템 구축",
     "en": "Custom HR data integration and automation for large enterprises"
   },
   "description": {
-    "ko": "고객사의 인사 정보를 자사 제품의 사용자 계정과 연동하는 커스터마이징 프로그램을 개발했습니다. 각 고객사별로 특정 부서 사용자 동기화, 휴직자 계정 비활성화 등 다양한 요구사항이 있었으며, 이를 위해 요건 분석부터 개발, 배포, 운영까지 전체 프로세스를 담당했습니다.",
+    "ko": "[3~4인 팀(주 개발자 + 부 개발자 + 엔지니어)] 고객사의 인사 정보를 자사 제품의 사용자 계정과 연동하는 커스터마이징 프로그램을 개발했습니다. 각 고객사별로 특정 부서 사용자 동기화, 휴직자 계정 비활성화 등 다양한 요구사항이 있었으며, 이를 위해 요건 분석부터 개발, 배포, 운영까지 전체 프로세스를 담당했습니다.",
     "en": "I developed a custom program to sync client HR data with our product's user accounts. Each client had unique needs—like syncing specific departments or deactivating accounts on leave—so I managed the full process from requirements analysis to development, deployment, and operations."
   },
   "techStack": [

@@ -7,11 +7,11 @@
     "en": "ChakraMax V4 Common Criteria (CC) Certification"
   },
   "shortDesc": {
-    "ko": "국가 보안 인증을 위한 시스템 개발 및 검증",
+    "ko": "CC 인증을 위한 보안 강화 및 빌드-배포 자동화 (개발팀 약 20명)",
     "en": "Developed and verified a system for national security certification"
   },
   "description": {
-    "ko": "보안 제품을 공공기관에 납품하려면 CC 인증이 필요합니다. 이에 따라 새로운 제품의 개발 마지막 단계에서 CC 인증을 진행했습니다. 인증 평가 항목에는 프로그램 덤프 생성 시 비밀 정보가 평문으로 남아있는지, 검증된 암호화 알고리즘을 사용하는지, OS 의존성을 최소화한 상태에서 동작할 수 있는지, 키 관리를 안전하게 수행하는지 등이 포함되며, 다양한 측면에서 평가가 이루어졌습니다.",
+    "ko": "[개발팀 전체 약 20명 참여] 보안 제품을 공공기관에 납품하려면 CC 인증이 필요합니다. 이에 따라 새로운 제품의 개발 마지막 단계에서 CC 인증을 진행했습니다. 인증 평가 항목에는 프로그램 덤프 생성 시 비밀 정보가 평문으로 남아있는지, 검증된 암호화 알고리즘을 사용하는지, OS 의존성을 최소화한 상태에서 동작할 수 있는지, 키 관리를 안전하게 수행하는지 등이 포함되며, 다양한 측면에서 평가가 이루어졌습니다.",
     "en": "To supply security products to public institutions, Common Criteria (CC) certification is required. I handled this certification in the final stages of developing a new product, addressing evaluation criteria like ensuring no plaintext secrets in program dumps, using verified encryption algorithms, minimizing OS dependencies, and securing key management."
   },
   "techStack": [
