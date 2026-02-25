@@ -108,7 +108,7 @@ export function parseResumeMarkdown(filePath: string): ResumeData {
 
     // 자기소개
     if (currentSection === '자기소개' && line && !line.startsWith('---')) {
-      data.introduction = line;
+      data.introduction = data.introduction ? data.introduction + '\n' + line : line;
       continue;
     }
 
@@ -121,25 +121,18 @@ export function parseResumeMarkdown(filePath: string): ResumeData {
       continue;
     }
 
-    // 핵심 기술
+    // 핵심 기술 (categorized format: "카테고리: item1, item2, ...")
     if (line.startsWith('**핵심 기술**:')) {
       currentSection = '핵심 기술';
       continue;
     }
-    if (currentSection === '핵심 기술' && line && !line.startsWith('**') && !line.startsWith('-')) {
-      data.skills.core = line.split(',').map((s) => s.trim());
-      currentSection = '';
-      continue;
-    }
-
-    // 영역별 경험
-    if (line.startsWith('**영역 별 경험**:')) {
-      currentSection = '영역별 경험';
-      continue;
-    }
-    if (currentSection === '영역별 경험' && line.startsWith('- ')) {
-      const match = line.match(/- ([^:]+): (.+)/);
+    if (currentSection === '핵심 기술' && line && !line.startsWith('**') && !line.startsWith('---')) {
+      const match = line.match(/^([^:]+): (.+)/);
       if (match) {
+        const items = match[2].split(',').map((s) => s.trim());
+        if (data.skills.core.length === 0) {
+          data.skills.core = items;
+        }
         data.skills.areas.push({ category: match[1], items: match[2] });
       }
       continue;
