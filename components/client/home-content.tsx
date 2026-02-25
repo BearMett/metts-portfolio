@@ -6,7 +6,12 @@ import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
 import { useLanguage } from '@/components/language-provider';
 import { resources } from '@/lib/resource.const';
-import type { AboutMeTranslated, SkillCategoryTranslated, AchievementTranslated, AttitudeTranslated } from '@/lib/data/types';
+import type {
+  AboutMeTranslated,
+  SkillCategoryTranslated,
+  AchievementTranslated,
+  AttitudeTranslated,
+} from '@/lib/data/types';
 
 interface HomeContentProps {
   aboutMeData: AboutMeTranslated;
