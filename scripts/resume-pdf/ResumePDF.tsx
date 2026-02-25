@@ -1,7 +1,7 @@
 import React from 'react';
 import { Document, Page, View, Text } from '@react-pdf/renderer';
 import { styles } from './styles';
-import type { ResumeData } from '../../lib/resume-parser';
+import type { ResumeData, Project } from '../../lib/resume-parser';
 
 interface ResumePDFProps {
   data: ResumeData;
@@ -77,10 +77,76 @@ function Skills({ skills }: { skills: ResumeData['skills'] }) {
   );
 }
 
-// Experience Component
-function Experience({ experience }: { experience: ResumeData['experience'] }) {
+// Project Bullet List Helper
+function ProjectBulletList({ items }: { items: string[] }) {
+  if (!items || items.length === 0) return null;
   return (
-    <Section title="경력">
+    <View style={styles.projectBulletList}>
+      {items.map((item, index) => (
+        <View key={index} style={styles.projectBulletItem}>
+          <Text style={styles.projectBulletText}>- {item}</Text>
+        </View>
+      ))}
+    </View>
+  );
+}
+
+// Project Subsection (label + content)
+function ProjectSubsection({ label, children }: { label: string; children: React.ReactNode }) {
+  return (
+    <View>
+      <Text style={styles.projectSubsectionLabel}>{label}</Text>
+      {children}
+    </View>
+  );
+}
+
+// Project Card with 4-section narrative
+function ProjectCard({ project }: { project: Project }) {
+  return (
+    <View style={styles.project}>
+      <Text style={styles.projectTitle}>{project.title}</Text>
+
+      {project.background && (
+        <ProjectSubsection label="문제 및 배경">
+          <Text style={styles.projectBackground}>{project.background}</Text>
+        </ProjectSubsection>
+      )}
+
+      {project.process.length > 0 && (
+        <ProjectSubsection label="역할 및 해결 과정">
+          <ProjectBulletList items={project.process} />
+        </ProjectSubsection>
+      )}
+
+      {project.impact.length > 0 && (
+        <ProjectSubsection label="성과 및 영향">
+          <ProjectBulletList items={project.impact} />
+        </ProjectSubsection>
+      )}
+
+      {project.decisions.length > 0 && (
+        <ProjectSubsection label="기술적 의사결정">
+          <ProjectBulletList items={project.decisions} />
+        </ProjectSubsection>
+      )}
+
+      {project.tech && <Text style={styles.projectTechLine}>{project.tech}</Text>}
+    </View>
+  );
+}
+
+// Experience Component
+function Experience({
+  experience,
+  totalExperience,
+}: {
+  experience: ResumeData['experience'];
+  totalExperience: string;
+}) {
+  const sectionTitle = totalExperience ? `경력 (${totalExperience})` : '경력';
+  return (
+    <Section title={sectionTitle}>
       {experience.map((company, companyIndex) => (
         <View key={companyIndex} style={styles.company}>
           <View style={styles.companyHeader}>
@@ -91,27 +157,7 @@ function Experience({ experience }: { experience: ResumeData['experience'] }) {
             <Text style={styles.companyPeriod}>{company.period}</Text>
           </View>
           {company.projects.map((project, projectIndex) => (
-            <View key={projectIndex} style={styles.project}>
-              <Text style={styles.projectTitle}>{project.title}</Text>
-              {project.achievement && (
-                <Text style={styles.projectDetail}>
-                  <Text style={styles.projectLabel}>성과: </Text>
-                  {project.achievement}
-                </Text>
-              )}
-              {project.role && (
-                <Text style={styles.projectDetail}>
-                  <Text style={styles.projectLabel}>역할: </Text>
-                  {project.role}
-                </Text>
-              )}
-              {project.tech && (
-                <Text style={styles.projectDetail}>
-                  <Text style={styles.projectLabel}>기술: </Text>
-                  {project.tech}
-                </Text>
-              )}
-            </View>
+            <ProjectCard key={projectIndex} project={project} />
           ))}
         </View>
       ))}
@@ -119,7 +165,7 @@ function Experience({ experience }: { experience: ResumeData['experience'] }) {
   );
 }
 
-// Footer Component (Education, Awards, Languages)
+// Footer Component (Education, Certifications, Awards, Languages)
 function Footer({ data }: { data: ResumeData }) {
   return (
     <View>
@@ -132,6 +178,18 @@ function Footer({ data }: { data: ResumeData }) {
           </Text>
         ))}
       </View>
+
+      {/* 자격증 */}
+      {data.certifications.length > 0 && (
+        <View style={styles.footerSection}>
+          <Text style={styles.sectionTitle}>자격증</Text>
+          {data.certifications.map((item, index) => (
+            <Text key={index} style={styles.footerItem}>
+              • {item}
+            </Text>
+          ))}
+        </View>
+      )}
 
       {/* 수상 기록 */}
       {data.awards.length > 0 && (
@@ -169,7 +227,7 @@ export function ResumePDF({ data }: ResumePDFProps) {
         <Introduction text={data.introduction} />
         <Strengths strengths={data.strengths} />
         <Skills skills={data.skills} />
-        <Experience experience={data.experience} />
+        <Experience experience={data.experience} totalExperience={data.totalExperience} />
         <Footer data={data} />
       </Page>
     </Document>
