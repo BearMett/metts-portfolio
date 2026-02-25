@@ -37,7 +37,8 @@
     ],
     "en": [
       "Implemented efficient order processing with a Red-Black Tree-based matching engine to handle increasing real-time trading volume.",
-      "Designed state synchronization with an event-based architecture to minimize data inconsistencies between blockchain and exchange.",
+      "Designed a dual-layer event architecture: message queue for blockchain-app communication, NestJS EventEmitter for internal transaction processing.",
+      "Applied a state commit (checkpoint) pattern to explicitly record processing completion points and prevent event loss.",
       "Created an architecture for independent scaling per item, enabling scale-out of specific items when their trading volume increases."
     ]
   },
@@ -49,9 +50,10 @@
       "종목별 독립 실행 가능한 구조로 특정 종목의 트래픽 급증 시에도 다른 종목 거래에 영향을 주지 않도록 격리했습니다."
     ],
     "en": [
-      "Optimized exchange engine processing speed to operate quickly on the exchange side even with the blockchain ledger's 20 transactions per second constraint.",
-      "Isolated items with independent execution structure so that traffic spikes in specific items don't affect trading in other items.",
-      "Implemented state synchronization between blockchain and exchange with event-based architecture, minimizing transaction delays from data inconsistencies."
+      "Optimized exchange engine processing speed to operate quickly even with the blockchain ledger's 20 transactions per second constraint.",
+      "Maintained internal transaction integrity during blockchain failures by separating message queue and EventEmitter responsibilities.",
+      "Ensured blockchain-exchange state synchronization without event loss using the state commit (checkpoint) pattern.",
+      "Isolated items with independent execution structure so that traffic spikes in specific items don't affect trading in other items."
     ]
   }
 }
