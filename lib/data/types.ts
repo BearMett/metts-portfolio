@@ -98,6 +98,47 @@ export interface AboutMe {
   skillStack: string;
 }
 
+// Skill Category Types
+export interface SkillCategoryTranslated {
+  id: string;
+  label: { [key in Language]: string };
+  skills: { [key in Language]: string[] };
+}
+
+export interface SkillCategory {
+  id: string;
+  label: string;
+  skills: string[];
+}
+
+// Achievement Types
+export interface AchievementTranslated {
+  id: string;
+  title: { [key in Language]: string };
+  metric: { [key in Language]: string };
+  result: { [key in Language]: string };
+}
+
+export interface Achievement {
+  id: string;
+  title: string;
+  metric: string;
+  result: string;
+}
+
+// Attitude Types
+export interface AttitudeTranslated {
+  id: string;
+  title: { [key in Language]: string };
+  description: { [key in Language]: string };
+}
+
+export interface Attitude {
+  id: string;
+  title: string;
+  description: string;
+}
+
 // Server-to-client data transfer type (bilingual portfolio data)
 export interface PortfolioServerData {
   items: PortfolioItemTranslated[];
