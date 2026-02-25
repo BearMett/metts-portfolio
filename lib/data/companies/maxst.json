@@ -16,5 +16,6 @@
     "primary": "blue"
   },
   "website": "https://maxst.com",
-  "type": "company"
+  "type": "company",
+  "period": { "from": "2023-04", "to": "2024-03" }
 }

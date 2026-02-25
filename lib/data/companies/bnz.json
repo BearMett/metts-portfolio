@@ -16,5 +16,6 @@
     "primary": "purple"
   },
   "website": "https://bnz.co.kr",
-  "type": "company"
+  "type": "company",
+  "period": { "from": "2024-03", "to": "2025-03" }
 }

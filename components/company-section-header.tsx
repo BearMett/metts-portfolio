@@ -26,10 +26,9 @@ const textColorMap: Record<string, string> = {
 
 interface CompanySectionHeaderProps {
   company: Company;
-  dateRange: { from: string; to: string };
 }
 
-export function CompanySectionHeader({ company, dateRange }: CompanySectionHeaderProps) {
+export function CompanySectionHeader({ company }: CompanySectionHeaderProps) {
   const color = company.colors.primary;
   const bgClass = bgColorMap[color] || 'bg-gray-100 dark:bg-gray-800';
   const textClass = textColorMap[color] || 'text-gray-700 dark:text-gray-300';
@@ -38,9 +37,11 @@ export function CompanySectionHeader({ company, dateRange }: CompanySectionHeade
     <div className={`rounded-lg px-4 py-3 mb-4 ${bgClass}`}>
       <div className="flex items-center justify-between">
         <h2 className={`text-lg font-semibold ${textClass}`}>{company.name}</h2>
-        <span className="text-sm text-muted-foreground">
-          {dateRange.from} ~ {dateRange.to}
-        </span>
+        {company.period && (
+          <span className="text-sm text-muted-foreground">
+            {company.period.from} ~ {company.period.to ?? '현재'}
+          </span>
+        )}
       </div>
     </div>
   );

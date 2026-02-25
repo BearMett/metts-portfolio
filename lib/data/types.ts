@@ -11,6 +11,7 @@ export interface CompanyTranslated {
   };
   website: string | null;
   type: 'company' | 'personal';
+  period?: { from: string; to: string | null }; // "YYYY-MM" format, null = 현재
 }
 
 export interface Company {
@@ -23,6 +24,7 @@ export interface Company {
   };
   website: string | null;
   type: 'company' | 'personal';
+  period?: { from: string; to: string | null };
 }
 
 // Portfolio Types
@@ -147,7 +149,6 @@ export interface CompanyGroup {
   company: Company;
   items: PortfolioItem[];
   latestDate: string; // "YYYY-MM" format, for sorting sections
-  dateRange: { from: string; to: string }; // derived min/max from item dates
 }
 
 // Server-to-client data transfer type (bilingual portfolio data)

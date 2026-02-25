@@ -63,6 +63,7 @@ const mockLocalizedCompanies: Company[] = [
     colors: { primary: 'blue' },
     website: null,
     type: 'company',
+    period: { from: '2025-01', to: '2025-06' },
   },
   {
     id: 'co-b',
@@ -72,6 +73,7 @@ const mockLocalizedCompanies: Company[] = [
     colors: { primary: 'red' },
     website: null,
     type: 'company',
+    period: { from: '2024-01', to: '2024-12' },
   },
 ];
 
@@ -136,10 +138,10 @@ describe('groupPortfolioItemsByCompany', () => {
     expect(groups).toHaveLength(2);
   });
 
-  it('should sort groups by latestDate descending (most recent first)', () => {
+  it('should sort groups by company period.to descending (most recent first)', () => {
     const groups = groupPortfolioItemsByCompany(mockLocalizedItems, mockLocalizedCompanies);
-    expect(groups[0].company.id).toBe('co-a'); // 2025-03
-    expect(groups[1].company.id).toBe('co-b'); // 2024-12
+    expect(groups[0].company.id).toBe('co-a'); // period.to: 2025-06
+    expect(groups[1].company.id).toBe('co-b'); // period.to: 2024-12
   });
 
   it('should sort items within each group by date descending', () => {
@@ -149,10 +151,14 @@ describe('groupPortfolioItemsByCompany', () => {
     expect(coAItems[1].date).toBe('2025-01');
   });
 
-  it('should compute dateRange from item dates', () => {
-    const groups = groupPortfolioItemsByCompany(mockLocalizedItems, mockLocalizedCompanies);
+  it('should use latest item date as latestDate when company has no period', () => {
+    const companiesNoPeriod: Company[] = [
+      { ...mockLocalizedCompanies[0], period: undefined },
+      { ...mockLocalizedCompanies[1], period: undefined },
+    ];
+    const groups = groupPortfolioItemsByCompany(mockLocalizedItems, companiesNoPeriod);
     const coA = groups.find((g) => g.company.id === 'co-a')!;
-    expect(coA.dateRange).toEqual({ from: '2025-01', to: '2025-03' });
+    expect(coA.latestDate).toBe('2025-03');
   });
 
   it('should exclude groups with no items after filtering', () => {

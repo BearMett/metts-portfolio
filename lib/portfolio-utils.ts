@@ -47,6 +47,7 @@ export function localizeCompanies(portfolioData: PortfolioServerData, language: 
     colors: c.colors,
     website: c.website,
     type: c.type,
+    period: c.period,
   }));
 }
 
@@ -66,13 +67,14 @@ export function groupPortfolioItemsByCompany(items: PortfolioItem[], companies: 
     if (!company) continue;
 
     const sorted = groupItems.sort((a, b) => b.date.localeCompare(a.date));
-    const dates = sorted.map((i) => i.date);
+
+    // Use company.period.to for sorting if available, otherwise latest item date
+    const latestDate = company.period?.to ?? sorted[0].date;
 
     groups.push({
       company,
       items: sorted,
-      latestDate: dates[0],
-      dateRange: { from: dates[dates.length - 1], to: dates[0] },
+      latestDate,
     });
   }
 

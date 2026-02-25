@@ -196,7 +196,7 @@ export function InteractivePortfolio({ portfolioData }: InteractivePortfolioProp
         <div className="space-y-10">
           {groups.map((group) => (
             <section key={group.company.id}>
-              <CompanySectionHeader company={group.company} dateRange={group.dateRange} />
+              <CompanySectionHeader company={group.company} />
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {group.items.map((item) => (
                   <PortfolioCard
