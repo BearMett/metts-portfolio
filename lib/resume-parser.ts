@@ -3,8 +3,10 @@ import path from 'path';
 
 export interface Project {
   title: string;
-  achievement: string;
-  role: string;
+  background: string;
+  process: string[];
+  impact: string[];
+  decisions: string[];
   tech: string;
 }
 
@@ -28,9 +30,11 @@ export interface ResumeData {
     core: string[];
     areas: Array<{ category: string; items: string }>;
   };
+  totalExperience: string;
   experience: Company[];
   education: string[];
   awards: string[];
+  certifications: string[];
   languages: string[];
 }
 
@@ -46,15 +50,18 @@ export function parseResumeMarkdown(filePath: string): ResumeData {
     introduction: '',
     strengths: [],
     skills: { core: [], areas: [] },
+    totalExperience: '',
     experience: [],
     education: [],
     awards: [],
+    certifications: [],
     languages: [],
   };
 
   let currentSection = '';
   let currentCompany: Company | null = null;
   let currentProject: Project | null = null;
+  let currentProjectSection: 'background' | 'process' | 'impact' | 'decisions' | 'tech' | '' = '';
 
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i].trim();
@@ -87,9 +94,7 @@ export function parseResumeMarkdown(filePath: string): ResumeData {
     }
 
     // 섹션 헤더 감지
-    if (line.startsWith('## **') && line.endsWith('**')) {
-      currentSection = line.replace(/## \*\*|\*\*/g, '').trim();
-
+    if (line.startsWith('## **')) {
       // 이전 회사/프로젝트 저장
       if (currentProject && currentCompany) {
         currentCompany.projects.push(currentProject);
@@ -99,6 +104,17 @@ export function parseResumeMarkdown(filePath: string): ResumeData {
         data.experience.push(currentCompany);
         currentCompany = null;
       }
+      currentProjectSection = '';
+
+      // 경력 (총 N년) 패턴 파싱
+      const experienceMatch = line.match(/## \*\*경력\s*\(([^)]+)\)\*\*/);
+      if (experienceMatch) {
+        currentSection = '경력';
+        data.totalExperience = experienceMatch[1].trim();
+        continue;
+      }
+
+      currentSection = line.replace(/## \*\*|\*\*/g, '').trim();
       continue;
     }
 
@@ -141,6 +157,11 @@ export function parseResumeMarkdown(filePath: string): ResumeData {
 
     // 경력 섹션
     if (currentSection === '경력') {
+      // 구분선 스킵
+      if (line === '---') {
+        continue;
+      }
+
       // 회사 헤더
       if (line.startsWith('### **')) {
         // 이전 프로젝트/회사 저장
@@ -151,6 +172,7 @@ export function parseResumeMarkdown(filePath: string): ResumeData {
         if (currentCompany) {
           data.experience.push(currentCompany);
         }
+        currentProjectSection = '';
 
         const companyMatch = line.match(/### \*\*([^|]+)\|([^(]+)\(([^)]+)\)\*\*/);
         if (companyMatch) {
@@ -171,21 +193,52 @@ export function parseResumeMarkdown(filePath: string): ResumeData {
         }
         currentProject = {
           title: line.replace(/\*\*/g, '').trim(),
-          achievement: '',
-          role: '',
+          background: '',
+          process: [],
+          impact: [],
+          decisions: [],
           tech: '',
         };
+        currentProjectSection = '';
         continue;
       }
 
-      // 프로젝트 상세
+      // 프로젝트 서브섹션 헤더 감지
       if (currentProject) {
-        if (line.startsWith('- **성과**:')) {
-          currentProject.achievement = line.replace('- **성과**:', '').trim();
-        } else if (line.startsWith('- **역할**:')) {
-          currentProject.role = line.replace('- **역할**:', '').trim();
-        } else if (line.startsWith('- **기술**:')) {
-          currentProject.tech = line.replace('- **기술**:', '').trim();
+        if (line === '[문제 및 배경]') {
+          currentProjectSection = 'background';
+          continue;
+        }
+        if (line === '[역할 및 해결 과정]') {
+          currentProjectSection = 'process';
+          continue;
+        }
+        if (line === '[성과 및 영향]') {
+          currentProjectSection = 'impact';
+          continue;
+        }
+        if (line === '[기술적 의사결정]') {
+          currentProjectSection = 'decisions';
+          continue;
+        }
+        if (line === '[스택]') {
+          currentProjectSection = 'tech';
+          continue;
+        }
+
+        // 서브섹션 내용 파싱
+        if (currentProjectSection === 'background' && line) {
+          currentProject.background = currentProject.background
+            ? currentProject.background + ' ' + line
+            : line;
+        } else if (currentProjectSection === 'process' && line.startsWith('- ')) {
+          currentProject.process.push(line.replace(/^- /, ''));
+        } else if (currentProjectSection === 'impact' && line.startsWith('- ')) {
+          currentProject.impact.push(line.replace(/^- /, ''));
+        } else if (currentProjectSection === 'decisions' && line.startsWith('- ')) {
+          currentProject.decisions.push(line.replace(/^- /, ''));
+        } else if (currentProjectSection === 'tech' && line) {
+          currentProject.tech = line;
         }
       }
       continue;
@@ -203,6 +256,14 @@ export function parseResumeMarkdown(filePath: string): ResumeData {
     if (currentSection === '수상 기록') {
       if (line.startsWith('- ')) {
         data.awards.push(line.replace('- ', ''));
+      }
+      continue;
+    }
+
+    // 자격증
+    if (currentSection === '자격증') {
+      if (line.startsWith('- ')) {
+        data.certifications.push(line.replace('- ', ''));
       }
       continue;
     }
