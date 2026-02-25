@@ -8,6 +8,10 @@ export const resources = {
       blog: '블로그',
       contact: '연락처',
     },
+    home: {
+      achievements: '핵심 성과',
+      attitudes: '업무 철학',
+    },
     portfolio: {
       title: '포트폴리오',
       subtitle: '프로젝트를 선택하시면 자세한 내용을 확인 할 수 있습니다! 😊',
@@ -53,6 +57,10 @@ export const resources = {
       portfolio: 'Portfolio',
       blog: 'Blog',
       contact: 'Contact',
+    },
+    home: {
+      achievements: 'Key Achievements',
+      attitudes: 'Work Philosophy',
     },
     portfolio: {
       title: 'Portfolio',

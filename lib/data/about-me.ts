@@ -7,8 +7,8 @@ export const aboutMeData: AboutMeTranslated = {
     en: 'Youngmin Kim | Software Engineer Who Asks First and Solves User Pain Points',
   },
   introduction: {
-    ko: '먼저 묻고, 사용자의 불편함을 해결하는 소프트웨어 엔지니어, 김영민입니다.',
-    en: "I'm Youngmin Kim, a software engineer who asks first and solves user pain points.",
+    ko: '운영 중인 시스템을 멈추지 않고 현대화하는 백엔드 엔지니어입니다. 15개 SVN 저장소를 단일 Git으로 통합하고, EOL 스택을 2주 만에 재구축하며, 사업팀이 스스로 콘텐츠를 등록할 수 있는 CMS를 만들었습니다.',
+    en: "I'm a backend engineer who modernizes live systems without downtime. I consolidated 15 SVN repos into a single Git, rebuilt an EOL stack in 2 weeks, and built a CMS that empowered the business team to manage content independently.",
   },
   values: {
     title: {
