@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
-import { localizePortfolioItems } from '@/lib/portfolio-utils';
-import type { PortfolioItemTranslated, CompanyTranslated } from '@/lib/data/types';
+import { localizePortfolioItems, groupPortfolioItemsByCompany } from '@/lib/portfolio-utils';
+import type { PortfolioItemTranslated, CompanyTranslated, PortfolioItem, Company } from '@/lib/data/types';
 
 const mockCompanies: CompanyTranslated[] = [
   {
@@ -51,5 +51,114 @@ describe('localizePortfolioItems', () => {
     );
     expect(result[0].company).toBe('테스트');
     expect(result[0].companyId).toBe('test-co');
+  });
+});
+
+const mockLocalizedCompanies: Company[] = [
+  {
+    id: 'co-a',
+    name: 'Company A',
+    shortName: 'A',
+    description: '',
+    colors: { primary: 'blue' },
+    website: null,
+    type: 'company',
+  },
+  {
+    id: 'co-b',
+    name: 'Company B',
+    shortName: 'B',
+    description: '',
+    colors: { primary: 'red' },
+    website: null,
+    type: 'company',
+  },
+];
+
+const mockLocalizedItems: PortfolioItem[] = [
+  {
+    id: '1',
+    date: '2024-06',
+    title: 'Old B',
+    companyId: 'co-b',
+    company: 'Company B',
+    shortDesc: '',
+    description: '',
+    techStack: [],
+    category: [],
+    tasks: [],
+    achievements: [],
+  },
+  {
+    id: '2',
+    date: '2025-03',
+    title: 'New A',
+    companyId: 'co-a',
+    company: 'Company A',
+    shortDesc: '',
+    description: '',
+    techStack: [],
+    category: [],
+    tasks: [],
+    achievements: [],
+  },
+  {
+    id: '3',
+    date: '2025-01',
+    title: 'Old A',
+    companyId: 'co-a',
+    company: 'Company A',
+    shortDesc: '',
+    description: '',
+    techStack: [],
+    category: [],
+    tasks: [],
+    achievements: [],
+  },
+  {
+    id: '4',
+    date: '2024-12',
+    title: 'New B',
+    companyId: 'co-b',
+    company: 'Company B',
+    shortDesc: '',
+    description: '',
+    techStack: [],
+    category: [],
+    tasks: [],
+    achievements: [],
+  },
+];
+
+describe('groupPortfolioItemsByCompany', () => {
+  it('should group items by companyId', () => {
+    const groups = groupPortfolioItemsByCompany(mockLocalizedItems, mockLocalizedCompanies);
+    expect(groups).toHaveLength(2);
+  });
+
+  it('should sort groups by latestDate descending (most recent first)', () => {
+    const groups = groupPortfolioItemsByCompany(mockLocalizedItems, mockLocalizedCompanies);
+    expect(groups[0].company.id).toBe('co-a'); // 2025-03
+    expect(groups[1].company.id).toBe('co-b'); // 2024-12
+  });
+
+  it('should sort items within each group by date descending', () => {
+    const groups = groupPortfolioItemsByCompany(mockLocalizedItems, mockLocalizedCompanies);
+    const coAItems = groups.find((g) => g.company.id === 'co-a')!.items;
+    expect(coAItems[0].date).toBe('2025-03');
+    expect(coAItems[1].date).toBe('2025-01');
+  });
+
+  it('should compute dateRange from item dates', () => {
+    const groups = groupPortfolioItemsByCompany(mockLocalizedItems, mockLocalizedCompanies);
+    const coA = groups.find((g) => g.company.id === 'co-a')!;
+    expect(coA.dateRange).toEqual({ from: '2025-01', to: '2025-03' });
+  });
+
+  it('should exclude groups with no items after filtering', () => {
+    const filtered = mockLocalizedItems.filter((i) => i.companyId === 'co-a');
+    const groups = groupPortfolioItemsByCompany(filtered, mockLocalizedCompanies);
+    expect(groups).toHaveLength(1);
+    expect(groups[0].company.id).toBe('co-a');
   });
 });

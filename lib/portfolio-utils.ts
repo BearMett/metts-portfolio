@@ -1,5 +1,5 @@
 import type { Language } from '@/lib/resource.const';
-import type { PortfolioServerData, PortfolioItem, PortfolioCategory } from '@/lib/data/types';
+import type { PortfolioServerData, PortfolioItem, PortfolioCategory, Company, CompanyGroup } from '@/lib/data/types';
 
 export function localizePortfolioItems(portfolioData: PortfolioServerData, language: Language): PortfolioItem[] {
   return portfolioData.items.map((item) => {
@@ -36,4 +36,33 @@ export function localizePortfolioCategories(
     label: cat.label[language],
     icon: cat.icon,
   }));
+}
+
+export function groupPortfolioItemsByCompany(items: PortfolioItem[], companies: Company[]): CompanyGroup[] {
+  const companyMap = new Map(companies.map((c) => [c.id, c]));
+  const grouped = new Map<string, PortfolioItem[]>();
+
+  for (const item of items) {
+    const list = grouped.get(item.companyId) || [];
+    list.push(item);
+    grouped.set(item.companyId, list);
+  }
+
+  const groups: CompanyGroup[] = [];
+  for (const [companyId, groupItems] of grouped) {
+    const company = companyMap.get(companyId);
+    if (!company) continue;
+
+    const sorted = groupItems.sort((a, b) => b.date.localeCompare(a.date));
+    const dates = sorted.map((i) => i.date);
+
+    groups.push({
+      company,
+      items: sorted,
+      latestDate: dates[0],
+      dateRange: { from: dates[dates.length - 1], to: dates[0] },
+    });
+  }
+
+  return groups.sort((a, b) => b.latestDate.localeCompare(a.latestDate));
 }

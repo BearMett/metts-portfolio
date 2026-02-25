@@ -142,6 +142,14 @@ export interface Attitude {
   description: string;
 }
 
+// Company Group Type (for grouping portfolio items by company)
+export interface CompanyGroup {
+  company: Company;
+  items: PortfolioItem[];
+  latestDate: string; // "YYYY-MM" format, for sorting sections
+  dateRange: { from: string; to: string }; // derived min/max from item dates
+}
+
 // Server-to-client data transfer type (bilingual portfolio data)
 export interface PortfolioServerData {
   items: PortfolioItemTranslated[];
