@@ -1,18 +1,23 @@
 import { HomeContent } from '@/components/client/home-content';
-import { getAboutMeDataBothLanguages } from '@/lib/server/about-me-data';
-import { skillCategoriesData } from '@/lib/data/skills';
-import { achievementsData } from '@/lib/data/achievements';
-import { attitudesData } from '@/lib/data/attitudes';
+import {
+  getAboutMeDataBothLanguages,
+  getSkillCategoriesBothLanguages,
+  getAchievementsBothLanguages,
+  getAttitudesBothLanguages,
+} from '@/lib/server/about-me-data';
 
 export default function Home() {
   const aboutMeData = getAboutMeDataBothLanguages();
+  const skillCategories = getSkillCategoriesBothLanguages();
+  const achievements = getAchievementsBothLanguages();
+  const attitudes = getAttitudesBothLanguages();
 
   return (
     <HomeContent
       aboutMeData={aboutMeData}
-      skillCategories={skillCategoriesData}
-      achievements={achievementsData}
-      attitudes={attitudesData}
+      skillCategories={skillCategories}
+      achievements={achievements}
+      attitudes={attitudes}
     />
   );
 }

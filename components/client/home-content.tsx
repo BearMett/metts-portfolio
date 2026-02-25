@@ -84,12 +84,6 @@ export function HomeContent({ aboutMeData, skillCategories, achievements, attitu
         <div className="space-y-4">
           <h1 className="text-4xl font-bold">{aboutMe.title}</h1>
           <p className="max-w-prose text-lg text-muted-foreground">{aboutMe.introduction}</p>
-          <h2 className="text-2xl text-muted-foreground">{aboutMe.values.title}</h2>
-          <ul className="list-disc list-inside text-lg text-muted-foreground space-y-2">
-            {aboutMe.values.items.map((item: string, index: number) => (
-              <li key={`value-${index}`}>{item}</li>
-            ))}
-          </ul>
           <h2 className="text-2xl text-muted-foreground">{aboutMe.strengths.title}</h2>
           <ul className="list-disc list-inside text-lg text-muted-foreground space-y-2">
             {aboutMe.strengths.items.map((item: string, index: number) => (
