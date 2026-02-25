@@ -9,12 +9,13 @@ import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { LanguageProvider } from '@/components/language-provider';
 import { ClarityProvider } from '@/components/clarity-provider';
+import { ScrollPageTransition } from '@/components/scroll-page-transition';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: '김영민 - 서비스 엔지니어',
-  description: '서비스 엔지니어 김영민을 소개합니다',
+  title: '김영민 - 소프트웨어 엔지니어',
+  description: '소프트웨어 엔지니어 김영민을 소개합니다',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -25,7 +26,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <LanguageProvider>
             <div className="min-h-screen bg-background">
               <Navigation />
-              <main className="container mx-auto px-4 py-6">{children}</main>
+              <main className="container mx-auto px-4 py-6">
+                {children}
+                <ScrollPageTransition />
+              </main>
               <Toaster />
             </div>
           </LanguageProvider>
