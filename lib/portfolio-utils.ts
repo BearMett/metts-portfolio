@@ -8,6 +8,7 @@ export function localizePortfolioItems(portfolioData: PortfolioServerData, langu
       id: item.id,
       date: item.date,
       title: item.title[language],
+      companyId: item.companyId,
       company: company ? company.name[language] : item.companyId,
       shortDesc: item.shortDesc[language],
       description: item.description[language],

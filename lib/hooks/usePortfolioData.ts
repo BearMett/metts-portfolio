@@ -29,6 +29,7 @@ export function usePortfolioData() {
         id: item.id,
         date: item.date,
         title: item.title[language],
+        companyId: item.companyId,
         company: company?.name || item.companyId,
         shortDesc: item.shortDesc[language],
         description: item.description[language],

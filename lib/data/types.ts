@@ -45,6 +45,7 @@ export interface PortfolioItem {
   id: string;
   date: string;
   title: string;
+  companyId: string;
   company: string;
   shortDesc: string;
   description: string;
