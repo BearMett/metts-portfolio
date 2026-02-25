@@ -6,18 +6,16 @@ import { cn } from '@/lib/utils';
 import { ThemeToggle } from '@/components/theme-toggle';
 import { useLanguage } from '@/components/language-provider';
 import { LanguageSwitcher } from '@/components/language-switcher';
+import { PAGE_ORDER, getPageLabel } from '@/lib/page-order';
 
 export function Navigation() {
   const pathname = usePathname();
   const { t } = useLanguage();
 
-  const links = [
-    { href: '/', label: t('navigation.home') },
-    { href: '/resume', label: t('navigation.resume') },
-    { href: '/portfolio', label: t('navigation.portfolio') },
-    // { href: '/blog', label: t('navigation.blog') },
-    { href: '/contact', label: t('navigation.contact') },
-  ];
+  const links = PAGE_ORDER.map((href) => ({
+    href,
+    label: t(getPageLabel(href)),
+  }));
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
