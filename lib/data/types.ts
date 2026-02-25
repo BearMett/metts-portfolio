@@ -71,7 +71,8 @@ export interface PortfolioCategory {
 
 // About Me Types
 export interface AboutMeTranslated {
-  title: { [key in Language]: string };
+  name: { [key in Language]: string };
+  tagline: { [key in Language]: string };
   introduction: { [key in Language]: string };
   values: {
     title: { [key in Language]: string };
@@ -85,7 +86,8 @@ export interface AboutMeTranslated {
 }
 
 export interface AboutMe {
-  title: string;
+  name: string;
+  tagline: string;
   introduction: string;
   values: {
     title: string;
