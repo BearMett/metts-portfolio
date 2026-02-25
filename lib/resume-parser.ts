@@ -143,14 +143,15 @@ export function parseResumeMarkdown(filePath: string): ResumeData {
       currentSection = '핵심 기술';
       continue;
     }
-    if (currentSection === '핵심 기술' && line && !line.startsWith('**') && !line.startsWith('---')) {
-      const match = line.match(/^([^:]+): (.+)/);
+    if (currentSection === '핵심 기술' && line && !line.startsWith('---')) {
+      const match = line.match(/^-?\s*\*{0,2}([^*:]+)\*{0,2}:\s*(.+)/);
       if (match) {
+        const category = match[1].trim();
         const items = match[2].split(',').map((s) => s.trim());
         if (data.skills.core.length === 0) {
           data.skills.core = items;
         }
-        data.skills.areas.push({ category: match[1], items: match[2] });
+        data.skills.areas.push({ category, items: match[2].trim() });
       }
       continue;
     }

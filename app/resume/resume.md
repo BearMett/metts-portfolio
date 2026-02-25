@@ -35,10 +35,10 @@ TypeScript/NestJS를 주력으로 하며, 문제에 따라 Java, Bash, Python, P
 
 **핵심 기술**:
 
-언어: TypeScript, Node.js, Python, C/C++, PHP, Lua, SQL
-프레임워크: Next.js, React, NestJS, FastAPI, Prisma, Expo/EAS
-인프라: AWS, GCP, Docker, Nginx, Jenkins, GitHub Actions, Linux
-설계: DDD, TDD, REST API 설계, 아키텍처 설계
+- **언어**: TypeScript, Node.js, Python, C/C++, PHP, Lua, SQL
+- **프레임워크**: Next.js, React, NestJS, FastAPI, Prisma, Expo/EAS
+- **인프라**: AWS, GCP, Docker, Nginx, Jenkins, GitHub Actions, Linux
+- **설계**: DDD, TDD, REST API 설계, 아키텍처 설계
 
 ---
 
