@@ -38,6 +38,18 @@ export function localizePortfolioCategories(
   }));
 }
 
+export function localizeCompanies(portfolioData: PortfolioServerData, language: Language): Company[] {
+  return portfolioData.companies.map((c) => ({
+    id: c.id,
+    name: c.name[language],
+    shortName: c.shortName[language],
+    description: c.description[language],
+    colors: c.colors,
+    website: c.website,
+    type: c.type,
+  }));
+}
+
 export function groupPortfolioItemsByCompany(items: PortfolioItem[], companies: Company[]): CompanyGroup[] {
   const companyMap = new Map(companies.map((c) => [c.id, c]));
   const grouped = new Map<string, PortfolioItem[]>();
