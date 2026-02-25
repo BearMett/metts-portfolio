@@ -13,6 +13,7 @@ import {
   Layout,
   Search,
   FileDown,
+  ChevronsUpDown,
 } from 'lucide-react';
 import type { PortfolioServerData } from '@/lib/data/types';
 import {
@@ -25,7 +26,7 @@ import { getFilterButtonClasses } from '@/lib/category-utils';
 import { useLanguage } from './language-provider';
 import { Button } from '@/components/ui/button';
 import { downloadPortfolioPDF } from '@/lib/pdf-generator';
-import { CompanySectionHeader } from './company-section-header';
+import { CompanySection } from './company-section-header';
 import { PortfolioCard } from './portfolio-card';
 
 interface InteractivePortfolioProps {
@@ -42,7 +43,7 @@ export function InteractivePortfolio({ portfolioData }: InteractivePortfolioProp
   const [activeFilters, setActiveFilters] = useState<Record<string, boolean>>({
     all: true,
   });
-  const [expandedItem, setExpandedItem] = useState<string | null>(null);
+  const [expandedItems, setExpandedItems] = useState<Set<string>>(new Set());
 
   // 필터링 로직
   const handleFilterChange = (filter: string) => {
@@ -66,9 +67,13 @@ export function InteractivePortfolio({ portfolioData }: InteractivePortfolioProp
     }
   };
 
-  // 한 번에 하나만 확장
+  // 개별 카드 확장 토글
   const toggleExpand = (id: string) => {
-    setExpandedItem((prev) => (prev === id ? null : id));
+    setExpandedItems((prev) => {
+      const next = new Set(prev);
+      next.has(id) ? next.delete(id) : next.add(id);
+      return next;
+    });
   };
 
   // 필터링된 아이템
@@ -84,6 +89,16 @@ export function InteractivePortfolio({ portfolioData }: InteractivePortfolioProp
     () => groupPortfolioItemsByCompany(filteredItems, companies),
     [filteredItems, companies],
   );
+
+  // 모두 열기/닫기
+  const allExpanded = filteredItems.length > 0 && filteredItems.every((item) => expandedItems.has(item.id));
+  const toggleAll = () => {
+    if (allExpanded) {
+      setExpandedItems(new Set());
+    } else {
+      setExpandedItems(new Set(filteredItems.map((item) => item.id)));
+    }
+  };
 
   // 카테고리 레이블 매핑
   const getCategoryLabel = (category: string) => {
@@ -130,17 +145,28 @@ export function InteractivePortfolio({ portfolioData }: InteractivePortfolioProp
             <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-100">{t('portfolio.filterTitle')}</h2>
           </div>
 
-          {process.env.NODE_ENV === 'development' && (
+          <div className="flex items-center gap-2">
             <Button
               variant="outline"
               size="sm"
               className="flex items-center gap-1 text-xs px-2"
-              onClick={handleFilteredDownloadPDF}
+              onClick={toggleAll}
             >
-              <FileDown size={14} />
-              <span>{t('portfolio.downloadFiltered')}</span>
+              <ChevronsUpDown size={14} />
+              <span>{allExpanded ? t('portfolio.collapseAll') : t('portfolio.expandAll')}</span>
             </Button>
-          )}
+            {process.env.NODE_ENV === 'development' && (
+              <Button
+                variant="outline"
+                size="sm"
+                className="flex items-center gap-1 text-xs px-2"
+                onClick={handleFilteredDownloadPDF}
+              >
+                <FileDown size={14} />
+                <span>{t('portfolio.downloadFiltered')}</span>
+              </Button>
+            )}
+          </div>
         </div>
 
         <div className="flex flex-wrap gap-2">
@@ -195,20 +221,17 @@ export function InteractivePortfolio({ portfolioData }: InteractivePortfolioProp
       ) : (
         <div className="space-y-10">
           {groups.map((group) => (
-            <section key={group.company.id}>
-              <CompanySectionHeader company={group.company} />
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {group.items.map((item) => (
-                  <PortfolioCard
-                    key={item.id}
-                    item={item}
-                    isExpanded={expandedItem === item.id}
-                    onToggle={() => toggleExpand(item.id)}
-                    getCategoryLabel={getCategoryLabel}
-                  />
-                ))}
-              </div>
-            </section>
+            <CompanySection key={group.company.id} company={group.company}>
+              {group.items.map((item) => (
+                <PortfolioCard
+                  key={item.id}
+                  item={item}
+                  isExpanded={expandedItems.has(item.id)}
+                  onToggle={() => toggleExpand(item.id)}
+                  getCategoryLabel={getCategoryLabel}
+                />
+              ))}
+            </CompanySection>
           ))}
         </div>
       )}

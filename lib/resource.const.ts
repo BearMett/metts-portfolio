@@ -46,6 +46,8 @@ export const resources = {
       // PDF 다운로드 관련 번역
       downloadPDF: 'PDF로 다운로드',
       downloadFiltered: '필터링된 항목 다운로드',
+      expandAll: '모두 열기',
+      collapseAll: '모두 닫기',
       projectTitle: '프로젝트명',
       company: '회사/조직',
       currentFilter: '현재 필터',
@@ -100,6 +102,8 @@ export const resources = {
       // PDF download translations
       downloadPDF: 'Download as PDF',
       downloadFiltered: 'Download Filtered Items',
+      expandAll: 'Expand All',
+      collapseAll: 'Collapse All',
       projectTitle: 'Project Title',
       company: 'Company/Organization',
       currentFilter: 'Current Filter',

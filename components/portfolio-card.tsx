@@ -22,7 +22,7 @@ export function PortfolioCard({ item, isExpanded, onToggle, getCategoryLabel }: 
   const previewAchievements = item.achievements.slice(0, 2);
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md border border-gray-100 dark:border-gray-700">
+    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700">
       {/* Header section - always visible, clickable to toggle */}
       <div
         className="p-4 cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors"
