@@ -59,14 +59,15 @@ export function parseResumeMarkdown(filePath: string): ResumeData {
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i].trim();
 
-    // 헤더 파싱 (이름 | 타이틀)
-    if (line.startsWith('# ') && line.includes('|')) {
-      const [name, title] = line
-        .replace('# ', '')
-        .split('|')
-        .map((s) => s.trim());
-      data.name = name;
-      data.title = title;
+    // 헤더 파싱 (이름)
+    if (line.startsWith('# ') && !line.startsWith('## ')) {
+      data.name = line.replace('# ', '').trim();
+      continue;
+    }
+
+    // 타이틀 (이름 이후, 첫 섹션 마커 전까지의 텍스트)
+    if (data.name && !data.title && !line.startsWith('**') && !line.startsWith('##') && !line.startsWith('---') && line) {
+      data.title = line;
       continue;
     }
 

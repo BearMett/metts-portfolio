@@ -1,4 +1,5 @@
-# 김영민 | 일하는 사람들과 함께, 더 나은 워크플로우를 만드는 개발자
+# 김영민
+일하는 사람들과 함께, 더 나은 워크플로우를 만드는 개발자
 
 **GitHub**: [github.com/BearMett](https://github.com/BearMett)
 
