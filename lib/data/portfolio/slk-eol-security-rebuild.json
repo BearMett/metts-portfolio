@@ -18,7 +18,9 @@
     "Next.js 15",
     "Tailwind CSS",
     "TanStack Query",
-    "Prisma"
+    "Prisma",
+    "JWT",
+    "Blue-Green 배포"
   ],
   "category": [
     "security",

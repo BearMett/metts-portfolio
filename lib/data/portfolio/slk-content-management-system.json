@@ -21,7 +21,8 @@
     "TypeScript",
     "PostgreSQL",
     "Prisma",
-    "NCP Object Storage"
+    "NCP Object Storage",
+    "GitHub Actions"
   ],
   "category": [
     "frontend",
