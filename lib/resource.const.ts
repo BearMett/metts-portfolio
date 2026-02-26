@@ -46,6 +46,13 @@ export const resources = {
       // PDF 다운로드 관련 번역
       downloadPDF: 'PDF로 다운로드',
       downloadFiltered: '필터링된 항목 다운로드',
+      // 인쇄 관련 번역
+      printPortfolio: '인쇄용 보기',
+      printInstruction: '브라우저의 인쇄 기능(Ctrl+P)을 사용하여 PDF로 저장할 수 있습니다.',
+      backToPortfolio: '포트폴리오로 돌아가기',
+      printButton: '인쇄 / PDF 저장',
+      printDate: '생성일',
+      printFilter: '필터',
       expandAll: '모두 열기',
       collapseAll: '모두 닫기',
       projectTitle: '프로젝트명',
@@ -54,6 +61,11 @@ export const resources = {
       filterAll: '모든 카테고리',
       date: '작업 기간',
       projectCategories: '분야',
+      printPort: {
+        careerSummary: '커리어 요약',
+        present: '현재',
+        viewOriginal: '원본 보기',
+      },
     },
   },
   en: {
@@ -102,6 +114,13 @@ export const resources = {
       // PDF download translations
       downloadPDF: 'Download as PDF',
       downloadFiltered: 'Download Filtered Items',
+      // Print translations
+      printPortfolio: 'Print View',
+      printInstruction: "Use your browser's print function (Ctrl+P) to save as PDF.",
+      backToPortfolio: 'Back to Portfolio',
+      printButton: 'Print / Save PDF',
+      printDate: 'Generated',
+      printFilter: 'Filter',
       expandAll: 'Expand All',
       collapseAll: 'Collapse All',
       projectTitle: 'Project Title',
@@ -110,6 +129,11 @@ export const resources = {
       filterAll: 'All Categories',
       date: 'Work Period',
       projectCategories: 'Categories',
+      printPort: {
+        careerSummary: 'Career Summary',
+        present: 'Present',
+        viewOriginal: 'View Original',
+      },
     },
   },
 };
