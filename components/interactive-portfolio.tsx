@@ -70,7 +70,11 @@ export function InteractivePortfolio({ portfolioData }: InteractivePortfolioProp
   const toggleExpand = (id: string) => {
     setExpandedItems((prev) => {
       const next = new Set(prev);
-      next.has(id) ? next.delete(id) : next.add(id);
+      if (next.has(id)) {
+        next.delete(id);
+      } else {
+        next.add(id);
+      }
       return next;
     });
   };
@@ -84,10 +88,7 @@ export function InteractivePortfolio({ portfolioData }: InteractivePortfolioProp
   }, [items, activeFilters]);
 
   // 회사별 그룹핑
-  const groups = useMemo(
-    () => groupPortfolioItemsByCompany(filteredItems, companies),
-    [filteredItems, companies],
-  );
+  const groups = useMemo(() => groupPortfolioItemsByCompany(filteredItems, companies), [filteredItems, companies]);
 
   // 모두 열기/닫기
   const allExpanded = filteredItems.length > 0 && filteredItems.every((item) => expandedItems.has(item.id));
@@ -131,12 +132,7 @@ export function InteractivePortfolio({ portfolioData }: InteractivePortfolioProp
           </div>
 
           <div className="flex items-center gap-2">
-            <Button
-              variant="outline"
-              size="sm"
-              className="flex items-center gap-1 text-xs px-2"
-              onClick={toggleAll}
-            >
+            <Button variant="outline" size="sm" className="flex items-center gap-1 px-2 text-xs" onClick={toggleAll}>
               <ChevronsUpDown size={14} />
               <span>{allExpanded ? t('portfolio.collapseAll') : t('portfolio.expandAll')}</span>
             </Button>
