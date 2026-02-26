@@ -1,14 +1,15 @@
 import type { Language } from '@/lib/resource.const';
 import { resources } from '@/lib/resource.const';
-import { GITHUB_URL, MY_EMAIL } from '@/lib/consts';
 
 interface CoverSlideProps {
   name: string;
   tagline: string;
   lang: Language;
+  email?: string;
+  githubUrl?: string;
 }
 
-export function CoverSlide({ name, tagline, lang }: CoverSlideProps) {
+export function CoverSlide({ name, tagline, lang, email, githubUrl }: CoverSlideProps) {
   const t = resources[lang];
 
   return (
@@ -21,8 +22,8 @@ export function CoverSlide({ name, tagline, lang }: CoverSlideProps) {
       <p className="mb-10 max-w-lg text-base leading-relaxed text-gray-500">{tagline}</p>
 
       <div className="flex flex-col gap-1.5 text-sm text-gray-500">
-        {MY_EMAIL && <span>{MY_EMAIL}</span>}
-        {GITHUB_URL && <span>{GITHUB_URL}</span>}
+        {email && <span>{email}</span>}
+        {githubUrl && <span>{githubUrl}</span>}
       </div>
     </div>
   );

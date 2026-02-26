@@ -12,7 +12,7 @@ import {
   Link as LinkIcon,
   Layout,
   Search,
-  FileDown,
+  Printer,
   ChevronsUpDown,
 } from 'lucide-react';
 import type { PortfolioServerData } from '@/lib/data/types';
@@ -25,7 +25,6 @@ import {
 import { getFilterButtonClasses } from '@/lib/category-utils';
 import { useLanguage } from './language-provider';
 import { Button } from '@/components/ui/button';
-import { downloadPortfolioPDF } from '@/lib/pdf-generator';
 import { CompanySection } from './company-section-header';
 import { PortfolioCard } from './portfolio-card';
 
@@ -105,34 +104,20 @@ export function InteractivePortfolio({ portfolioData }: InteractivePortfolioProp
     return t(`portfolio.categories.${category}`);
   };
 
-  // PDF 다운로드 처리 함수
-  const handleFilteredDownloadPDF = async () => {
-    const pdfLabels = {
-      portfolioTitle: `${t('portfolio.title')} - ${getFilterLabel()}`,
-      title: t('portfolio.projectTitle'),
-      company: t('portfolio.company'),
-      description: t('portfolio.projectDesc'),
-      techStack: t('portfolio.usedTech'),
-      tasks: t('portfolio.tasks'),
-      achievements: t('portfolio.achievements'),
-      category: t('portfolio.projectCategories'),
-      date: t('portfolio.date'),
-    };
-
-    const filterLabel = getFilterLabel(true);
-    const filename = language === 'ko' ? `포트폴리오_${filterLabel}.pdf` : `portfolio_${filterLabel}.pdf`;
-    await downloadPortfolioPDF(filteredItems, pdfLabels, filename);
+  // 인쇄 페이지 열기
+  const handleOpenPrintPage = () => {
+    window.open('/print-port', '_blank');
   };
 
   // 현재 필터 라벨 가져오기
-  const getFilterLabel = (forFilename: boolean = false) => {
+  const getFilterLabel = () => {
     if (activeFilters.all) {
-      return forFilename ? 'all' : t('portfolio.filterAll');
+      return t('portfolio.filterAll');
     }
     const activeFilterNames = categories
       .filter((cat) => cat.id !== 'all' && activeFilters[cat.id])
-      .map((cat) => (forFilename ? cat.id : getCategoryLabel(cat.id)));
-    return activeFilterNames.join(forFilename ? '_' : ', ');
+      .map((cat) => getCategoryLabel(cat.id));
+    return activeFilterNames.join(', ');
   };
 
   return (
@@ -155,17 +140,15 @@ export function InteractivePortfolio({ portfolioData }: InteractivePortfolioProp
               <ChevronsUpDown size={14} />
               <span>{allExpanded ? t('portfolio.collapseAll') : t('portfolio.expandAll')}</span>
             </Button>
-            {process.env.NODE_ENV === 'development' && (
-              <Button
-                variant="outline"
-                size="sm"
-                className="flex items-center gap-1 text-xs px-2"
-                onClick={handleFilteredDownloadPDF}
-              >
-                <FileDown size={14} />
-                <span>{t('portfolio.downloadFiltered')}</span>
-              </Button>
-            )}
+            <Button
+              variant="outline"
+              size="sm"
+              className="flex items-center gap-1 text-xs px-2"
+              onClick={handleOpenPrintPage}
+            >
+              <Printer size={14} />
+              <span>{t('portfolio.printPortfolio')}</span>
+            </Button>
           </div>
         </div>
 

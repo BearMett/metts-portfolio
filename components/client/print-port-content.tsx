@@ -16,9 +16,11 @@ import type { PortfolioServerData } from '@/lib/data/types';
 
 interface PrintPortContentProps {
   portfolioData: PortfolioServerData;
+  email?: string;
+  githubUrl?: string;
 }
 
-export function PrintPortContent({ portfolioData }: PrintPortContentProps) {
+export function PrintPortContent({ portfolioData, email, githubUrl }: PrintPortContentProps) {
   const { language, t } = useLanguage();
 
   const items = localizePortfolioItems(portfolioData, language);
@@ -42,7 +44,7 @@ export function PrintPortContent({ portfolioData }: PrintPortContentProps) {
       />
 
       <div className="py-4">
-        <CoverSlide name={name} tagline={tagline} lang={language} />
+        <CoverSlide name={name} tagline={tagline} lang={language} email={email} githubUrl={githubUrl} />
         <CareerSummarySlide companyGroups={companyGroups} lang={language} />
 
         {companyGroups.map((group) =>
