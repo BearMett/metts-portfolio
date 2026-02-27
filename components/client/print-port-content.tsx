@@ -37,7 +37,6 @@ export function PrintPortContent({ portfolioData, email, githubUrl }: PrintPortC
   return (
     <div data-print-page>
       <PrintActionBar
-        instruction={t('portfolio.printInstruction')}
         printLabel={t('portfolio.printButton')}
         backLabel={t('portfolio.backToPortfolio')}
         backHref="/portfolio"
