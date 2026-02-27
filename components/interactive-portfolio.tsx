@@ -13,6 +13,7 @@ import {
   Layout,
   Search,
   Printer,
+  Smartphone,
   ChevronsUpDown,
 } from 'lucide-react';
 import type { PortfolioServerData } from '@/lib/data/types';
@@ -177,6 +178,8 @@ export function InteractivePortfolio({ portfolioData }: InteractivePortfolioProp
                     return <Layout size={14} />;
                   case 'Search':
                     return <Search size={14} />;
+                  case 'Smartphone':
+                    return <Smartphone size={14} />;
                   case 'Filter':
                   default:
                     return <Filter size={14} />;

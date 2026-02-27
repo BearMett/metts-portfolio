@@ -2,13 +2,18 @@ import Link from 'next/link';
 import { getAllMarkdownFiles } from '@/lib/markdown';
 import path from 'path';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { getRequestLanguage } from '@/lib/server-language';
+import { resources } from '@/lib/resource.const';
 
 export default async function BlogPage() {
+  const language = await getRequestLanguage();
+  const locale = language === 'ko' ? 'ko-KR' : 'en-US';
+  const r = resources[language];
   const posts = await getAllMarkdownFiles(path.join(process.cwd(), 'app/blog'));
 
   return (
     <div className="container max-w-4xl py-8 md:py-12">
-      <h1 className="mb-8 text-3xl font-bold">Blog Posts</h1>
+      <h1 className="mb-8 text-3xl font-bold">{r.blog.title}</h1>
       <div className="grid gap-6">
         {posts.map((post) => (
           <Link key={post.slug} href={`/blog/${post.slug}`}>
@@ -20,7 +25,7 @@ export default async function BlogPage() {
                 <p className="text-sm text-muted-foreground">
                   {post.metadata.date && (
                     <time dateTime={post.metadata.date}>
-                      {new Date(post.metadata.date).toLocaleDateString('en-US', {
+                      {new Date(post.metadata.date).toLocaleDateString(locale, {
                         year: 'numeric',
                         month: 'long',
                         day: 'numeric',

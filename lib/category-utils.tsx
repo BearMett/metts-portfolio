@@ -10,6 +10,7 @@ import {
   Link as LinkIcon,
   Layout,
   Search,
+  Smartphone,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -38,6 +39,10 @@ export function getCategoryIcon(category: string): React.ReactElement {
       return <Layout size={16} />;
     case 'search':
       return <Search size={16} />;
+    case 'mobile':
+      return <Smartphone size={16} />;
+    case 'cloud':
+      return <Cloud size={16} />;
     default:
       return <Code size={16} />;
   }
@@ -68,6 +73,10 @@ export function getCategoryColorClasses(category: string): string {
       return 'bg-pink-100 text-pink-800 dark:bg-pink-900 dark:text-pink-100';
     case 'search':
       return 'bg-emerald-100 text-emerald-800 dark:bg-emerald-900 dark:text-emerald-100';
+    case 'mobile':
+      return 'bg-fuchsia-100 text-fuchsia-800 dark:bg-fuchsia-900 dark:text-fuchsia-100';
+    case 'cloud':
+      return 'bg-sky-100 text-sky-800 dark:bg-sky-900 dark:text-sky-100';
     case 'static analysis':
       return 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-100';
     default:
@@ -101,6 +110,8 @@ export function getFilterButtonClasses(categoryId: string, isActive: boolean): s
     integration: 'bg-teal-600 text-white dark:bg-teal-500',
     frontend: 'bg-pink-600 text-white dark:bg-pink-500',
     search: 'bg-emerald-600 text-white dark:bg-emerald-500',
+    mobile: 'bg-fuchsia-600 text-white dark:bg-fuchsia-500',
+    cloud: 'bg-sky-600 text-white dark:bg-sky-500',
   };
 
   const activeClass = categoryClasses[categoryId] || 'bg-gray-600 text-white dark:bg-gray-500';

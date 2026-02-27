@@ -1,6 +1,6 @@
 'use client';
 import React, { createContext, useContext, useState, useEffect, useMemo, useSyncExternalStore } from 'react';
-import { defaultLanguage, Language, resources, supportedLanguages } from '@/lib/resource.const';
+import { defaultLanguage, Language, resources, isLanguage } from '@/lib/resource.const';
 
 type LanguageContextType = {
   language: Language;
@@ -12,8 +12,18 @@ const LanguageContext = createContext<LanguageContextType | null>(null);
 
 function getStoredLanguage(): Language {
   if (typeof window === 'undefined') return defaultLanguage;
-  const stored = localStorage.getItem('language') as Language;
-  return stored && supportedLanguages.includes(stored) ? stored : defaultLanguage;
+
+  const cookieMatch = document.cookie.match(/(?:^|; )language=([^;]+)/);
+  const cookieLanguage = cookieMatch ? decodeURIComponent(cookieMatch[1]) : null;
+  if (isLanguage(cookieLanguage)) return cookieLanguage;
+
+  const stored = localStorage.getItem('language');
+  if (isLanguage(stored)) return stored;
+
+  const htmlLanguage = document.documentElement.lang;
+  if (isLanguage(htmlLanguage)) return htmlLanguage;
+
+  return defaultLanguage;
 }
 
 function subscribeToStorage(callback: () => void) {
@@ -28,11 +38,13 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const setLanguage = (lang: Language) => {
     setLanguageState(lang);
     localStorage.setItem('language', lang);
+    document.cookie = `language=${lang}; path=/; max-age=31536000; samesite=lax`;
   };
 
-  // Update html lang attribute when language changes
+  // Keep language in sync across html attribute and cookie for server rendering
   useEffect(() => {
     document.documentElement.lang = language;
+    document.cookie = `language=${language}; path=/; max-age=31536000; samesite=lax`;
   }, [language]);
 
   const contextValue = useMemo(() => {

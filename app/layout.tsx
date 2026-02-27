@@ -10,17 +10,31 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 import { LanguageProvider } from '@/components/language-provider';
 import { ClarityProvider } from '@/components/clarity-provider';
 import { ScrollPageTransition } from '@/components/scroll-page-transition';
+import { getRequestLanguage } from '@/lib/server-language';
 
 const inter = Inter({ subsets: ['latin'] });
 
-export const metadata: Metadata = {
-  title: '김영민 - 소프트웨어 엔지니어',
-  description: '소프트웨어 엔지니어 김영민을 소개합니다',
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const language = await getRequestLanguage();
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+  if (language === 'en') {
+    return {
+      title: 'Youngmin Kim - Software Engineer',
+      description: 'Portfolio of software engineer Youngmin Kim.',
+    };
+  }
+
+  return {
+    title: '김영민 - 소프트웨어 엔지니어',
+    description: '소프트웨어 엔지니어 김영민을 소개합니다',
+  };
+}
+
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const language = await getRequestLanguage();
+
   return (
-    <html lang="ko" suppressHydrationWarning>
+    <html lang={language} suppressHydrationWarning>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <LanguageProvider>

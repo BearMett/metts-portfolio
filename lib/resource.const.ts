@@ -1,6 +1,9 @@
 // All translatable string resources
 export const resources = {
   ko: {
+    common: {
+      present: '현재',
+    },
     navigation: {
       home: '홈',
       resume: '이력서',
@@ -8,9 +11,31 @@ export const resources = {
       blog: '블로그',
       contact: '연락처',
     },
+    languageSwitcher: {
+      switchToEnglish: '영어로 전환',
+      switchToKorean: '한국어로 전환',
+    },
     home: {
       achievements: '핵심 성과',
       attitudes: '업무 철학',
+    },
+    contact: {
+      title: '연락처',
+      subtitle: '언제든 편하게 연락 주세요.',
+      connect: '소셜 링크',
+    },
+    blog: {
+      title: '블로그 글',
+      backToAllPosts: '전체 글로 돌아가기',
+    },
+    resume: {
+      download: '이력서 내려받기',
+      downloadFilename: '김영민-소프트웨어-엔지니어.pdf',
+      fallbackNotice: '영문 이력서는 준비 중입니다. 현재는 국문 버전이 표시됩니다.',
+      pdfUnavailable: '현재 언어의 PDF는 아직 준비 중입니다.',
+      thanksLine1: '감사합니다! 😃',
+      thanksLine2: '뜻깊은 인연이 되었으면 좋겠어요.',
+      close: '닫기',
     },
     scrollTransition: {
       next: '다음',
@@ -69,6 +94,9 @@ export const resources = {
     },
   },
   en: {
+    common: {
+      present: 'Present',
+    },
     navigation: {
       home: 'Home',
       resume: 'Resume',
@@ -76,9 +104,31 @@ export const resources = {
       blog: 'Blog',
       contact: 'Contact',
     },
+    languageSwitcher: {
+      switchToEnglish: 'Switch to English',
+      switchToKorean: 'Switch to Korean',
+    },
     home: {
       achievements: 'Key Achievements',
       attitudes: 'Work Philosophy',
+    },
+    contact: {
+      title: 'Contact',
+      subtitle: 'Feel free to reach out anytime.',
+      connect: 'Connect',
+    },
+    blog: {
+      title: 'Blog Posts',
+      backToAllPosts: 'Back to all posts',
+    },
+    resume: {
+      download: 'Download Resume',
+      downloadFilename: 'youngmin-kim-software-engineer.pdf',
+      fallbackNotice: 'English resume content is being prepared. Showing the Korean version for now.',
+      pdfUnavailable: 'PDF for the current language is not available yet.',
+      thanksLine1: 'Thank you! 😃',
+      thanksLine2: 'I hope we can build a meaningful connection.',
+      close: 'Close',
     },
     scrollTransition: {
       next: 'Next',
@@ -143,3 +193,11 @@ export type ResourceKey = keyof typeof resources.en;
 
 export const defaultLanguage: Language = 'ko';
 export const supportedLanguages: Language[] = ['ko', 'en'];
+
+export function isLanguage(value: string | null | undefined): value is Language {
+  return !!value && supportedLanguages.includes(value as Language);
+}
+
+export function resolveLanguage(value: string | null | undefined): Language {
+  return isLanguage(value) ? value : defaultLanguage;
+}

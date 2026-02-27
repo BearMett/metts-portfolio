@@ -1,6 +1,7 @@
 'use client';
 
 import type { Company } from '@/lib/data/types';
+import { useLanguage } from '@/components/language-provider';
 
 const borderColorMap: Record<string, string> = {
   blue: 'border-l-blue-400 dark:border-l-blue-500',
@@ -30,6 +31,7 @@ interface CompanySectionProps {
 }
 
 export function CompanySection({ company, children }: CompanySectionProps) {
+  const { t } = useLanguage();
   const color = company.colors.primary;
   const borderClass = borderColorMap[color] || 'border-l-gray-400 dark:border-l-gray-500';
   const textClass = textColorMap[color] || 'text-gray-700 dark:text-gray-300';
@@ -42,7 +44,7 @@ export function CompanySection({ company, children }: CompanySectionProps) {
           <h2 className={`text-lg font-semibold ${textClass}`}>{company.name}</h2>
           {company.period && (
             <span className="text-sm text-muted-foreground">
-              {company.period.from} ~ {company.period.to ?? '현재'}
+              {company.period.from} ~ {company.period.to ?? t('common.present')}
             </span>
           )}
         </div>
